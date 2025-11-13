@@ -207,63 +207,64 @@
     />
     <noscript><link rel="stylesheet" href="styles.css" /></noscript>
     
-    <!-- Nest Hub specific overrides - loaded after Tailwind -->
+    <!-- Nest Hub specific overrides - loaded after Tailwind - ONLY affects exact Nest Hub dimensions -->
     <style>
       @media (min-width: 1024px) and (max-width: 1024px) and (max-height: 600px),
              (width: 1024px) and (height: 600px) {
         .hero-section {
           min-height: 100vh !important;
           height: 100vh !important;
-          padding-top: 0.15rem !important;
+          padding-top: 0.5rem !important;
           margin-top: 0 !important;
-          padding-bottom: 0.15rem !important;
+          padding-bottom: 0.5rem !important;
         }
         .hero-section .relative.mx-auto {
-          padding: 0.1rem 1rem !important;
+          padding: 0.25rem 1rem !important;
         }
         .hero-section h1 {
-          font-size: 1.4rem !important;
-          margin-bottom: 0.1rem !important;
-          line-height: 1.1 !important;
+          font-size: 1.75rem !important;
+          margin-bottom: 0.3rem !important;
+          line-height: 1.2 !important;
         }
         .hero-section .text-xl {
-          font-size: 0.75rem !important;
-          margin-bottom: 0.25rem !important;
+          font-size: 0.875rem !important;
+          margin-bottom: 0.4rem !important;
+          line-height: 1.3 !important;
         }
         .logo-container {
-          height: 2rem !important;
-          max-width: 3rem !important;
-          margin-bottom: 0.2rem !important;
+          height: 2.5rem !important;
+          max-width: 3.5rem !important;
+          margin-bottom: 0.3rem !important;
         }
         .hero-section .mt-4[class*="space-y"] {
-          margin-top: 0.1rem !important;
+          margin-top: 0.3rem !important;
         }
         .hero-section .mt-4[class*="space-y"] p {
-          margin-bottom: 0.08rem !important;
-          font-size: 0.7rem !important;
-          line-height: 1.15 !important;
+          margin-bottom: 0.15rem !important;
+          font-size: 0.8rem !important;
+          line-height: 1.25 !important;
         }
         .hero-section .mt-8.grid,
         .hero-section .skill-tags-container {
-          margin-top: 0.2rem !important;
-          gap: 0.25rem !important;
+          margin-top: 0.4rem !important;
+          gap: 0.35rem !important;
         }
         .hero-section .mt-8[class*="mt-12"],
         .hero-section div:has(.quest-button) {
-          margin-top: 0.2rem !important;
+          margin-top: 0.4rem !important;
           margin-bottom: 0 !important;
         }
         .hero-section .quest-button {
           margin-top: 0 !important;
           margin-bottom: 0 !important;
-          padding: 0.35rem 0.8rem !important;
-          font-size: 0.75rem !important;
-          min-width: 110px !important;
+          padding: 0.45rem 1rem !important;
+          font-size: 0.875rem !important;
+          min-width: 120px !important;
         }
-        .skill-tag-button {
-          font-size: 0.65rem !important;
-          padding: 0.3rem 0.6rem !important;
-          min-height: 1.5rem !important;
+        .hero-section .skill-tag-button {
+          font-size: 0.7rem !important;
+          padding: 0.35rem 0.65rem !important;
+          min-height: 1.75rem !important;
         }
       }
     </style>
@@ -1376,70 +1377,84 @@
 
 
 
-    <!-- Nest Hub style injection after Tailwind loads -->
+    <!-- Nest Hub style injection after Tailwind loads - ONLY affects exact Nest Hub dimensions -->
     <script>
       // Wait for Tailwind to inject styles, then apply Nest Hub overrides
-      window.addEventListener('load', function() {
+      function applyNestHubStyles() {
         if (window.innerWidth === 1024 && window.innerHeight === 600) {
+          const existing = document.getElementById('nest-hub-js-overrides');
+          if (existing) existing.remove();
+          
           const style = document.createElement('style');
+          style.id = 'nest-hub-js-overrides';
           style.textContent = `
             .hero-section {
               min-height: 100vh !important;
               height: 100vh !important;
-              padding-top: 0.15rem !important;
+              padding-top: 0.5rem !important;
               margin-top: 0 !important;
-              padding-bottom: 0.15rem !important;
+              padding-bottom: 0.5rem !important;
             }
             .hero-section .relative.mx-auto {
-              padding: 0.1rem 1rem !important;
+              padding: 0.25rem 1rem !important;
             }
             .hero-section h1 {
-              font-size: 1.4rem !important;
-              margin-bottom: 0.1rem !important;
-              line-height: 1.1 !important;
+              font-size: 1.75rem !important;
+              margin-bottom: 0.3rem !important;
+              line-height: 1.2 !important;
             }
             .hero-section .text-xl {
-              font-size: 0.75rem !important;
-              margin-bottom: 0.25rem !important;
+              font-size: 0.875rem !important;
+              margin-bottom: 0.4rem !important;
+              line-height: 1.3 !important;
             }
             .logo-container {
-              height: 2rem !important;
-              max-width: 3rem !important;
-              margin-bottom: 0.2rem !important;
+              height: 2.5rem !important;
+              max-width: 3.5rem !important;
+              margin-bottom: 0.3rem !important;
             }
             .hero-section .mt-4[class*="space-y"] {
-              margin-top: 0.1rem !important;
+              margin-top: 0.3rem !important;
             }
             .hero-section .mt-4[class*="space-y"] p {
-              margin-bottom: 0.08rem !important;
-              font-size: 0.7rem !important;
-              line-height: 1.15 !important;
+              margin-bottom: 0.15rem !important;
+              font-size: 0.8rem !important;
+              line-height: 1.25 !important;
             }
             .hero-section .mt-8.grid,
             .hero-section .skill-tags-container {
-              margin-top: 0.2rem !important;
-              gap: 0.25rem !important;
+              margin-top: 0.4rem !important;
+              gap: 0.35rem !important;
             }
-            .hero-section .mt-8[class*="mt-12"] {
-              margin-top: 0.2rem !important;
+            .hero-section .mt-8[class*="mt-12"],
+            .hero-section div:has(.quest-button) {
+              margin-top: 0.4rem !important;
               margin-bottom: 0 !important;
             }
             .hero-section .quest-button {
               margin-top: 0 !important;
               margin-bottom: 0 !important;
-              padding: 0.35rem 0.8rem !important;
-              font-size: 0.75rem !important;
-              min-width: 110px !important;
+              padding: 0.45rem 1rem !important;
+              font-size: 0.875rem !important;
+              min-width: 120px !important;
             }
-            .skill-tag-button {
-              font-size: 0.65rem !important;
-              padding: 0.3rem 0.6rem !important;
-              min-height: 1.5rem !important;
+            .hero-section .skill-tag-button {
+              font-size: 0.7rem !important;
+              padding: 0.35rem 0.65rem !important;
+              min-height: 1.75rem !important;
             }
           `;
           document.head.appendChild(style);
         }
-      });
+      }
+      
+      window.addEventListener('load', applyNestHubStyles);
+      window.addEventListener('resize', applyNestHubStyles);
+      if (document.readyState === 'complete') {
+        applyNestHubStyles();
+      } else {
+        document.addEventListener('DOMContentLoaded', applyNestHubStyles);
+      }
     </script>
 
     <!-- Move all other scripts to the end of body -->
