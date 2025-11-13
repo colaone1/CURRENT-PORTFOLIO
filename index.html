@@ -132,7 +132,7 @@
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Custom CSS for unique design elements -->
-    <link rel="stylesheet" href="styles.css?v=2" />
+    <link rel="stylesheet" href="styles.css?v=3" />
 
     <!-- Google Fonts - Cinzel and others for the theme -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -206,6 +206,67 @@
       onload="this.media='all'"
     />
     <noscript><link rel="stylesheet" href="styles.css" /></noscript>
+    
+    <!-- Nest Hub specific overrides - loaded after Tailwind -->
+    <style>
+      @media (min-width: 1024px) and (max-width: 1024px) and (max-height: 600px),
+             (width: 1024px) and (height: 600px) {
+        .hero-section {
+          min-height: 100vh !important;
+          height: 100vh !important;
+          padding-top: 0.15rem !important;
+          margin-top: 0 !important;
+          padding-bottom: 0.15rem !important;
+        }
+        .hero-section .relative.mx-auto {
+          padding: 0.1rem 1rem !important;
+        }
+        .hero-section h1 {
+          font-size: 1.4rem !important;
+          margin-bottom: 0.1rem !important;
+          line-height: 1.1 !important;
+        }
+        .hero-section .text-xl {
+          font-size: 0.75rem !important;
+          margin-bottom: 0.25rem !important;
+        }
+        .logo-container {
+          height: 2rem !important;
+          max-width: 3rem !important;
+          margin-bottom: 0.2rem !important;
+        }
+        .hero-section .mt-4[class*="space-y"] {
+          margin-top: 0.1rem !important;
+        }
+        .hero-section .mt-4[class*="space-y"] p {
+          margin-bottom: 0.08rem !important;
+          font-size: 0.7rem !important;
+          line-height: 1.15 !important;
+        }
+        .hero-section .mt-8.grid,
+        .hero-section .skill-tags-container {
+          margin-top: 0.2rem !important;
+          gap: 0.25rem !important;
+        }
+        .hero-section .mt-8[class*="mt-12"],
+        .hero-section div:has(.quest-button) {
+          margin-top: 0.2rem !important;
+          margin-bottom: 0 !important;
+        }
+        .hero-section .quest-button {
+          margin-top: 0 !important;
+          margin-bottom: 0 !important;
+          padding: 0.35rem 0.8rem !important;
+          font-size: 0.75rem !important;
+          min-width: 110px !important;
+        }
+        .skill-tag-button {
+          font-size: 0.65rem !important;
+          padding: 0.3rem 0.6rem !important;
+          min-height: 1.5rem !important;
+        }
+      }
+    </style>
 
     <!-- Ensure all JS is loaded with defer (except analytics, which should be async) -->
     <script src="scripts.js" defer></script>
@@ -1314,6 +1375,72 @@
     </button>
 
 
+
+    <!-- Nest Hub style injection after Tailwind loads -->
+    <script>
+      // Wait for Tailwind to inject styles, then apply Nest Hub overrides
+      window.addEventListener('load', function() {
+        if (window.innerWidth === 1024 && window.innerHeight === 600) {
+          const style = document.createElement('style');
+          style.textContent = `
+            .hero-section {
+              min-height: 100vh !important;
+              height: 100vh !important;
+              padding-top: 0.15rem !important;
+              margin-top: 0 !important;
+              padding-bottom: 0.15rem !important;
+            }
+            .hero-section .relative.mx-auto {
+              padding: 0.1rem 1rem !important;
+            }
+            .hero-section h1 {
+              font-size: 1.4rem !important;
+              margin-bottom: 0.1rem !important;
+              line-height: 1.1 !important;
+            }
+            .hero-section .text-xl {
+              font-size: 0.75rem !important;
+              margin-bottom: 0.25rem !important;
+            }
+            .logo-container {
+              height: 2rem !important;
+              max-width: 3rem !important;
+              margin-bottom: 0.2rem !important;
+            }
+            .hero-section .mt-4[class*="space-y"] {
+              margin-top: 0.1rem !important;
+            }
+            .hero-section .mt-4[class*="space-y"] p {
+              margin-bottom: 0.08rem !important;
+              font-size: 0.7rem !important;
+              line-height: 1.15 !important;
+            }
+            .hero-section .mt-8.grid,
+            .hero-section .skill-tags-container {
+              margin-top: 0.2rem !important;
+              gap: 0.25rem !important;
+            }
+            .hero-section .mt-8[class*="mt-12"] {
+              margin-top: 0.2rem !important;
+              margin-bottom: 0 !important;
+            }
+            .hero-section .quest-button {
+              margin-top: 0 !important;
+              margin-bottom: 0 !important;
+              padding: 0.35rem 0.8rem !important;
+              font-size: 0.75rem !important;
+              min-width: 110px !important;
+            }
+            .skill-tag-button {
+              font-size: 0.65rem !important;
+              padding: 0.3rem 0.6rem !important;
+              min-height: 1.5rem !important;
+            }
+          `;
+          document.head.appendChild(style);
+        }
+      });
+    </script>
 
     <!-- Move all other scripts to the end of body -->
     <script type="module">
