@@ -153,76 +153,75 @@ body {
 /* Nest Hub (1024x600) - More specific targeting */
 @media (min-width: 1024px) and (max-width: 1024px) and (max-height: 600px) {
     .hero-section {
-        min-height: 100vh;
-        height: 100vh;
-        padding-top: 0.25rem;
-        margin-top: 0;
-        padding-bottom: 0.25rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        overflow-y: auto;
+        min-height: 100vh !important;
+        height: 100vh !important;
+        padding-top: 0.15rem !important;
+        margin-top: 0 !important;
+        padding-bottom: 0.15rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-direction: column !important;
     }
     
-    .hero-section .relative {
-        padding: 0.15rem 1rem;
-        max-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .hero-section .text-center {
-        width: 100%;
+    .hero-section .relative.mx-auto {
+        padding: 0.1rem 1rem !important;
+        max-height: 100vh !important;
     }
     
     .hero-section h1 {
-        font-size: 1.5rem;
-        margin-bottom: 0.15rem;
-        line-height: 1.1;
-    }
-    
-    .hero-section > .relative > .text-center > p {
-        font-size: 0.8rem;
-        margin-bottom: 0.3rem;
-        line-height: 1.2;
-    }
-    
-    .logo-container {
-        height: 2.5rem;
-        max-width: 3.5rem;
-        margin-bottom: 0.3rem;
-    }
-    
-    .hero-section .mt-4.md\\:mt-8.space-y-4.md\\:space-y-8 {
-        margin-top: 0.15rem !important;
-    }
-    
-    .hero-section .mt-4.md\\:mt-8.space-y-4.md\\:space-y-8 p {
+        font-size: 1.4rem !important;
         margin-bottom: 0.1rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    .hero-section .text-xl,
+    .hero-section .text-xl.md\\:text-2xl {
         font-size: 0.75rem !important;
+        margin-bottom: 0.25rem !important;
         line-height: 1.2 !important;
     }
     
-    /* Skill tags container - reduce spacing */
-    .hero-section .mt-8.grid {
-        margin-top: 0.3rem !important;
-        gap: 0.3rem !important;
+    .logo-container {
+        height: 2rem !important;
+        max-width: 3rem !important;
+        margin-bottom: 0.2rem !important;
     }
     
-    /* View My Work button container */
-    .hero-section .mt-8.md\\:mt-12 {
-        margin-top: 0.3rem !important;
+    /* Taglines container - space-y-4 md:space-y-8 */
+    .hero-section .space-y-4,
+    .hero-section .space-y-4.md\\:space-y-8 {
+        margin-top: 0.1rem !important;
+    }
+    
+    .hero-section .space-y-4 p,
+    .hero-section .space-y-4.md\\:space-y-8 p {
+        margin-bottom: 0.08rem !important;
+        font-size: 0.7rem !important;
+        line-height: 1.15 !important;
+    }
+    
+    /* Skill tags container - mt-8 grid */
+    .hero-section .mt-8.grid,
+    .hero-section .skill-tags-container {
+        margin-top: 0.2rem !important;
+        gap: 0.25rem !important;
+        max-width: 95% !important;
+    }
+    
+    /* View My Work button container - mt-8 md:mt-12 */
+    .hero-section .mt-8.md\\:mt-12,
+    .hero-section div:has(.quest-button) {
+        margin-top: 0.2rem !important;
         margin-bottom: 0 !important;
     }
     
     .hero-section .quest-button {
         margin-top: 0 !important;
         margin-bottom: 0 !important;
-        padding: 0.4rem 0.9rem;
-        font-size: 0.8rem;
-        min-width: 120px;
+        padding: 0.35rem 0.8rem !important;
+        font-size: 0.75rem !important;
+        min-width: 110px !important;
     }
     
     .logo-shine {
@@ -232,92 +231,85 @@ body {
     }
     
     /* Skill tags optimization for Nest Hub - compact but readable */
-    .skill-tags-container {
-        margin-top: 0.3rem !important;
-        gap: 0.3rem !important;
-        max-width: 95%;
-    }
-    
     .skill-tag-button {
-        font-size: 0.7rem;
-        padding: 0.35rem 0.7rem;
-        min-height: 1.6rem;
+        font-size: 0.65rem !important;
+        padding: 0.3rem 0.6rem !important;
+        min-height: 1.5rem !important;
     }
 }
 
 /* Alternative Nest Hub targeting */
 @media (width: 1024px) and (height: 600px) {
     .hero-section {
-        min-height: 100vh;
-        height: 100vh;
-        padding-top: 0.25rem;
-        margin-top: 0;
-        padding-bottom: 0.25rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        overflow-y: auto;
+        min-height: 100vh !important;
+        height: 100vh !important;
+        padding-top: 0.15rem !important;
+        margin-top: 0 !important;
+        padding-bottom: 0.15rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-direction: column !important;
     }
     
-    .hero-section .relative {
-        padding: 0.15rem 1rem;
-        max-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .hero-section .text-center {
-        width: 100%;
+    .hero-section .relative.mx-auto {
+        padding: 0.1rem 1rem !important;
+        max-height: 100vh !important;
     }
     
     .hero-section h1 {
-        font-size: 1.5rem;
-        margin-bottom: 0.15rem;
-        line-height: 1.1;
-    }
-    
-    .hero-section > .relative > .text-center > p {
-        font-size: 0.8rem;
-        margin-bottom: 0.3rem;
-        line-height: 1.2;
-    }
-    
-    .logo-container {
-        height: 2.5rem;
-        max-width: 3.5rem;
-        margin-bottom: 0.3rem;
-    }
-    
-    .hero-section .mt-4.md\\:mt-8.space-y-4.md\\:space-y-8 {
-        margin-top: 0.15rem !important;
-    }
-    
-    .hero-section .mt-4.md\\:mt-8.space-y-4.md\\:space-y-8 p {
+        font-size: 1.4rem !important;
         margin-bottom: 0.1rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    .hero-section .text-xl,
+    .hero-section .text-xl.md\\:text-2xl {
         font-size: 0.75rem !important;
+        margin-bottom: 0.25rem !important;
         line-height: 1.2 !important;
     }
     
-    /* Skill tags container - reduce spacing */
-    .hero-section .mt-8.grid {
-        margin-top: 0.3rem !important;
-        gap: 0.3rem !important;
+    .logo-container {
+        height: 2rem !important;
+        max-width: 3rem !important;
+        margin-bottom: 0.2rem !important;
     }
     
-    /* View My Work button container */
-    .hero-section .mt-8.md\\:mt-12 {
-        margin-top: 0.3rem !important;
+    /* Taglines container - space-y-4 md:space-y-8 */
+    .hero-section .space-y-4,
+    .hero-section .space-y-4.md\\:space-y-8 {
+        margin-top: 0.1rem !important;
+    }
+    
+    .hero-section .space-y-4 p,
+    .hero-section .space-y-4.md\\:space-y-8 p {
+        margin-bottom: 0.08rem !important;
+        font-size: 0.7rem !important;
+        line-height: 1.15 !important;
+    }
+    
+    /* Skill tags container - mt-8 grid */
+    .hero-section .mt-8.grid,
+    .hero-section .skill-tags-container {
+        margin-top: 0.2rem !important;
+        gap: 0.25rem !important;
+        max-width: 95% !important;
+    }
+    
+    /* View My Work button container - mt-8 md:mt-12 */
+    .hero-section .mt-8.md\\:mt-12,
+    .hero-section div:has(.quest-button) {
+        margin-top: 0.2rem !important;
         margin-bottom: 0 !important;
     }
     
     .hero-section .quest-button {
         margin-top: 0 !important;
         margin-bottom: 0 !important;
-        padding: 0.4rem 0.9rem;
-        font-size: 0.8rem;
-        min-width: 120px;
+        padding: 0.35rem 0.8rem !important;
+        font-size: 0.75rem !important;
+        min-width: 110px !important;
     }
     
     .logo-shine {
@@ -327,16 +319,10 @@ body {
     }
     
     /* Skill tags optimization for Nest Hub - compact but readable */
-    .skill-tags-container {
-        margin-top: 0.3rem !important;
-        gap: 0.3rem !important;
-        max-width: 95%;
-    }
-    
     .skill-tag-button {
-        font-size: 0.7rem;
-        padding: 0.35rem 0.7rem;
-        min-height: 1.6rem;
+        font-size: 0.65rem !important;
+        padding: 0.3rem 0.6rem !important;
+        min-height: 1.5rem !important;
     }
 }
 
