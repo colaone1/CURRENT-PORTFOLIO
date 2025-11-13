@@ -214,6 +214,18 @@ body {
         height: 100%;
         animation: logoShineAnim 8s cubic-bezier(0.4,0,0.2,1) infinite;
     }
+    
+    /* Skill tags optimization for Nest Hub */
+    .skill-tags-container {
+        margin-top: 0.5rem;
+        gap: 0.5rem;
+    }
+    
+    .skill-tag-button {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.6rem;
+        min-height: 1.75rem;
+    }
 }
 
 /* Alternative Nest Hub targeting */
@@ -280,6 +292,18 @@ body {
         height: 100%;
         animation: logoShineAnim 8s cubic-bezier(0.4,0,0.2,1) infinite;
     }
+    
+    /* Skill tags optimization for Nest Hub */
+    .skill-tags-container {
+        margin-top: 0.5rem;
+        gap: 0.5rem;
+    }
+    
+    .skill-tag-button {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.6rem;
+        min-height: 1.75rem;
+    }
 }
 
 /* Nest Hub Max (1280x800) */
@@ -318,6 +342,18 @@ body {
     .hero-section .mt-6.md\\:mt-8 {
         margin-top: 1.25rem;
         margin-bottom: 2.5rem;
+    }
+    
+    /* Skill tags optimization for Nest Hub Max */
+    .skill-tags-container {
+        margin-top: 1rem;
+        gap: 0.75rem;
+    }
+    
+    .skill-tag-button {
+        font-size: 0.875rem;
+        padding: 0.5rem 0.875rem;
+        min-height: 2rem;
     }
 }
 
@@ -2125,6 +2161,52 @@ body.menu-open {
     font-family: 'Lexend', sans-serif;
     font-size: 0.875rem;
     font-weight: 500;
+}
+
+/* Skill Tag Buttons - Blue buttons in hero section */
+.skill-tag-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    min-height: 2rem;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.skill-tags-container {
+    display: grid;
+    gap: 0.75rem;
+}
+
+/* Mobile optimizations for skill tag buttons */
+@media (max-width: 640px) {
+    .skill-tag-button {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+        min-height: 2.25rem;
+    }
+    
+    .skill-tags-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+}
+
+/* Tablet optimizations */
+@media (min-width: 641px) and (max-width: 1023px) {
+    .skill-tag-button {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .skill-tags-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.75rem;
+    }
 }
 
 /* Design Process Section */
