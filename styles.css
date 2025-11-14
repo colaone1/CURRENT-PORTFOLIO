@@ -183,36 +183,36 @@ body {
     }
     
     .logo-container {
-        height: 5.5rem !important;
-        max-width: 7.5rem !important;
-        margin-bottom: 0.6rem !important;
+        height: 6.5rem !important;
+        max-width: 8.5rem !important;
+        margin-bottom: 0.8rem !important;
     }
     
     /* Taglines container - space-y-4 md:space-y-8 */
     .hero-section .space-y-4,
     .hero-section .space-y-4.md\\:space-y-8 {
-        margin-top: 0.3rem !important;
+        margin-top: 0.5rem !important;
     }
     
     .hero-section .space-y-4 p,
     .hero-section .space-y-4.md\\:space-y-8 p {
-        margin-bottom: 0.25rem !important;
-        font-size: 1.15rem !important;
-        line-height: 1.4 !important;
+        margin-bottom: 0.35rem !important;
+        font-size: 1.3rem !important;
+        line-height: 1.5 !important;
     }
     
     /* Skill tags container - mt-8 grid */
     .hero-section .mt-8.grid,
     .hero-section .skill-tags-container {
-        margin-top: 0.4rem !important;
-        gap: 0.35rem !important;
+        margin-top: 0.6rem !important;
+        gap: 0.4rem !important;
         max-width: 95% !important;
     }
     
     /* View My Work button container - mt-8 md:mt-12 */
     .hero-section .mt-8.md\\:mt-12,
     .hero-section div:has(.quest-button) {
-        margin-top: 0.4rem !important;
+        margin-top: 0.6rem !important;
         margin-bottom: 0 !important;
     }
     
@@ -271,36 +271,36 @@ body {
     }
     
     .logo-container {
-        height: 5.5rem !important;
-        max-width: 7.5rem !important;
-        margin-bottom: 0.6rem !important;
+        height: 6.5rem !important;
+        max-width: 8.5rem !important;
+        margin-bottom: 0.8rem !important;
     }
     
     /* Taglines container - space-y-4 md:space-y-8 */
     .hero-section .space-y-4,
     .hero-section .space-y-4.md\\:space-y-8 {
-        margin-top: 0.3rem !important;
+        margin-top: 0.5rem !important;
     }
     
     .hero-section .space-y-4 p,
     .hero-section .space-y-4.md\\:space-y-8 p {
-        margin-bottom: 0.25rem !important;
-        font-size: 1.15rem !important;
-        line-height: 1.4 !important;
+        margin-bottom: 0.35rem !important;
+        font-size: 1.3rem !important;
+        line-height: 1.5 !important;
     }
     
     /* Skill tags container - mt-8 grid */
     .hero-section .mt-8.grid,
     .hero-section .skill-tags-container {
-        margin-top: 0.4rem !important;
-        gap: 0.35rem !important;
+        margin-top: 0.6rem !important;
+        gap: 0.4rem !important;
         max-width: 95% !important;
     }
     
     /* View My Work button container - mt-8 md:mt-12 */
     .hero-section .mt-8.md\\:mt-12,
     .hero-section div:has(.quest-button) {
-        margin-top: 0.4rem !important;
+        margin-top: 0.6rem !important;
         margin-bottom: 0 !important;
     }
     
