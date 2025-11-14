@@ -387,44 +387,44 @@ body {
     }
     
     .hero-section h1 {
-        font-size: 2.75rem !important;
-        margin-bottom: 1rem !important;
+        font-size: 3.25rem !important;
+        margin-bottom: 1.25rem !important;
     }
     
     .hero-section .text-xl,
     .hero-section .text-xl.md\\:text-2xl {
-        font-size: 1.125rem !important;
-        margin-bottom: 1rem !important;
+        font-size: 1.375rem !important;
+        margin-bottom: 1.25rem !important;
     }
     
     .logo-container {
-        height: 7.5rem !important;
-        max-width: 10rem !important;
-        margin-bottom: 1.25rem !important;
+        height: 9rem !important;
+        max-width: 12rem !important;
+        margin-bottom: 1.75rem !important;
     }
     
     .hero-section .space-y-4 p,
     .hero-section .space-y-4.md\\:space-y-8 p {
-        margin-bottom: 0.5rem !important;
-        font-size: 1.5rem !important;
-        line-height: 1.6 !important;
+        margin-bottom: 0.75rem !important;
+        font-size: 1.875rem !important;
+        line-height: 1.7 !important;
     }
     
     .hero-section .mt-8.grid,
     .hero-section .skill-tags-container {
-        margin-top: 1.25rem !important;
-        gap: 0.75rem !important;
+        margin-top: 1.75rem !important;
+        gap: 1rem !important;
     }
     
     .hero-section .skill-tag-button {
-        font-size: 0.9rem !important;
-        padding: 0.5rem 0.875rem !important;
-        min-height: 2.25rem !important;
+        font-size: 1.05rem !important;
+        padding: 0.625rem 1rem !important;
+        min-height: 2.75rem !important;
     }
     
     .hero-section .quest-button {
-        padding: 0.6rem 1.5rem !important;
-        font-size: 1rem !important;
+        padding: 0.75rem 1.875rem !important;
+        font-size: 1.125rem !important;
     }
 }
 
@@ -438,44 +438,44 @@ body {
     }
     
     .hero-section h1 {
-        font-size: 3rem !important;
-        margin-bottom: 1.25rem !important;
+        font-size: 3.5rem !important;
+        margin-bottom: 1.5rem !important;
     }
     
     .hero-section .text-xl,
     .hero-section .text-xl.md\\:text-2xl {
-        font-size: 1.25rem !important;
-        margin-bottom: 1.25rem !important;
+        font-size: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
     }
     
     .logo-container {
-        height: 8rem !important;
-        max-width: 10.5rem !important;
-        margin-bottom: 1.5rem !important;
+        height: 9.5rem !important;
+        max-width: 12.5rem !important;
+        margin-bottom: 2rem !important;
     }
     
     .hero-section .space-y-4 p,
     .hero-section .space-y-4.md\\:space-y-8 p {
-        margin-bottom: 0.6rem !important;
-        font-size: 1.6rem !important;
-        line-height: 1.6 !important;
+        margin-bottom: 0.875rem !important;
+        font-size: 2rem !important;
+        line-height: 1.7 !important;
     }
     
     .hero-section .mt-8.grid,
     .hero-section .skill-tags-container {
-        margin-top: 1.5rem !important;
-        gap: 0.875rem !important;
+        margin-top: 2rem !important;
+        gap: 1rem !important;
     }
     
     .hero-section .skill-tag-button {
-        font-size: 0.95rem !important;
-        padding: 0.55rem 1rem !important;
-        min-height: 2.5rem !important;
+        font-size: 1.1rem !important;
+        padding: 0.675rem 1.125rem !important;
+        min-height: 3rem !important;
     }
     
     .hero-section .quest-button {
-        padding: 0.7rem 1.75rem !important;
-        font-size: 1.1rem !important;
+        padding: 0.8rem 2rem !important;
+        font-size: 1.2rem !important;
     }
 }
 
@@ -489,44 +489,44 @@ body {
     }
     
     .hero-section h1 {
-        font-size: 3.5rem !important;
-        margin-bottom: 1.5rem !important;
+        font-size: 4rem !important;
+        margin-bottom: 2rem !important;
     }
     
     .hero-section .text-xl,
     .hero-section .text-xl.md\\:text-2xl {
-        font-size: 1.375rem !important;
-        margin-bottom: 1.5rem !important;
+        font-size: 1.625rem !important;
+        margin-bottom: 2rem !important;
     }
     
     .logo-container {
-        height: 9rem !important;
-        max-width: 12rem !important;
-        margin-bottom: 2rem !important;
+        height: 10.5rem !important;
+        max-width: 14rem !important;
+        margin-bottom: 2.5rem !important;
     }
     
     .hero-section .space-y-4 p,
     .hero-section .space-y-4.md\\:space-y-8 p {
-        margin-bottom: 0.75rem !important;
-        font-size: 1.75rem !important;
-        line-height: 1.7 !important;
+        margin-bottom: 1rem !important;
+        font-size: 2.125rem !important;
+        line-height: 1.8 !important;
     }
     
     .hero-section .mt-8.grid,
     .hero-section .skill-tags-container {
-        margin-top: 2rem !important;
-        gap: 1rem !important;
+        margin-top: 2.5rem !important;
+        gap: 1.25rem !important;
     }
     
     .hero-section .skill-tag-button {
-        font-size: 1rem !important;
-        padding: 0.6rem 1.125rem !important;
-        min-height: 2.75rem !important;
+        font-size: 1.15rem !important;
+        padding: 0.75rem 1.25rem !important;
+        min-height: 3.25rem !important;
     }
     
     .hero-section .quest-button {
-        padding: 0.75rem 2rem !important;
-        font-size: 1.125rem !important;
+        padding: 0.875rem 2.25rem !important;
+        font-size: 1.25rem !important;
     }
 }
 
@@ -540,44 +540,44 @@ body {
     }
     
     .hero-section h1 {
-        font-size: 3.25rem !important;
-        margin-bottom: 1.5rem !important;
+        font-size: 3.875rem !important;
+        margin-bottom: 1.75rem !important;
     }
     
     .hero-section .text-xl,
     .hero-section .text-xl.md\\:text-2xl {
-        font-size: 1.3rem !important;
-        margin-bottom: 1.5rem !important;
+        font-size: 1.5rem !important;
+        margin-bottom: 1.75rem !important;
     }
     
     .logo-container {
-        height: 8.5rem !important;
-        max-width: 11rem !important;
-        margin-bottom: 1.75rem !important;
+        height: 10rem !important;
+        max-width: 13rem !important;
+        margin-bottom: 2.25rem !important;
     }
     
     .hero-section .space-y-4 p,
     .hero-section .space-y-4.md\\:space-y-8 p {
-        margin-bottom: 0.7rem !important;
-        font-size: 1.65rem !important;
-        line-height: 1.7 !important;
+        margin-bottom: 0.875rem !important;
+        font-size: 2rem !important;
+        line-height: 1.8 !important;
     }
     
     .hero-section .mt-8.grid,
     .hero-section .skill-tags-container {
-        margin-top: 1.75rem !important;
-        gap: 0.9rem !important;
+        margin-top: 2.25rem !important;
+        gap: 1.125rem !important;
     }
     
     .hero-section .skill-tag-button {
-        font-size: 0.975rem !important;
-        padding: 0.575rem 1.05rem !important;
-        min-height: 2.6rem !important;
+        font-size: 1.125rem !important;
+        padding: 0.7rem 1.15rem !important;
+        min-height: 3.125rem !important;
     }
     
     .hero-section .quest-button {
-        padding: 0.725rem 1.875rem !important;
-        font-size: 1.1rem !important;
+        padding: 0.825rem 2.125rem !important;
+        font-size: 1.225rem !important;
     }
 }
 
