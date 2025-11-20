@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuel Connor - CV</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #1a1a1a;
+        background: white;
+        line-height: 1.6;
+        padding: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      .cv-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #3a7bd5;
+      }
+      
+      .cv-header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: #1a1a1a;
+      }
+      
+      .cv-header h2 {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: #666;
+        margin-bottom: 1rem;
+      }
+      
+      .cv-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      
+      .cv-links a {
+        color: #3a7bd5;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      
+      .cv-section {
+        margin-bottom: 2rem;
+        page-break-inside: avoid;
+      }
+      
+      .cv-section-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #1a1a1a;
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 0.5rem;
+      }
+      
+      .professional-summary {
+        text-align: justify;
+        margin-bottom: 1.5rem;
+      }
+      
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .skills-column h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: #3a7bd5;
+      }
+      
+      .skills-column ul {
+        list-style: none;
+        padding: 0;
+      }
+      
+      .skills-column li {
+        padding: 0.25rem 0;
+        color: #555;
+      }
+      
+      .project-card {
+        background: #f8f9fa;
+        border-left: 4px solid #3a7bd5;
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+        border-radius: 4px;
+        page-break-inside: avoid;
+      }
+      
+      .project-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: #1a1a1a;
+      }
+      
+      .project-description {
+        margin-bottom: 1rem;
+        color: #555;
+        text-align: justify;
+      }
+      
+      .project-keywords {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+      }
+      
+      .keyword-tag {
+        background: #3a7bd5;
+        color: white;
+        padding: 0.35rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+      
+      .work-experience-item {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #e5e5e5;
+        page-break-inside: avoid;
+      }
+      
+      .work-experience-item:last-child {
+        border-bottom: none;
+      }
+      
+      .work-header {
+        margin-bottom: 0.75rem;
+      }
+      
+      .work-title {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 0.25rem;
+      }
+      
+      .work-company {
+        font-size: 1rem;
+        color: #3a7bd5;
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+      }
+      
+      .work-dates {
+        font-size: 0.9rem;
+        color: #666;
+        font-style: italic;
+      }
+      
+      .work-description {
+        margin-top: 0.75rem;
+      }
+      
+      .work-description ul {
+        margin-left: 1.5rem;
+        margin-top: 0.5rem;
+      }
+      
+      .work-description li {
+        margin-bottom: 0.5rem;
+        color: #555;
+        text-align: justify;
+      }
+      
+      .education-item {
+        margin-bottom: 1.5rem;
+      }
+      
+      .education-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 0.5rem;
+      }
+      
+      .education-cert {
+        font-size: 0.95rem;
+        color: #3a7bd5;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+      
+      .education-description {
+        color: #555;
+        text-align: justify;
+      }
+      
+      @media print {
+        body {
+          padding: 1rem;
+        }
+        
+        .cv-section {
+          page-break-inside: avoid;
+        }
+        
+        .project-card {
+          page-break-inside: avoid;
+        }
+        
+        .work-experience-item {
+          page-break-inside: avoid;
+        }
+      }
+      
+      @media screen and (max-width: 768px) {
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  
+  <body>
+    <!-- Header -->
+    <div class="cv-header">
+      <h1>Samuel Connor</h1>
+      <h2>Full-Stack Developer</h2>
+      <div class="cv-links">
+        <a href="https://samconnor.uk">Portfolio</a>
+        <a href="https://www.linkedin.com/in/samuel-connor">LinkedIn</a>
+        <a href="https://github.com/colaone1">GitHub</a>
+      </div>
+    </div>
+
+    <!-- Professional Summary -->
+    <div class="cv-section">
+      <h2 class="cv-section-title">Professional Summary</h2>
+      <p class="professional-summary">
+        Aspiring Junior Software Developer with hands-on experience in modern web technologies and AI-assisted development. Proficient in leveraging AI tools like GitHub Copilot and Claude for rapid prototyping and code optimization. Strong foundation in React, Node.js, and full-stack development gained through intensive bootcamp training with proven ability to translate complex requirements into clean, maintainable code.
+      </p>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="cv-section">
+      <h2 class="cv-section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skills-column">
+          <h3>Frontend & Architecture</h3>
+          <ul>
+            <li>React.js & Next.js</li>
+            <li>TypeScript & JavaScript</li>
+            <li>Performance Optimization</li>
+            <li>Accessibility & UX</li>
+          </ul>
+        </div>
+        <div class="skills-column">
+          <h3>Backend & APIs</h3>
+          <ul>
+            <li>Node.js, Express & Koa</li>
+            <li>MongoDB & Database Design</li>
+            <li>RESTful API Architecture</li>
+            <li>Security & Authentication</li>
+          </ul>
+        </div>
+        <div class="skills-column">
+          <h3>DevOps & Quality</h3>
+          <ul>
+            <li>CI/CD & GitHub Actions</li>
+            <li>Testing (Jest, Cypress)</li>
+            <li>Docker & Deployment</li>
+            <li>Code Quality Tools</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Projects -->
+    <div class="cv-section">
+      <h2 class="cv-section-title">Key Projects</h2>
+      
+      <!-- AI-Powered Data Intelligence Platform (First) -->
+      <div class="project-card">
+        <div class="project-title">AI-Powered Data Intelligence Platform</div>
+        <div class="project-description">
+          Built comprehensive database system using Next.js 14, TypeScript, and Prisma ORM. Developed automated data collection pipeline processing 2,500+ items with AI-powered categorization. Implemented Google Gemini 1.5 Pro integration for intelligent data processing and analysis. Created scalable architecture with efficient database queries and optimized performance for large datasets.
+        </div>
+        <div class="project-keywords">
+          <span class="keyword-tag">Next.js 14</span>
+          <span class="keyword-tag">TypeScript</span>
+          <span class="keyword-tag">Prisma ORM</span>
+          <span class="keyword-tag">AI/ML</span>
+          <span class="keyword-tag">Database</span>
+        </div>
+      </div>
+
+      <!-- Event Management Platform -->
+      <div class="project-card">
+        <div class="project-title">Event Management Platform</div>
+        <div class="project-description">
+          Architected and led development of production-ready event management system with Next.js frontend and Express/MongoDB backend. Implemented JWT authentication, real-time updates, responsive UI, and comprehensive testing. Successfully deployed with CI/CD pipeline and containerization.
+        </div>
+        <div class="project-keywords">
+          <span class="keyword-tag">Next.js</span>
+          <span class="keyword-tag">Express</span>
+          <span class="keyword-tag">MongoDB</span>
+          <span class="keyword-tag">JWT Auth</span>
+          <span class="keyword-tag">Real-time</span>
+        </div>
+      </div>
+
+      <!-- Weather API & Frontend System -->
+      <div class="project-card">
+        <div class="project-title">Weather API & Frontend System</div>
+        <div class="project-description">
+          Designed and implemented enterprise-grade weather application with Node.js/Koa backend featuring RESTful APIs, error handling, and rate limiting. Built modern frontend with comprehensive testing suite (Jest/Cypress), CI/CD pipeline, and Docker containerization for scalable deployment.
+        </div>
+        <div class="project-keywords">
+          <span class="keyword-tag">Node.js</span>
+          <span class="keyword-tag">Koa</span>
+          <span class="keyword-tag">REST APIs</span>
+          <span class="keyword-tag">Testing</span>
+          <span class="keyword-tag">CI/CD</span>
+        </div>
+      </div>
+
+      <!-- Advanced Testing Infrastructure -->
+      <div class="project-card">
+        <div class="project-title">Advanced Testing Infrastructure</div>
+        <div class="project-description">
+          Developed comprehensive testing framework for open-source projects featuring Jest, Cypress, and GitHub Actions integration. Implemented advanced testing methodologies, CI/CD practices, and automated quality assurance workflows for scalable development processes.
+        </div>
+        <div class="project-keywords">
+          <span class="keyword-tag">Jest</span>
+          <span class="keyword-tag">Cypress</span>
+          <span class="keyword-tag">GitHub Action</span>
+          <span class="keyword-tag">CI/CD</span>
+          <span class="keyword-tag">Testing</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work Experience -->
+    <div class="cv-section">
+      <h2 class="cv-section-title">Work Experience</h2>
+      
+      <!-- Software Development Bootcamp Graduate -->
+      <div class="work-experience-item">
+        <div class="work-header">
+          <div class="work-title">Software Development Bootcamp Graduate</div>
+          <div class="work-company">The Developer Academy</div>
+          <div class="work-dates">April 2025</div>
+        </div>
+        <div class="work-description">
+          <ul>
+            <li>Completed intensive full-stack development program, building web applications with React, Node.js, and MongoDB</li>
+            <li>Mastered test-driven development with Jest and React Testing Library, ensuring code quality and reliability</li>
+            <li>Collaborated in agile teams with Git and GitHub Actions, implementing CI/CD pipelines for automated testing and deployment</li>
+            <li>Deployed applications to Vercel and AWS, gaining hands-on experience with cloud infrastructure and DevOps practices</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Construction Labourer -->
+      <div class="work-experience-item">
+        <div class="work-header">
+          <div class="work-title">Construction Labourer</div>
+          <div class="work-company">Muls</div>
+          <div class="work-dates">2024 - 2025</div>
+        </div>
+        <div class="work-description">
+          <ul>
+            <li>Assisted with construction and plumbing projects, demonstrating reliability, teamwork, and strong work ethic</li>
+            <li>Developed practical problem-solving skills and ability to work efficiently in physically demanding environments</li>
+            <li>Developed systematic approach to task completion, improving efficiency by breaking down complex problems into manageable steps</li>
+            <li>Practiced attention to detail and quality control, ensuring work met specifications</li>
+            <li>Collaborated with diverse teams under tight deadlines</li>
+            <li>Maintained strong work ethic and persistence when facing challenging tasks, demonstrating resilience valuable in debugging complex code</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Customer Experience Team Member -->
+      <div class="work-experience-item">
+        <div class="work-header">
+          <div class="work-title">Customer Experience Team Member</div>
+          <div class="work-company">Warner Bros Studio Tour London</div>
+          <div class="work-dates">2023 - 2024</div>
+        </div>
+        <div class="work-description">
+          <ul>
+            <li>Provided exceptional customer service to international visitors, managed high-pressure situations, and collaborated with diverse teams</li>
+            <li>Developed strong communication skills and attention to detail in a fast-paced entertainment environment</li>
+            <li>Resolved complex customer queries by analyzing problems and providing clear solutions, similar to user experience troubleshooting</li>
+            <li>Communicated technical information to non-technical audiences, essential for stakeholder meetings and documentation</li>
+            <li>Managed multiple tasks simultaneously in a high-volume environment, developing organizational skills crucial for project management</li>
+            <li>Maintained composure and problem-solving ability under pressure, essential for handling production incidents</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Prop Hand -->
+      <div class="work-experience-item">
+        <div class="work-header">
+          <div class="work-title">Prop Hand</div>
+          <div class="work-company">House of the Dragon Season 1 - HBO</div>
+          <div class="work-dates">2022 - 2023</div>
+        </div>
+        <div class="work-description">
+          <ul>
+            <li>Managed props for major television production, ensuring accuracy and continuity across filming schedules</li>
+            <li>Created and maintained detailed inventory systems similar to database management, tracking hundreds of items with precision</li>
+            <li>Coordinated cross-functional teams including directors, set designers, and production staff to deliver seamless execution</li>
+            <li>Delivered critical items on strict timelines, developing time management and prioritization skills essential for sprint planning</li>
+            <li>Adapted rapidly to changing requirements and last-minute script changes, demonstrating flexibility crucial in agile development environments</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education & Certification -->
+    <div class="cv-section">
+      <h2 class="cv-section-title">Education & Certification</h2>
+      <div class="education-item">
+        <div class="education-title">Software Development Bootcamp</div>
+        <div class="education-cert">The Developer Academy</div>
+        <div class="education-cert">Certificate of Completion - April 25 Software Developer Skills Bootcamp</div>
+        <div class="education-description">
+          Comprehensive full-stack development program with high achievement in project assessments. Focused on modern web technologies, best practices, and industry-standard development workflows.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
