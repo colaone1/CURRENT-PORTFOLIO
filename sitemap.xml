@@ -2,86 +2,104 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://samconnor.uk/</loc>
-        <lastmod>2025-01-29</lastmod>
+        <lastmod>2026-07-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://samconnor.uk/about</loc>
-        <lastmod>2025-01-29</lastmod>
+        <lastmod>2026-07-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://samconnor.uk/projects</loc>
-        <lastmod>2025-01-29</lastmod>
+        <lastmod>2026-07-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://samconnor.uk/contact</loc>
-        <lastmod>2025-01-29</lastmod>
+        <lastmod>2026-07-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://samconnor.uk/text-game</loc>
-        <lastmod>2025-01-29</lastmod>
+        <lastmod>2026-07-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://samconnor.uk/star-wars-quiz</loc>
-        <lastmod>2025-01-29</lastmod>
+        <lastmod>2026-07-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://samconnor.uk/game-review</loc>
-        <lastmod>2025-01-29</lastmod>
+        <lastmod>2026-07-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://samconnor.uk/weather-app</loc>
-        <lastmod>2025-01-29</lastmod>
+        <lastmod>2026-07-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://samconnor.uk/testing-setup</loc>
-        <lastmod>2025-01-29</lastmod>
+        <lastmod>2026-07-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://samconnor.uk/movies-api</loc>
-        <lastmod>2025-01-29</lastmod>
+        <lastmod>2026-07-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://samconnor.uk/backend-api</loc>
-        <lastmod>2025-01-29</lastmod>
+        <lastmod>2026-07-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://samconnor.uk/event-app</loc>
-        <lastmod>2025-01-29</lastmod>
+        <lastmod>2026-07-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://samconnor.uk/friendbay</loc>
-        <lastmod>2025-01-29</lastmod>
+        <lastmod>2026-07-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://samconnor.uk/cipher</loc>
-        <lastmod>2025-01-29</lastmod>
+        <lastmod>2026-07-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
-</urlset> 
+    <url>
+        <loc>https://samconnor.uk/carecovid-logo</loc>
+        <lastmod>2026-07-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://samconnor.uk/carecovid-leaflet</loc>
+        <lastmod>2026-07-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://samconnor.uk/website-thumbnail-design</loc>
+        <lastmod>2026-07-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+</urlset>

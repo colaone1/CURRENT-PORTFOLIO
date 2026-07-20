@@ -1,7 +1,6 @@
 /**
  * Portfolio Website - Core JavaScript
- * AI-OPTIMIZED: Enhanced performance monitoring and AI processing efficiency
- * 
+ *
  * Key Modules:
  * - utils: Utility functions for performance optimization
  * - navigation: Navigation and scroll handling
@@ -9,12 +8,9 @@
  * - accessibility: Accessibility features
  * - perfMonitor: Performance monitoring and metrics
  * - serviceWorker: Service worker management
+ * - backToTop: Back-to-top button behaviour
  */
 
-/**
- * Core utility functions
- * AI-OPTIMIZED: Utility functions for performance and throttling
- */
 const utils = {
     /**
      * Throttles function execution to limit how often it can be called
@@ -37,7 +33,6 @@ const utils = {
 
     /**
      * Debounces function execution to prevent excessive calls
-     * AI-OPTIMIZED: Performance optimization for event handling
      * @param {Function} func - The function to debounce
      * @param {number} delay - Delay in milliseconds
      * @returns {Function} - Debounced version of the input function
@@ -52,7 +47,6 @@ const utils = {
 
     /**
      * Measures execution time for performance monitoring
-     * AI-OPTIMIZED: Performance tracking for AI processing efficiency
      * @param {string} label - Label for the measurement
      * @param {Function} fn - Function to measure
      * @returns {any} - Result of the function execution
@@ -66,32 +60,28 @@ const utils = {
     }
 };
 
-/**
- * Navigation functionality
- * AI-OPTIMIZED: Navigation and scroll handling with performance optimization
- */
 const navigation = {
     /**
      * Initializes navigation functionality including scroll-based hiding/showing
      */
     initialize() {
         const nav = document.querySelector('.nav-container');
+        if (!nav) return;
+
         let lastScroll = 0;
 
-        // Handle navigation visibility on scroll
         window.addEventListener('scroll', utils.throttle(() => {
             const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > lastScroll) {
+
+            if (currentScroll > lastScroll && currentScroll > 80) {
                 nav.style.transform = 'translateY(-100%)';
             } else {
                 nav.style.transform = 'translateY(0)';
             }
-            
+
             lastScroll = currentScroll;
         }, 100));
 
-        // Handle keyboard navigation
         const navLinks = document.querySelectorAll('.nav-button');
         navLinks.forEach((link, index) => {
             link.addEventListener('keydown', (e) => {
@@ -109,28 +99,22 @@ const navigation = {
     }
 };
 
-/**
- * Project card functionality
- * AI-OPTIMIZED: Project card interactions and accessibility features
- */
 const projectCards = {
     /**
      * Initializes project card interactions including hover effects and focus states
      */
     initialize() {
         const cards = document.querySelectorAll('.project-card');
-        
+
         cards.forEach(card => {
-            // Handle focus states for accessibility
             card.addEventListener('focus', () => {
                 card.classList.add('ring-2', 'ring-blue-500');
             });
-            
+
             card.addEventListener('blur', () => {
                 card.classList.remove('ring-2', 'ring-blue-500');
             });
-            
-            // Handle keyboard navigation within cards
+
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -142,14 +126,7 @@ const projectCards = {
     }
 };
 
-/**
- * Accessibility features
- * AI-OPTIMIZED: Comprehensive accessibility support for better user experience
- */
 const accessibility = {
-    /**
-     * Handles reduced motion preferences
-     */
     handleReducedMotion() {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             document.documentElement.style.setProperty('--animation-duration', '0s');
@@ -158,9 +135,14 @@ const accessibility = {
     },
 
     /**
-     * Initializes skip link for keyboard navigation
+     * Ensures a skip link exists without duplicating existing markup
      */
     initializeSkipLink() {
+        const existingSkip = document.querySelector('a[href="#main-content"]');
+        if (existingSkip) return;
+
+        if (!document.getElementById('main-content')) return;
+
         const skipLink = document.createElement('a');
         skipLink.href = '#main-content';
         skipLink.textContent = 'Skip to main content';
@@ -168,14 +150,10 @@ const accessibility = {
         document.body.insertBefore(skipLink, document.body.firstChild);
     },
 
-    /**
-     * Initializes all accessibility features
-     */
     initialize() {
         this.handleReducedMotion();
         this.initializeSkipLink();
-        
-        // Add ARIA labels to interactive elements
+
         const buttons = document.querySelectorAll('button:not([aria-label])');
         buttons.forEach(button => {
             if (!button.textContent.trim()) {
@@ -185,93 +163,73 @@ const accessibility = {
     }
 };
 
-/**
- * Performance monitoring
- * AI-OPTIMIZED: Enhanced performance tracking for AI processing efficiency
- */
 const perfMonitor = {
-    /**
-     * Logs comprehensive performance metrics
-     */
     logMetrics() {
-        const loadTime = performance.now();
-        const navigation = performance.getEntriesByType('navigation')[0];
+        const navigationEntry = performance.getEntriesByType('navigation')[0];
         const paint = performance.getEntriesByType('paint');
-        
+
         const metrics = {
-            totalLoadTime: loadTime,
-            firstContentfulPaint: paint.find(p => p.name === 'first-contentful-paint')?.startTime || null,
-            largestContentfulPaint: this.getLCP(),
-            firstInputDelay: this.getFID(),
-            resourceCount: navigation?.initiatorType ? 1 : 0,
-            domContentLoaded: navigation?.domContentLoadedEventEnd - navigation?.domContentLoadedEventStart || null,
-            loadComplete: navigation?.loadEventEnd - navigation?.loadEventStart || null
+            totalLoadTime: performance.now(),
+            firstContentfulPaint: paint.find(p => p.name === 'first-contentful-paint')?.startTime ?? null,
+            domContentLoaded: navigationEntry
+                ? navigationEntry.domContentLoadedEventEnd - navigationEntry.domContentLoadedEventStart
+                : null,
+            loadComplete: navigationEntry
+                ? navigationEntry.loadEventEnd - navigationEntry.loadEventStart
+                : null
         };
-        
+
+        this.observeLCP((value) => {
+            metrics.largestContentfulPaint = value;
+            console.log('Performance Metrics:', metrics);
+        });
+
         console.log('Performance Metrics:', metrics);
         return metrics;
     },
 
-    /**
-     * Gets Largest Contentful Paint metric
-     */
-    getLCP() {
-        const observer = new PerformanceObserver((list) => {
-            const entries = list.getEntries();
-            const lastEntry = entries[entries.length - 1];
-            return lastEntry.startTime;
-        });
-        observer.observe({ entryTypes: ['largest-contentful-paint'] });
-        return undefined; // Will be populated by observer
-    },
+    observeLCP(onValue) {
+        if (typeof PerformanceObserver === 'undefined') return;
 
-    /**
-     * Gets First Input Delay metric
-     */
-    getFID() {
-        const observer = new PerformanceObserver((list) => {
-            const entries = list.getEntries();
-            const firstEntry = entries[0];
-            return firstEntry.processingStart - firstEntry.startTime;
-        });
-        observer.observe({ entryTypes: ['first-input'] });
-        return null; // Will be populated by observer
+        try {
+            const observer = new PerformanceObserver((list) => {
+                const entries = list.getEntries();
+                const lastEntry = entries[entries.length - 1];
+                if (lastEntry && typeof onValue === 'function') {
+                    onValue(lastEntry.startTime);
+                }
+            });
+            observer.observe({ type: 'largest-contentful-paint', buffered: true });
+        } catch (error) {
+            // Unsupported entry type in this browser — ignore
+        }
     }
 };
 
-/**
- * Service Worker management
- * AI-OPTIMIZED: Service worker for caching and offline support
- */
 const serviceWorker = {
-    /**
-     * Registers the service worker
-     */
     register() {
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js')
-                .then(registration => {
-                    console.log('Service Worker registered:', registration);
-                    
-                    // Check for updates
-                    registration.addEventListener('updatefound', () => {
-                        const newWorker = registration.installing;
-                        newWorker.addEventListener('statechange', () => {
-                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                this.showUpdateAvailable();
-                            }
-                        });
+        if (!('serviceWorker' in navigator)) return;
+
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('Service Worker registered:', registration);
+
+                registration.addEventListener('updatefound', () => {
+                    const newWorker = registration.installing;
+                    if (!newWorker) return;
+
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            this.showUpdateAvailable();
+                        }
                     });
-                })
-                .catch(error => {
-                    console.error('Service Worker registration failed:', error);
                 });
-        }
+            })
+            .catch(error => {
+                console.error('Service Worker registration failed:', error);
+            });
     },
 
-    /**
-     * Shows offline indicator
-     */
     showOffline() {
         const indicator = document.createElement('div');
         indicator.className = 'offline-indicator fixed top-4 right-4 bg-red-500 text-white px-4 py-2 rounded z-50';
@@ -279,30 +237,25 @@ const serviceWorker = {
         document.body.appendChild(indicator);
     },
 
-    /**
-     * Shows update available notification
-     */
     showUpdateAvailable() {
         const indicator = document.createElement('div');
         indicator.className = 'update-indicator fixed top-4 right-4 bg-blue-500 text-white px-4 py-2 rounded z-50';
         indicator.innerHTML = `
             <span>Update available</span>
-            <button onclick="location.reload()" class="ml-2 underline">Reload</button>
+            <button type="button" onclick="location.reload()" class="ml-2 underline">Reload</button>
         `;
         document.body.appendChild(indicator);
     }
 };
 
-/**
- * Back to top functionality
- */
 const backToTop = {
-    /**
-     * Initializes back to top button
-     */
     initialize() {
         const button = document.getElementById('back-to-top');
         if (!button) return;
+
+        // Skip if the page already wired up its own handler
+        if (button.dataset.bound === 'true') return;
+        button.dataset.bound = 'true';
 
         window.addEventListener('scroll', utils.throttle(() => {
             if (window.pageYOffset > 300) {
@@ -323,29 +276,20 @@ const backToTop = {
     }
 };
 
-/**
- * Main application initialization
- * AI-OPTIMIZED: Centralized initialization for better performance
- */
 function initializeApp() {
-    // Measure initialization performance
     utils.measurePerformance('app-initialization', () => {
-        // Initialize all modules
         navigation.initialize();
         projectCards.initialize();
         accessibility.initialize();
+        backToTop.initialize();
         serviceWorker.register();
-        
-        // Log performance metrics
         perfMonitor.logMetrics();
-        
         console.log('Portfolio website initialized successfully');
     });
 }
 
-// Initialize when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeApp);
 } else {
     initializeApp();
-} 
+}

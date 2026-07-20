@@ -212,9 +212,8 @@
             Tools
           </button>
           <button
-            class="filter-btn px-6 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors focus:ring-2 focus:ring-gray-500 focus:outline-none hidden"
+            class="filter-btn px-6 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors focus:ring-2 focus:ring-gray-500 focus:outline-none"
             data-filter="design"
-            style="display: none !important;"
           >
             Design
           </button>
@@ -654,7 +653,7 @@
 
 
         <!-- CARECOVID Logo Design Project Card -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 hidden" data-type="design" style="display: none !important;">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="design">
           <div class="h-48 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
             <i class="fas fa-palette text-6xl text-white"></i>
           </div>
@@ -683,7 +682,7 @@
         </div>
 
         <!-- CARECOVID Leaflet Design Project Card -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 hidden" data-type="design" style="display: none !important;">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="design">
           <div class="h-48 bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center">
             <i class="fas fa-file-alt text-6xl text-white"></i>
           </div>
@@ -712,7 +711,7 @@
         </div>
 
         <!-- Website Thumbnail Design Project Card -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 hidden" data-type="design" style="display: none !important;">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="design">
           <div class="h-48 bg-gradient-to-r from-pink-500 to-red-600 flex items-center justify-center">
             <i class="fas fa-share-alt text-6xl text-white"></i>
           </div>
@@ -881,14 +880,9 @@
 
         function getFilteredCards() {
           return allProjectCards.filter(
-            (card) => {
-              // Always exclude design cards
-              if (card.getAttribute("data-type") === "design") {
-                return false;
-              }
-              return currentFilter === "all" ||
-                card.getAttribute("data-type") === currentFilter;
-            }
+            (card) =>
+              currentFilter === "all" ||
+              card.getAttribute("data-type") === currentFilter
           );
         }
 
