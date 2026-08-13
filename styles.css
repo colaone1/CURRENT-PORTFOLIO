@@ -1269,16 +1269,17 @@ footer::before {
     margin-bottom: 1.5rem;
 }
 
-.hero-section span {
+.hero-section span,
+.hero-section .hero-accent {
     font-weight: 600;
-    /* Color-only transition: animating text-shadow via `transition: all` tanks FPS */
-    transition: color 0.2s ease;
+    transition: none;
+    text-shadow: none;
 }
 
-.hero-section p:hover span {
+.hero-section p:hover span,
+.hero-section p:hover .hero-accent {
     color: #00d2ff;
-    /* Applied instantly (not interpolated) to keep the glow without jank */
-    text-shadow: 0 0 6px rgba(0, 210, 255, 0.35);
+    text-shadow: none;
 }
 
 .nav-logo {
@@ -2762,26 +2763,47 @@ html.motion-ready .logo-shine {
 }
 
 
-/* ===== PERFORMANCE: smooth highlight / shine composites ===== */
-.hero-section span {
-    transition: color 0.2s ease !important;
+
+
+/* ===== PERFORMANCE: hero highlight FPS hard fix ===== */
+/* Accent words: instant color swap only — no shadow paint */
+.hero-section span,
+.hero-section .hero-accent {
+    transition: none !important;
+    text-shadow: none !important;
 }
-.hero-section p:hover span {
+.hero-section p:hover span,
+.hero-section p:hover .hero-accent {
     color: #00d2ff !important;
-    text-shadow: 0 0 6px rgba(0, 210, 255, 0.35) !important;
+    text-shadow: none !important;
 }
-.quest-button {
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease !important;
-}
-.quest-button::before {
-    left: 0 !important;
-    transform: translateX(-100%);
-    transition: transform 0.45s ease !important;
-}
-.quest-button:hover::before {
-    left: 0 !important;
-    transform: translateX(100%) !important;
+
+/* Kill continuous background motion that steals frames during hover */
+.geometric-pattern {
+    animation: none !important;
+    will-change: auto !important;
 }
 .logo-shine {
-    left: 0 !important;
+    animation: none !important;
+    opacity: 0 !important;
+    will-change: auto !important;
+}
+
+/* Hero text/logo: drop expensive filter shadows */
+.hero-section h1,
+.hero-section p,
+.hero-section .logo-container img {
+    text-shadow: none !important;
+    filter: none !important;
+}
+
+/* Nav blur is costly while compositing hero interactions */
+.nav-container {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: rgba(248, 245, 242, 0.97) !important;
+}
+
+.skill-tag-button {
+    transition: background-color 0.15s ease, color 0.15s ease !important;
 }

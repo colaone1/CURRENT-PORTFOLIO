@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" href="tailwind.css" as="style" />
-    <link rel="preload" href="styles.css?v=7" as="style" />
+    <link rel="preload" href="styles.css?v=8" as="style" />
 <link
       rel="preload"
       href="images/Logos/logo.svg"
@@ -111,7 +111,7 @@
 
     <!-- ===== EXTERNAL RESOURCES ===== -->
     <link rel="stylesheet" href="tailwind.css" />
-    <link rel="stylesheet" href="styles.css?v=7" />
+    <link rel="stylesheet" href="styles.css?v=8" />
     <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
 <!-- Google Fonts: fewer weights for faster text rendering -->
     <link
@@ -139,7 +139,7 @@
         left: 0;
         right: 0;
         z-index: 50;
-        backdrop-filter: blur(4px);
+        backdrop-filter: none;
         background-color: rgba(248, 245, 242, 0.95);
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
       }
@@ -423,21 +423,20 @@
           <!-- Removed duplicate owl logo for cleaner design -->
           <h1
             class="text-5xl md:text-6xl lg:text-7xl font-rajdhani font-bold text-[#2d5aa0] tracking-widest uppercase"
-            style="text-shadow: 0 2px 8px rgba(45, 90, 160, 0.25);"
+            
           >
             Developer & Designer
           </h1>
-          <p class="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto mt-6 font-semibold drop-shadow-sm">
+          <p class="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto mt-6 font-semibold">
             Full-stack developer creating immersive web experiences with clean code and innovative design.
           </p>
           <div
             class="logo-container relative mx-auto"
           >
-            <div class="logo-shine"></div>
             <img
               src="images/Logos/logo.svg"
               alt="Portfolio Logo"
-              class="w-full h-full object-contain drop-shadow-sm"
+              class="w-full h-full object-contain"
               width="400"
               height="300"
               loading="eager"
@@ -449,18 +448,18 @@
             <p
               class="text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 opacity-0 animate-fadeInUp animation-delay-200 font-medium"
             >
-              <span class="text-[#2d5aa0] font-semibold">Code</span> the Future
+              <span class="hero-accent text-[#2d5aa0] font-semibold">Code</span> the Future
             </p>
             <p
               class="text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 opacity-0 animate-fadeInUp animation-delay-400 font-medium"
             >
-              <span class="text-[#2d5aa0] font-semibold">Design</span> the
+              <span class="hero-accent text-[#2d5aa0] font-semibold">Design</span> the
               Experience
             </p>
             <p
               class="text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 opacity-0 animate-fadeInUp animation-delay-600 font-medium"
             >
-              <span class="text-[#2d5aa0] font-semibold">Shape</span> the World
+              <span class="hero-accent text-[#2d5aa0] font-semibold">Shape</span> the World
             </p>
           </div>
           <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto opacity-0 animate-fadeInUp animation-delay-800 skill-tags-container">
