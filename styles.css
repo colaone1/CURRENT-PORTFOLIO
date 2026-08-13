@@ -986,7 +986,7 @@ body {
     background: linear-gradient(90deg, #3a7bd5, #00d2ff);
     color: white;
     border-radius: 8px;
-    transition: all 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -1013,15 +1013,18 @@ body {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s ease;
+    transform: translateX(-100%);
+    transition: transform 0.45s ease;
+    will-change: transform;
+    pointer-events: none;
 }
 
 .quest-button:hover::before {
-    left: 100%;
+    transform: translateX(100%);
 }
 
 /* ===== FOOTER STYLES ===== */
@@ -1268,12 +1271,14 @@ footer::before {
 
 .hero-section span {
     font-weight: 600;
-    transition: all 0.3s ease;
+    /* Color-only transition: animating text-shadow via `transition: all` tanks FPS */
+    transition: color 0.2s ease;
 }
 
 .hero-section p:hover span {
     color: #00d2ff;
-    text-shadow: 0 0 4px rgba(58, 123, 213, 0.2);
+    /* Applied instantly (not interpolated) to keep the glow without jank */
+    text-shadow: 0 0 6px rgba(0, 210, 255, 0.35);
 }
 
 .nav-logo {
@@ -1868,24 +1873,28 @@ form[role="search"] button:hover {
     color: #ffffff;
 }
 
-/* Highlight Styles */
+/* Highlight Styles — opacity pulse (compositor-friendly) instead of background-color tween */
 .highlight {
-    animation: highlight 2s ease-in-out;
-    background-color: rgba(255, 255, 0, 0.3);
+    position: relative;
     padding: 0.25rem;
     border-radius: 0.25rem;
+    background-color: rgba(255, 255, 0, 0.3);
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: rgba(255, 255, 0, 0.35);
+    opacity: 0;
+    animation: highlight 2s ease-in-out;
+    pointer-events: none;
 }
 
 @keyframes highlight {
-    0% {
-        background-color: rgba(255, 255, 0, 0.3);
-    }
-    50% {
-        background-color: rgba(255, 255, 0, 0.6);
-    }
-    100% {
-        background-color: rgba(255, 255, 0, 0.3);
-    }
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
 }
 
 /* Back to Top Button Styles */
@@ -1998,7 +2007,7 @@ html, body {
 .logo-shine {
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 50%;
     height: 100%;
     background: linear-gradient(120deg, 
@@ -2007,25 +2016,26 @@ html, body {
         rgba(255,255,255,0.9) 50%, 
         rgba(255,255,255,0.4) 80%,
         rgba(255,255,255,0) 100%);
-    transform: skewX(-25deg);
+    transform: translate3d(-120%, 0, 0) skewX(-25deg);
     pointer-events: none;
     opacity: 0;
     z-index: 2;
     animation: logoShineAnim 12s cubic-bezier(0.4,0,0.2,1) infinite;
     animation-delay: 0.7s;
+    will-change: transform, opacity;
 }
 .logo-container img {
     position: relative;
     z-index: 1;
 }
 @keyframes logoShineAnim {
-    0% { left: -100%; opacity: 0; }
+    0% { transform: translate3d(-120%, 0, 0) skewX(-25deg); opacity: 0; }
     6% { opacity: 0.8; }
     8% { opacity: 1; }
     10% { opacity: 0.8; }
     12% { opacity: 0.4; }
-    14% { left: 200%; opacity: 0; }
-    100% { left: 200%; opacity: 0; }
+    14% { transform: translate3d(220%, 0, 0) skewX(-25deg); opacity: 0; }
+    100% { transform: translate3d(220%, 0, 0) skewX(-25deg); opacity: 0; }
 }
 
 /* ===== RESPONSIVE NAVBAR & HERO SECTION ===== */
@@ -2692,7 +2702,7 @@ html.motion-ready .geometric-pattern {
 }
 
 html.motion-ready .logo-shine {
-    will-change: left, opacity;
+    will-change: transform, opacity;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2749,4 +2759,29 @@ html.motion-ready .logo-shine {
     .about-portrait:hover {
         transform: scale(1.03);
     }
+}
+
+
+/* ===== PERFORMANCE: smooth highlight / shine composites ===== */
+.hero-section span {
+    transition: color 0.2s ease !important;
+}
+.hero-section p:hover span {
+    color: #00d2ff !important;
+    text-shadow: 0 0 6px rgba(0, 210, 255, 0.35) !important;
+}
+.quest-button {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease !important;
+}
+.quest-button::before {
+    left: 0 !important;
+    transform: translateX(-100%);
+    transition: transform 0.45s ease !important;
+}
+.quest-button:hover::before {
+    left: 0 !important;
+    transform: translateX(100%) !important;
+}
+.logo-shine {
+    left: 0 !important;
 }
