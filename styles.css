@@ -1269,14 +1269,12 @@ footer::before {
     margin-bottom: 1.5rem;
 }
 
-.hero-section span,
 .hero-section .hero-accent {
-    font-weight: 600;
+    font-weight: inherit;
     transition: color 0.18s ease;
     text-shadow: none;
 }
 
-.hero-section p:hover span,
 .hero-section p:hover .hero-accent {
     color: #00d2ff;
     text-shadow: none;
@@ -2762,12 +2760,10 @@ html.motion-ready .logo-shine {
 
 /* ===== PERFORMANCE: hero highlight FPS hard fix ===== */
 /* Accent words: short color-only fade (no shadow paint) */
-.hero-section span,
 .hero-section .hero-accent {
     transition: color 0.18s ease !important;
     text-shadow: none !important;
 }
-.hero-section p:hover span,
 .hero-section p:hover .hero-accent {
     color: #00d2ff !important;
     text-shadow: none !important;
