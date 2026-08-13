@@ -276,15 +276,56 @@ const backToTop = {
     }
 };
 
+function deferDecorativeImages() {
+    const decorate = () => {
+        document.querySelectorAll('img[data-src][data-decorative="true"]').forEach((img) => {
+            if (!img.getAttribute('src')) {
+                img.setAttribute('src', img.getAttribute('data-src'));
+            }
+        });
+    };
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(decorate, { timeout: 1500 });
+    } else {
+        window.addEventListener('load', () => setTimeout(decorate, 1), { once: true });
+    }
+}
+
+function enableMotionAfterIdle() {
+    const enable = () => document.documentElement.classList.add('motion-ready');
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(enable, { timeout: 1200 });
+    } else {
+        window.setTimeout(enable, 400);
+    }
+}
+
 function initializeApp() {
     utils.measurePerformance('app-initialization', () => {
         navigation.initialize();
         projectCards.initialize();
         accessibility.initialize();
         backToTop.initialize();
-        serviceWorker.register();
-        perfMonitor.logMetrics();
-        console.log('Portfolio website initialized successfully');
+        deferDecorativeImages();
+
+        // Defer SW + metrics off the critical path (INP / main-thread)
+        const deferWork = () => {
+            serviceWorker.register();
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches === false) {
+                // Keep console metrics opt-in to avoid main-thread noise on every load
+                if (location.search.includes('debug=perf')) {
+                    perfMonitor.logMetrics();
+                }
+            }
+        };
+
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(deferWork, { timeout: 2000 });
+        } else {
+            window.addEventListener('load', () => setTimeout(deferWork, 1), { once: true });
+        }
+
+        enableMotionAfterIdle();
     });
 }
 

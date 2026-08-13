@@ -986,7 +986,7 @@ body {
     background: linear-gradient(90deg, #3a7bd5, #00d2ff);
     color: white;
     border-radius: 8px;
-    transition: all 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -1013,15 +1013,18 @@ body {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s ease;
+    transform: translateX(-100%);
+    transition: transform 0.45s ease;
+    will-change: transform;
+    pointer-events: none;
 }
 
 .quest-button:hover::before {
-    left: 100%;
+    transform: translateX(100%);
 }
 
 /* ===== FOOTER STYLES ===== */
@@ -1250,7 +1253,7 @@ footer::before {
 }
 
 .animate-fadeInUp {
-    animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 /* Hero Section Typography */
@@ -1266,14 +1269,17 @@ footer::before {
     margin-bottom: 1.5rem;
 }
 
-.hero-section span {
+.hero-section span,
+.hero-section .hero-accent {
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: color 0.18s ease;
+    text-shadow: none;
 }
 
-.hero-section p:hover span {
+.hero-section p:hover span,
+.hero-section p:hover .hero-accent {
     color: #00d2ff;
-    text-shadow: 0 0 4px rgba(58, 123, 213, 0.2);
+    text-shadow: none;
 }
 
 .nav-logo {
@@ -1868,24 +1874,28 @@ form[role="search"] button:hover {
     color: #ffffff;
 }
 
-/* Highlight Styles */
+/* Highlight Styles — opacity pulse (compositor-friendly) instead of background-color tween */
 .highlight {
-    animation: highlight 2s ease-in-out;
-    background-color: rgba(255, 255, 0, 0.3);
+    position: relative;
     padding: 0.25rem;
     border-radius: 0.25rem;
+    background-color: rgba(255, 255, 0, 0.3);
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: rgba(255, 255, 0, 0.35);
+    opacity: 0;
+    animation: highlight 2s ease-in-out;
+    pointer-events: none;
 }
 
 @keyframes highlight {
-    0% {
-        background-color: rgba(255, 255, 0, 0.3);
-    }
-    50% {
-        background-color: rgba(255, 255, 0, 0.6);
-    }
-    100% {
-        background-color: rgba(255, 255, 0, 0.3);
-    }
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
 }
 
 /* Back to Top Button Styles */
@@ -1948,15 +1958,10 @@ html, body {
   fill: #3a7bd5;
 }
 
-/* ===== HERO OWL ENTRANCE ANIMATION ===== */
+/* Hero logo: always visible; alt text suppressed while decoding */
 .logo-container img {
-    opacity: 0;
-    animation: heroOwlFadeIn 1.2s cubic-bezier(0.4,0,0.2,1) 0.7s forwards;
-}
-@keyframes heroOwlFadeIn {
-    to {
-        opacity: 1;
-    }
+    opacity: 1;
+    color: transparent;
 }
 
 /* ===== HERO SECTION LAYOUT ADJUSTMENTS ===== */
@@ -1998,7 +2003,7 @@ html, body {
 .logo-shine {
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 50%;
     height: 100%;
     background: linear-gradient(120deg, 
@@ -2007,25 +2012,26 @@ html, body {
         rgba(255,255,255,0.9) 50%, 
         rgba(255,255,255,0.4) 80%,
         rgba(255,255,255,0) 100%);
-    transform: skewX(-25deg);
+    transform: translate3d(-120%, 0, 0) skewX(-25deg);
     pointer-events: none;
     opacity: 0;
     z-index: 2;
     animation: logoShineAnim 12s cubic-bezier(0.4,0,0.2,1) infinite;
     animation-delay: 0.7s;
+    will-change: transform, opacity;
 }
 .logo-container img {
     position: relative;
     z-index: 1;
 }
 @keyframes logoShineAnim {
-    0% { left: -100%; opacity: 0; }
+    0% { transform: translate3d(-120%, 0, 0) skewX(-25deg); opacity: 0; }
     6% { opacity: 0.8; }
     8% { opacity: 1; }
     10% { opacity: 0.8; }
     12% { opacity: 0.4; }
-    14% { left: 200%; opacity: 0; }
-    100% { left: 200%; opacity: 0; }
+    14% { transform: translate3d(220%, 0, 0) skewX(-25deg); opacity: 0; }
+    100% { transform: translate3d(220%, 0, 0) skewX(-25deg); opacity: 0; }
 }
 
 /* ===== RESPONSIVE NAVBAR & HERO SECTION ===== */
@@ -2678,4 +2684,131 @@ body.menu-open {
 .feature-item:nth-child(4) { animation-delay: 0.4s; }
 
 
+
+
+
+/* ===== PERFORMANCE: motion gating & cheaper composites (CWV) ===== */
+html:not(.motion-ready) .geometric-pattern,
+html:not(.motion-ready) .logo-shine {
+    animation: none !important;
+}
+
+html.motion-ready .geometric-pattern {
+    will-change: transform;
+}
+
+html.motion-ready .logo-shine {
+    will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .geometric-pattern,
+    .logo-shine,
+    .animate-fadeInUp {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .geometric-pattern {
+        display: none !important;
+    }
+}
+
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-600 { animation-delay: 0.6s; }
+.animation-delay-800 { animation-delay: 0.8s; }
+
+.nav-container {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+
+/* ===== PERFORMANCE: force cheap geometric layers ===== */
+.geometric-pattern {
+    filter: none !important;
+    mix-blend-mode: normal !important;
+    pointer-events: none !important;
+    transition: opacity 0.3s ease, transform 0.3s ease !important;
+    contain: layout paint;
+}
+.geometric-pattern:hover {
+    filter: none !important;
+    transform: none !important;
+}
+
+
+/* ===== PERFORMANCE: content-visibility for below-fold ===== */
+.services-section,
+.skills-section,
+.projects-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 800px;
+}
+
+/* Avoid expensive hover scale on about portrait (layout/paint) */
+@media (hover: hover) {
+    .about-portrait:hover {
+        transform: scale(1.03);
+    }
+}
+
+
+
+
+/* ===== PERFORMANCE: hero highlight FPS hard fix ===== */
+/* Accent words: short color-only fade (no shadow paint) */
+.hero-section span,
+.hero-section .hero-accent {
+    transition: color 0.18s ease !important;
+    text-shadow: none !important;
+}
+.hero-section p:hover span,
+.hero-section p:hover .hero-accent {
+    color: #00d2ff !important;
+    text-shadow: none !important;
+}
+
+/* Kill continuous background motion that steals frames during hover */
+.geometric-pattern {
+    animation: none !important;
+    will-change: auto !important;
+}
+.logo-shine {
+    animation: none !important;
+    opacity: 0 !important;
+    will-change: auto !important;
+}
+
+/* Hero text/logo: drop expensive filter shadows */
+.hero-section h1,
+.hero-section p,
+.hero-section .logo-container img {
+    text-shadow: none !important;
+    filter: none !important;
+}
+
+/* Nav blur is costly while compositing hero interactions */
+.nav-container {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: rgba(248, 245, 242, 0.97) !important;
+}
+
+.skill-tag-button {
+    transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+/* Faster hero entrance for mobile Speed Index (motion kept, delays shortened) */
+.hero-section .animate-fadeInUp {
+    animation-duration: 0.4s !important;
+}
+.hero-section .animation-delay-200 { animation-delay: 0.05s !important; }
+.hero-section .animation-delay-400 { animation-delay: 0.1s !important; }
+.hero-section .animation-delay-600 { animation-delay: 0.15s !important; }
+.hero-section .animation-delay-800 { animation-delay: 0.2s !important; }
 

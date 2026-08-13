@@ -1,17 +1,25 @@
-const CURRENT_CACHE = 'portfolio-cache-v1';
+const CURRENT_CACHE = 'portfolio-cache-v4';
 const urlsToCache = [
     '/',
     '/index.html',
+    '/tailwind.css',
     '/styles.css',
+    '/fonts.css',
+    '/fonts/lexend-500.woff2',
+    '/fonts/lexend-700.woff2',
+    '/fonts/cinzel-600.woff2',
+    '/fonts/rajdhani-700.woff2',
     '/scripts.js',
-    '/images/Personal%20Pictures/About%20Page%20Picture.jpg'
+    '/images/Logos/logo.svg',
+    '/vendor/fontawesome/css/icons.min.css',
+    '/vendor/fontawesome/webfonts/fa-solid-900.woff2',
+    '/vendor/fontawesome/webfonts/fa-brands-400.woff2'
 ];
 
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CURRENT_CACHE)
             .then(cache => {
-                // Add files one by one to handle missing files gracefully
                 return Promise.allSettled(
                     urlsToCache.map(url => cache.add(url).catch(err => {
                         console.log('Failed to cache:', url, err);
@@ -33,45 +41,9 @@ self.addEventListener('activate', event => {
                     }
                 })
             );
-        })
+        }).then(() => self.clients.claim())
     );
 });
 
-// TEMPORARILY DISABLED TO FIX DNS LOOP ISSUE
-/*
-self.addEventListener('fetch', event => {
-    // Skip non-GET requests and non-same-origin requests
-    if (event.request.method !== 'GET' || !event.request.url.startsWith(self.location.origin)) {
-        return;
-    }
-
-    // Skip requests that are already being handled by the browser
-    if (event.request.mode === 'navigate') {
-        return;
-    }
-
-    event.respondWith(
-        caches.match(event.request)
-            .then(response => {
-                if (response) {
-                    return response;
-                }
-                return fetch(event.request)
-                    .then(response => {
-                        // Only cache successful responses
-                        if (!response || response.status !== 200 || response.type !== 'basic') {
-                            return response;
-                        }
-                        const responseToCache = response.clone();
-                        caches.open(CURRENT_CACHE)
-                            .then(cache => cache.put(event.request, responseToCache));
-                        return response;
-                    })
-                    .catch(() => {
-                        // Return a fallback response for failed requests
-                        return new Response('Not found', { status: 404 });
-                    });
-            })
-    );
-});
-*/ 
+// Fetch handler remains disabled to avoid navigation/DNS loop issues previously observed.
+// Precache above still warms critical assets for browsers that read the SW cache API directly.

@@ -4,40 +4,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Cache-Control" content="public, max-age=3600" />
     <meta name="cache-bust" content="v2-2025-01-13" />
     <meta
       name="description"
       content="Explore a showcase of Sam C.'s technical projects, including games, tools, and web platforms built with JavaScript, React, Next.js, and more."
     />
     <title>Projects</title>
-    <script>
-      // Force cache refresh
-      if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
-        window.location.reload();
-      }
-      
-      // Additional cache-busting
-      if (window.location.search.indexOf('refresh') === -1) {
-        window.location.search = window.location.search + (window.location.search ? '&' : '?') + 'refresh=' + Date.now();
-      }
-    </script>
 
     <!-- External Resources -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css?v=2" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Rajdhani:wght@500;600;700&family=Lexend:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="fonts.css?v=2" />
+    <link rel="stylesheet" href="tailwind.css" />
+    <link rel="stylesheet" href="styles.css?v=11" />
+    <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
   </head>
 
   <body class="min-h-screen bg-[#f8f5f2] flex flex-col" style="padding-top: 0;">

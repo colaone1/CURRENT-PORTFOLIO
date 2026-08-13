@@ -1,0 +1,65 @@
+/*! Font Awesome Free 6.0.0 subset for this portfolio (icons used only). License: https://fontawesome.com/license/free */
+:root{--fa-style-family-brands:"Font Awesome 6 Brands";--fa-style-family-classic:"Font Awesome 6 Free";--fa-font-solid:normal 900 1em/1 "Font Awesome 6 Free";--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}
+.fa,.fas,.far,.fab,.fa-solid,.fa-brands{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:inline-block;font-style:normal;font-variant:normal;line-height:1;text-rendering:auto}
+@font-face{font-family:"Font Awesome 6 Free";font-style:normal;font-weight:900;font-display:swap;src:url("../webfonts/fa-solid-900.woff2") format("woff2")}
+@font-face{font-family:"Font Awesome 6 Brands";font-style:normal;font-weight:400;font-display:swap;src:url("../webfonts/fa-brands-400.woff2") format("woff2")}
+.fas,.fa-solid{font-family:"Font Awesome 6 Free";font-weight:900}
+.fab,.fa-brands{font-family:"Font Awesome 6 Brands";font-weight:400}
+.fa-arrow-left:before{content:"\f060"}
+.fa-arrow-up:before{content:"\f062"}
+.fa-bolt:before{content:"\f0e7"}
+.fa-brain:before{content:"\f5dc"}
+.fa-calendar:before{content:"\f133"}
+.fa-calendar-alt:before{content:"\f073"}
+.fa-check:before{content:"\f00c"}
+.fa-check-circle:before{content:"\f058"}
+.fa-cloud-sun:before{content:"\f6c4"}
+.fa-cloud-sun-rain:before{content:"\f743"}
+.fa-code:before{content:"\f121"}
+.fa-code-branch:before{content:"\f126"}
+.fa-comments:before{content:"\f086"}
+.fa-database:before{content:"\f1c0"}
+.fa-download:before{content:"\f019"}
+.fa-dungeon:before{content:"\f6d9"}
+.fa-envelope:before{content:"\f0e0"}
+.fa-exclamation-circle:before{content:"\f06a"}
+.fa-external-link-alt:before{content:"\f35d"}
+.fa-eye:before{content:"\f06e"}
+.fa-file-alt:before{content:"\f15c"}
+.fa-film:before{content:"\f008"}
+.fa-graduation-cap:before{content:"\f19d"}
+.fa-jedi:before{content:"\f669"}
+.fa-key:before{content:"\f084"}
+.fa-laptop-code:before{content:"\f5fc"}
+.fa-layer-group:before{content:"\f5fd"}
+.fa-lock:before{content:"\f023"}
+.fa-mobile-alt:before{content:"\f3cd"}
+.fa-paint-brush:before{content:"\f1fc"}
+.fa-palette:before{content:"\f53f"}
+.fa-play:before{content:"\f04b"}
+.fa-project-diagram:before{content:"\f542"}
+.fa-puzzle-piece:before{content:"\f12e"}
+.fa-robot:before{content:"\f544"}
+.fa-rocket:before{content:"\f135"}
+.fa-server:before{content:"\f233"}
+.fa-share-alt:before{content:"\f1e0"}
+.fa-shield-alt:before{content:"\f3ed"}
+.fa-star:before{content:"\f005"}
+.fa-tasks:before{content:"\f0ae"}
+.fa-terminal:before{content:"\f120"}
+.fa-tools:before{content:"\f7d9"}
+.fa-trophy:before{content:"\f091"}
+.fa-users:before{content:"\f0c0"}
+.fa-users-cog:before{content:"\f509"}
+.fa-vial:before{content:"\f492"}
+.fa-bootstrap:before{content:"\f836"}
+.fa-css3-alt:before{content:"\f38b"}
+.fa-docker:before{content:"\f395"}
+.fa-facebook:before{content:"\f09a"}
+.fa-git-alt:before{content:"\f841"}
+.fa-github:before{content:"\f09b"}
+.fa-html5:before{content:"\f13b"}
+.fa-js:before{content:"\f3b8"}
+.fa-linkedin:before{content:"\f08c"}
+.fa-node-js:before{content:"\f3d3"}
+.fa-react:before{content:"\f41b"}

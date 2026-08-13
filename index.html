@@ -5,9 +5,7 @@
     <!-- ===== META TAGS ===== -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Cache-Control" content="public, max-age=3600" />
     <!-- Improved SEO and accessibility with meta description -->
     <meta
       name="description"
@@ -16,21 +14,13 @@
     <title>Home</title>
 
     <!-- Performance Optimizations -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" href="styles.css" as="style" />
-    <link rel="preload" href="scripts.js" as="script" />
-    <link
-      rel="preload"
-      href="images/Logos/logo.svg"
-      as="image"
-      fetchpriority="high"
-    />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Rajdhani:wght@500;600;700&family=Lexend:wght@500;600;700&display=swap"
-      as="style"
-    />
+    <link rel="preload" href="fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/lexend-500.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/lexend-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/cinzel-600.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="images/Logos/logo.svg" as="image" fetchpriority="high" />
+    <link rel="preload" href="tailwind.css" as="style" />
+    <link rel="preload" href="styles.css?v=12" as="style" />
 
     <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:title" content="Sam C. - Software Engineer Portfolio" />
@@ -71,7 +61,7 @@
     <!-- Security Headers -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com;"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com;"
     />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
@@ -117,31 +107,30 @@
     </script>
 
     <!-- ===== EXTERNAL RESOURCES ===== -->
-    <!-- Tailwind CSS for utility-first styling -->
-    <script>
-      tailwind = window.tailwind || {};
-      tailwind.config = { darkMode: "class" };
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom CSS for unique design elements -->
-    <link rel="stylesheet" href="styles.css?v=3" />
-
-    <!-- Google Fonts - Cinzel and others for the theme -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Rajdhani:wght@500;600;700&family=Lexend:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="fonts.css?v=2" />
+    <link rel="stylesheet" href="tailwind.css" />
+    <link rel="stylesheet" href="styles.css?v=12" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="vendor/fontawesome/css/icons.min.css"
+      media="print"
+      onload="this.media='all'"
     />
-
+    <noscript>
+      <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
+    </noscript>
     <!-- Inline critical CSS for nav, hero, and above-the-fold content -->
     <style>
+
+      /* Critical @font-face (mirrors fonts.css) — starts decode with preloads */
+      @font-face{font-family:"Lexend";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/lexend-500.woff2") format("woff2")}
+      @font-face{font-family:"Lexend";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/lexend-700.woff2") format("woff2")}
+      @font-face{font-family:"Lexend";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/lexend-700.woff2") format("woff2")}
+      @font-face{font-family:"Rajdhani";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/rajdhani-700.woff2") format("woff2")}
+      @font-face{font-family:"Rajdhani";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/rajdhani-700.woff2") format("woff2")}
+      @font-face{font-family:"Cinzel";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/cinzel-600.woff2") format("woff2")}
+      @font-face{font-family:"Cinzel";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/cinzel-600.woff2") format("woff2")}
+      @font-face{font-family:"Cinzel";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/cinzel-600.woff2") format("woff2")}
       :root {
         --primary-color: #3a7bd5;
         --text-color: #1a1a1a;
@@ -149,7 +138,7 @@
       }
       body {
         margin: 0;
-        font-family: "Lexend", sans-serif;
+        font-family: "Lexend", "Segoe UI", system-ui, sans-serif;
         color: var(--text-color);
         background-color: var(--background-color);
         overflow-x: hidden;
@@ -160,7 +149,7 @@
         left: 0;
         right: 0;
         z-index: 50;
-        backdrop-filter: blur(8px);
+        backdrop-filter: none;
         background-color: rgba(248, 245, 242, 0.95);
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
       }
@@ -169,6 +158,32 @@
         min-height: 100vh;
         margin-top: 1.5rem;
         padding-top: 4rem;
+      }
+      /* Reserve logo box + paint SVG via background so alt text never flashes */
+      .logo-container {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 9rem;
+        max-width: 12rem;
+        margin: 0 auto 1.5rem;
+        background: url("images/Logos/logo.svg") center / contain no-repeat;
+      }
+      .logo-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        color: transparent;
+        text-indent: -9999px;
+        overflow: hidden;
+      }
+      @media (max-width: 768px) {
+        .logo-container {
+          height: 6rem;
+          max-width: 8rem;
+        }
       }
       @media (prefers-reduced-motion: reduce) {
         * {
@@ -260,7 +275,7 @@
   <!-- The body contains all visible content of the webpage -->
   <!-- min-h-screen ensures the body takes at least the full viewport height, preventing awkward short pages -->
   <!-- bg-white sets a clean background color that works well with the fantasy theme -->
-  <body class="min-h-screen bg-white transition-colors duration-300 flex flex-col relative">
+  <body class="min-h-screen bg-white flex flex-col relative">
     <!-- Page-wide background with geometric patterns -->
     <div class="fixed inset-0 pointer-events-none z-0">
       <!-- Subtle gradient overlays for minimal text readability -->
@@ -272,83 +287,41 @@
       ></div>
       <div class="absolute inset-0 bg-white/10"></div>
 
-      <!-- Geometric Patterns -->
-      <!-- Main patterns -->
+      <!-- Geometric Patterns (decorative; src filled after idle to avoid load stutter) -->
       <img
-        src="images/Background/Net design.svg"
+        data-src="images/Background/Net design.svg"
         alt=""
         class="geometric-pattern left"
         aria-hidden="true"
         role="presentation"
-        loading="lazy"
-        style="font-size: 0; line-height: 0; color: transparent; -webkit-text-fill-color: transparent;"
+        decoding="async"
         data-decorative="true"
       />
       <img
-        src="images/Background/Net design.svg"
+        data-src="images/Background/Net design.svg"
         alt=""
         class="geometric-pattern right"
         aria-hidden="true"
         role="presentation"
-        style="font-size: 0; line-height: 0; color: transparent; -webkit-text-fill-color: transparent;"
-        data-decorative="true"
-      />
-
-      <!-- Secondary patterns -->
-      <img
-        src="images/Background/Net design.svg"
-        alt=""
-        class="geometric-pattern top"
-        aria-hidden="true"
-        role="presentation"
-        style="font-size: 0; line-height: 0; color: transparent; -webkit-text-fill-color: transparent;"
+        decoding="async"
         data-decorative="true"
       />
       <img
-        src="images/Background/Net design.svg"
-        alt=""
-        class="geometric-pattern bottom"
-        aria-hidden="true"
-        role="presentation"
-        style="font-size: 0; line-height: 0; color: transparent; -webkit-text-fill-color: transparent;"
-        data-decorative="true"
-      />
-
-      <!-- Additional subtle patterns -->
-      <img
-        src="images/Background/Net design.svg"
+        data-src="images/Background/Net design.svg"
         alt=""
         class="geometric-pattern top-left"
         aria-hidden="true"
         role="presentation"
-        style="font-size: 0; line-height: 0; color: transparent; -webkit-text-fill-color: transparent;"
+        decoding="async"
         data-decorative="true"
       />
       <img
-        src="images/Background/Net design.svg"
+        data-src="images/Background/Net design.svg"
         alt=""
         class="geometric-pattern bottom-right"
         aria-hidden="true"
         role="presentation"
-        style="font-size: 0; line-height: 0; color: transparent; -webkit-text-fill-color: transparent;"
-        data-decorative="true"
-      />
-      <img
-        src="images/Background/Net design.svg"
-        alt=""
-        class="geometric-pattern center-left"
-        aria-hidden="true"
-        role="presentation"
-        style="font-size: 0; line-height: 0; color: transparent; -webkit-text-fill-color: transparent;"
-        data-decorative="true"
-      />
-      <img
-        src="images/Background/Net design.svg"
-        alt=""
-        class="geometric-pattern center-right"
-        aria-hidden="true"
-        role="presentation"
-        style="font-size: 0; line-height: 0; color: transparent; -webkit-text-fill-color: transparent;"
+        decoding="async"
         data-decorative="true"
       />
     </div>
@@ -486,47 +459,48 @@
           <!-- Removed duplicate owl logo for cleaner design -->
           <h1
             class="text-5xl md:text-6xl lg:text-7xl font-rajdhani font-bold text-[#2d5aa0] tracking-widest uppercase"
-            style="filter: drop-shadow(0 4px 12px rgba(45, 90, 160, 0.4));"
+            
           >
             Developer & Designer
           </h1>
-          <p class="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto mt-6 font-semibold drop-shadow-sm">
+          <p class="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto mt-6 font-semibold">
             Full-stack developer creating immersive web experiences with clean code and innovative design.
           </p>
           <div
             class="logo-container relative mx-auto"
+            role="img"
+            aria-label="Portfolio logo"
           >
-            <div class="logo-shine"></div>
             <img
               src="images/Logos/logo.svg"
-              alt="Portfolio Logo"
-              class="w-full h-full object-contain drop-shadow-sm"
+              alt=""
+              class="w-full h-full object-contain"
               width="400"
               height="300"
               loading="eager"
               fetchpriority="high"
-              decoding="async"
+              decoding="sync"
             />
           </div>
           <div class="mt-4 md:mt-8 space-y-4 md:space-y-8">
             <p
-              class="text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 opacity-0 animate-fadeInUp animation-delay-500 font-medium"
+              class="text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 font-medium"
             >
-              <span class="text-[#2d5aa0] font-semibold">Code</span> the Future
+              <span class="hero-accent text-[#2d5aa0] font-semibold">Code</span> the Future
             </p>
             <p
-              class="text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 opacity-0 animate-fadeInUp animation-delay-1000 font-medium"
+              class="text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 font-medium"
             >
-              <span class="text-[#2d5aa0] font-semibold">Design</span> the
+              <span class="hero-accent text-[#2d5aa0] font-semibold">Design</span> the
               Experience
             </p>
             <p
-              class="text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 opacity-0 animate-fadeInUp animation-delay-1500 font-medium"
+              class="text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 font-medium"
             >
-              <span class="text-[#2d5aa0] font-semibold">Shape</span> the World
+              <span class="hero-accent text-[#2d5aa0] font-semibold">Shape</span> the World
             </p>
           </div>
-          <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto opacity-0 animate-fadeInUp animation-delay-2000 skill-tags-container">
+          <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto skill-tags-container">
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">React</span>
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">Next.js</span>
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">TypeScript</span>
@@ -539,7 +513,7 @@
           <div class="mt-8 md:mt-12">
             <a
                               href="/projects"
-              class="quest-button font-semibold opacity-0 animate-fadeInUp animation-delay-2000"
+              class="quest-button font-semibold"
               aria-label="View my work"
             >
               View My Work
