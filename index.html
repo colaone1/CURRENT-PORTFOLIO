@@ -5,9 +5,7 @@
     <!-- ===== META TAGS ===== -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Cache-Control" content="public, max-age=3600" />
     <!-- Improved SEO and accessibility with meta description -->
     <meta
       name="description"
@@ -19,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" href="tailwind.css" as="style" />
-    <link rel="preload" href="styles.css?v=4" as="style" />
+    <link rel="preload" href="styles.css?v=5" as="style" />
     <link
       rel="preload"
       href="images/Logos/logo.svg"
@@ -113,7 +111,7 @@
 
     <!-- ===== EXTERNAL RESOURCES ===== -->
     <link rel="stylesheet" href="tailwind.css" />
-    <link rel="stylesheet" href="styles.css?v=4" />
+    <link rel="stylesheet" href="styles.css?v=5" />
 
     <!-- Google Fonts: fewer weights for faster text rendering -->
     <link
@@ -122,17 +120,9 @@
     />
 
     <!-- Font Awesome: non-blocking load (icons are below-fold / decorative on home) -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    </noscript>
-
-    <!-- Inline critical CSS for nav, hero, and above-the-fold content -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" /></noscript>
+<!-- Inline critical CSS for nav, hero, and above-the-fold content -->
     <style>
       :root {
         --primary-color: #3a7bd5;

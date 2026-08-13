@@ -3,21 +3,19 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Cache-Control" content="public, max-age=3600" />
     <meta name="description" content="Learn more about Sam C., a full-stack developer with a creative edge, specializing in immersive web experiences, UI/UX design, and modern web technologies.">
     <title>About</title>
     
     <!-- External Resources -->
     <link rel="stylesheet" href="tailwind.css" />
-<link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=5">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Rajdhani:wght@500;600;700&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
-  </head>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Rajdhani:wght@600;700&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" /></noscript>
+</head>
   
   <body class="min-h-screen bg-[#f8f5f2]">
     <!-- Skip to main content link for keyboard navigation -->
@@ -71,10 +69,13 @@
             <section class="mb-24 text-center">
                 <div class="flex flex-col items-center">
                     <div class="w-52 h-52 md:w-72 md:h-72 mb-20">
-                        <img src="images/Personal Pictures/About Page Picture.jpg" 
-                             alt="Sam C. Profile Picture" 
-                             class="w-full h-full rounded-full object-cover border-4 border-[#3a7bd5] shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
-                             width="400" height="400">
+                        <img src="images/Personal Pictures/about-portrait.jpg"
+                             alt="Sam C. Profile Picture"
+                             class="about-portrait w-full h-full rounded-full object-cover border-4 border-[#3a7bd5] shadow-lg hover:shadow-2xl transition-transform duration-300 cursor-pointer"
+                             width="400"
+                             height="400"
+                             decoding="async"
+                             fetchpriority="high">
                     </div>
                     <h1 class="text-4xl md:text-5xl font-cinzel font-bold text-[#1a1a1a] mb-10">About</h1>
                     <p class="text-xl text-gray-700 mb-16">

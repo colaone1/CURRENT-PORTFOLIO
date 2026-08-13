@@ -1250,7 +1250,7 @@ footer::before {
 }
 
 .animate-fadeInUp {
-    animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 /* Hero Section Typography */
@@ -2733,4 +2733,20 @@ html.motion-ready .logo-shine {
 .geometric-pattern:hover {
     filter: none !important;
     transform: none !important;
+}
+
+
+/* ===== PERFORMANCE: content-visibility for below-fold ===== */
+.services-section,
+.skills-section,
+.projects-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 800px;
+}
+
+/* Avoid expensive hover scale on about portrait (layout/paint) */
+@media (hover: hover) {
+    .about-portrait:hover {
+        transform: scale(1.03);
+    }
 }

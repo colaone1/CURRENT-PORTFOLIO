@@ -1,10 +1,11 @@
-const CURRENT_CACHE = 'portfolio-cache-v1';
+const CURRENT_CACHE = 'portfolio-cache-v2';
 const urlsToCache = [
     '/',
     '/index.html',
+    '/tailwind.css',
     '/styles.css',
     '/scripts.js',
-    '/images/Personal%20Pictures/About%20Page%20Picture.jpg'
+    '/images/Logos/logo.svg'
 ];
 
 self.addEventListener('install', event => {
@@ -33,45 +34,9 @@ self.addEventListener('activate', event => {
                     }
                 })
             );
-        })
+        }).then(() => self.clients.claim())
     );
 });
 
-// TEMPORARILY DISABLED TO FIX DNS LOOP ISSUE
-/*
-self.addEventListener('fetch', event => {
-    // Skip non-GET requests and non-same-origin requests
-    if (event.request.method !== 'GET' || !event.request.url.startsWith(self.location.origin)) {
-        return;
-    }
-
-    // Skip requests that are already being handled by the browser
-    if (event.request.mode === 'navigate') {
-        return;
-    }
-
-    event.respondWith(
-        caches.match(event.request)
-            .then(response => {
-                if (response) {
-                    return response;
-                }
-                return fetch(event.request)
-                    .then(response => {
-                        // Only cache successful responses
-                        if (!response || response.status !== 200 || response.type !== 'basic') {
-                            return response;
-                        }
-                        const responseToCache = response.clone();
-                        caches.open(CURRENT_CACHE)
-                            .then(cache => cache.put(event.request, responseToCache));
-                        return response;
-                    })
-                    .catch(() => {
-                        // Return a fallback response for failed requests
-                        return new Response('Not found', { status: 404 });
-                    });
-            })
-    );
-});
-*/ 
+// Fetch handler remains disabled to avoid navigation/DNS loop issues previously observed.
+// Precache above still warms critical assets for browsers that read the SW cache API directly.

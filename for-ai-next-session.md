@@ -4,9 +4,11 @@
 
 ### Performance (Core Web Vitals) — CURRENT FOCUS
 - Target Google CWV: LCP &lt; 2.5s, INP &lt; 200ms, CLS &lt; 0.1
-- Remove runtime Tailwind CDN (main-thread cost)
-- Reduce animation jank on first load (geometric layers, filters, infinite motion)
-- Defer non-critical JS / third-party CSS
+- ✅ Remove runtime Tailwind CDN (main-thread cost)
+- ✅ Reduce animation jank on first load (geometric layers, filters, infinite motion)
+- ✅ Defer non-critical JS / third-party CSS (FA sitewide; slim fonts)
+- ✅ Soften cache headers; content-visibility on below-fold home sections
+- ✅ Optimized about portrait (`about-portrait.jpg`); SW precache v2 for critical assets
 - Work stays on `production` until verified; do **not** merge unfinished work to `master` (live)
 
 ---
