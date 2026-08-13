@@ -2679,3 +2679,58 @@ body.menu-open {
 
 
 
+
+
+/* ===== PERFORMANCE: motion gating & cheaper composites (CWV) ===== */
+html:not(.motion-ready) .geometric-pattern,
+html:not(.motion-ready) .logo-shine {
+    animation: none !important;
+}
+
+html.motion-ready .geometric-pattern {
+    will-change: transform;
+}
+
+html.motion-ready .logo-shine {
+    will-change: left, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .geometric-pattern,
+    .logo-shine,
+    .animate-fadeInUp {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .geometric-pattern {
+        display: none !important;
+    }
+}
+
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-600 { animation-delay: 0.6s; }
+.animation-delay-800 { animation-delay: 0.8s; }
+
+.nav-container {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+
+/* ===== PERFORMANCE: force cheap geometric layers ===== */
+.geometric-pattern {
+    filter: none !important;
+    mix-blend-mode: normal !important;
+    pointer-events: none !important;
+    transition: opacity 0.3s ease, transform 0.3s ease !important;
+    contain: layout paint;
+}
+.geometric-pattern:hover {
+    filter: none !important;
+    transform: none !important;
+}
