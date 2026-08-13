@@ -1,18 +1,20 @@
-const CURRENT_CACHE = 'portfolio-cache-v2';
+const CURRENT_CACHE = 'portfolio-cache-v3';
 const urlsToCache = [
     '/',
     '/index.html',
     '/tailwind.css',
     '/styles.css',
     '/scripts.js',
-    '/images/Logos/logo.svg'
+    '/images/Logos/logo.svg',
+    '/vendor/fontawesome/css/icons.min.css',
+    '/vendor/fontawesome/webfonts/fa-solid-900.woff2',
+    '/vendor/fontawesome/webfonts/fa-brands-400.woff2'
 ];
 
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CURRENT_CACHE)
             .then(cache => {
-                // Add files one by one to handle missing files gracefully
                 return Promise.allSettled(
                     urlsToCache.map(url => cache.add(url).catch(err => {
                         console.log('Failed to cache:', url, err);

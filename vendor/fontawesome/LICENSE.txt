@@ -1,0 +1,6 @@
+Font Awesome Free 6.0.0
+https://fontawesome.com/license/free
+Icons: CC BY 4.0
+Fonts: SIL OFL 1.1
+Code: MIT License
+This directory contains a subset of icons used by this portfolio.

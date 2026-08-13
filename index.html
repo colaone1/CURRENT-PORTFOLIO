@@ -17,8 +17,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" href="tailwind.css" as="style" />
-    <link rel="preload" href="styles.css?v=5" as="style" />
-    <link
+    <link rel="preload" href="styles.css?v=6" as="style" />
+<link
       rel="preload"
       href="images/Logos/logo.svg"
       as="image"
@@ -64,7 +64,7 @@
     <!-- Security Headers -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com;"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com;"
     />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
@@ -111,18 +111,15 @@
 
     <!-- ===== EXTERNAL RESOURCES ===== -->
     <link rel="stylesheet" href="tailwind.css" />
-    <link rel="stylesheet" href="styles.css?v=5" />
-
-    <!-- Google Fonts: fewer weights for faster text rendering -->
+    <link rel="stylesheet" href="styles.css?v=6" />
+    <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
+<!-- Google Fonts: fewer weights for faster text rendering -->
     <link
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Rajdhani:wght@600;700&family=Lexend:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Font Awesome: non-blocking load (icons are below-fold / decorative on home) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" /></noscript>
-<!-- Inline critical CSS for nav, hero, and above-the-fold content -->
+    <!-- Inline critical CSS for nav, hero, and above-the-fold content -->
     <style>
       :root {
         --primary-color: #3a7bd5;

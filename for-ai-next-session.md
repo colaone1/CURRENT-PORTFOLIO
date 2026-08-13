@@ -9,6 +9,7 @@
 - ✅ Defer non-critical JS / third-party CSS (FA sitewide; slim fonts)
 - ✅ Soften cache headers; content-visibility on below-fold home sections
 - ✅ Optimized about portrait (`about-portrait.jpg`); SW precache v2 for critical assets
+- ✅ Self-host subsetted Font Awesome (~231KB CDN fonts → ~8KB local) without changing icons/theme
 - Work stays on `production` until verified; do **not** merge unfinished work to `master` (live)
 
 ---
