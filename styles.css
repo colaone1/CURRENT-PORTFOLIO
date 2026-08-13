@@ -1958,15 +1958,10 @@ html, body {
   fill: #3a7bd5;
 }
 
-/* ===== HERO OWL ENTRANCE ANIMATION ===== */
+/* Hero logo: always visible; alt text suppressed while decoding */
 .logo-container img {
-    opacity: 0;
-    animation: heroOwlFadeIn 1.2s cubic-bezier(0.4,0,0.2,1) 0.7s forwards;
-}
-@keyframes heroOwlFadeIn {
-    to {
-        opacity: 1;
-    }
+    opacity: 1;
+    color: transparent;
 }
 
 /* ===== HERO SECTION LAYOUT ADJUSTMENTS ===== */
@@ -2807,3 +2802,13 @@ html.motion-ready .logo-shine {
 .skill-tag-button {
     transition: background-color 0.15s ease, color 0.15s ease !important;
 }
+
+/* Faster hero entrance for mobile Speed Index (motion kept, delays shortened) */
+.hero-section .animate-fadeInUp {
+    animation-duration: 0.4s !important;
+}
+.hero-section .animation-delay-200 { animation-delay: 0.05s !important; }
+.hero-section .animation-delay-400 { animation-delay: 0.1s !important; }
+.hero-section .animation-delay-600 { animation-delay: 0.15s !important; }
+.hero-section .animation-delay-800 { animation-delay: 0.2s !important; }
+

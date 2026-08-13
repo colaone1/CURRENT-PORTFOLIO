@@ -1,9 +1,14 @@
-const CURRENT_CACHE = 'portfolio-cache-v3';
+const CURRENT_CACHE = 'portfolio-cache-v4';
 const urlsToCache = [
     '/',
     '/index.html',
     '/tailwind.css',
     '/styles.css',
+    '/fonts.css',
+    '/fonts/lexend-500.woff2',
+    '/fonts/lexend-700.woff2',
+    '/fonts/cinzel-600.woff2',
+    '/fonts/rajdhani-700.woff2',
     '/scripts.js',
     '/images/Logos/logo.svg',
     '/vendor/fontawesome/css/icons.min.css',

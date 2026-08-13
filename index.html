@@ -14,16 +14,13 @@
     <title>Home</title>
 
     <!-- Performance Optimizations -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/lexend-500.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/lexend-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/cinzel-600.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="images/Logos/logo.svg" as="image" fetchpriority="high" />
     <link rel="preload" href="tailwind.css" as="style" />
-    <link rel="preload" href="styles.css?v=9" as="style" />
-<link
-      rel="preload"
-      href="images/Logos/logo.svg"
-      as="image"
-      fetchpriority="high"
-    />
+    <link rel="preload" href="styles.css?v=12" as="style" />
 
     <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:title" content="Sam C. - Software Engineer Portfolio" />
@@ -64,7 +61,7 @@
     <!-- Security Headers -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com;"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com;"
     />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
@@ -110,17 +107,30 @@
     </script>
 
     <!-- ===== EXTERNAL RESOURCES ===== -->
+    <link rel="stylesheet" href="fonts.css?v=2" />
     <link rel="stylesheet" href="tailwind.css" />
-    <link rel="stylesheet" href="styles.css?v=9" />
-    <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
-<!-- Google Fonts: fewer weights for faster text rendering -->
+    <link rel="stylesheet" href="styles.css?v=12" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Rajdhani:wght@600;700&family=Lexend:wght@500;600;700&display=swap"
       rel="stylesheet"
+      href="vendor/fontawesome/css/icons.min.css"
+      media="print"
+      onload="this.media='all'"
     />
-
+    <noscript>
+      <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
+    </noscript>
     <!-- Inline critical CSS for nav, hero, and above-the-fold content -->
     <style>
+
+      /* Critical @font-face (mirrors fonts.css) — starts decode with preloads */
+      @font-face{font-family:"Lexend";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/lexend-500.woff2") format("woff2")}
+      @font-face{font-family:"Lexend";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/lexend-700.woff2") format("woff2")}
+      @font-face{font-family:"Lexend";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/lexend-700.woff2") format("woff2")}
+      @font-face{font-family:"Rajdhani";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/rajdhani-700.woff2") format("woff2")}
+      @font-face{font-family:"Rajdhani";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/rajdhani-700.woff2") format("woff2")}
+      @font-face{font-family:"Cinzel";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/cinzel-600.woff2") format("woff2")}
+      @font-face{font-family:"Cinzel";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/cinzel-600.woff2") format("woff2")}
+      @font-face{font-family:"Cinzel";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/cinzel-600.woff2") format("woff2")}
       :root {
         --primary-color: #3a7bd5;
         --text-color: #1a1a1a;
@@ -128,7 +138,7 @@
       }
       body {
         margin: 0;
-        font-family: "Lexend", sans-serif;
+        font-family: "Lexend", "Segoe UI", system-ui, sans-serif;
         color: var(--text-color);
         background-color: var(--background-color);
         overflow-x: hidden;
@@ -148,6 +158,32 @@
         min-height: 100vh;
         margin-top: 1.5rem;
         padding-top: 4rem;
+      }
+      /* Reserve logo box + paint SVG via background so alt text never flashes */
+      .logo-container {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 9rem;
+        max-width: 12rem;
+        margin: 0 auto 1.5rem;
+        background: url("images/Logos/logo.svg") center / contain no-repeat;
+      }
+      .logo-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        color: transparent;
+        text-indent: -9999px;
+        overflow: hidden;
+      }
+      @media (max-width: 768px) {
+        .logo-container {
+          height: 6rem;
+          max-width: 8rem;
+        }
       }
       @media (prefers-reduced-motion: reduce) {
         * {
@@ -251,9 +287,9 @@
       ></div>
       <div class="absolute inset-0 bg-white/10"></div>
 
-      <!-- Geometric Patterns (reduced for paint/composite cost) -->
+      <!-- Geometric Patterns (decorative; src filled after idle to avoid load stutter) -->
       <img
-        src="images/Background/Net design.svg"
+        data-src="images/Background/Net design.svg"
         alt=""
         class="geometric-pattern left"
         aria-hidden="true"
@@ -262,7 +298,7 @@
         data-decorative="true"
       />
       <img
-        src="images/Background/Net design.svg"
+        data-src="images/Background/Net design.svg"
         alt=""
         class="geometric-pattern right"
         aria-hidden="true"
@@ -271,7 +307,7 @@
         data-decorative="true"
       />
       <img
-        src="images/Background/Net design.svg"
+        data-src="images/Background/Net design.svg"
         alt=""
         class="geometric-pattern top-left"
         aria-hidden="true"
@@ -280,7 +316,7 @@
         data-decorative="true"
       />
       <img
-        src="images/Background/Net design.svg"
+        data-src="images/Background/Net design.svg"
         alt=""
         class="geometric-pattern bottom-right"
         aria-hidden="true"
@@ -432,37 +468,39 @@
           </p>
           <div
             class="logo-container relative mx-auto"
+            role="img"
+            aria-label="Portfolio logo"
           >
             <img
               src="images/Logos/logo.svg"
-              alt="Portfolio Logo"
+              alt=""
               class="w-full h-full object-contain"
               width="400"
               height="300"
               loading="eager"
               fetchpriority="high"
-              decoding="async"
+              decoding="sync"
             />
           </div>
           <div class="mt-4 md:mt-8 space-y-4 md:space-y-8">
             <p
-              class="text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 opacity-0 animate-fadeInUp animation-delay-200 font-medium"
+              class="text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 font-medium"
             >
               <span class="hero-accent text-[#2d5aa0] font-semibold">Code</span> the Future
             </p>
             <p
-              class="text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 opacity-0 animate-fadeInUp animation-delay-400 font-medium"
+              class="text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 font-medium"
             >
               <span class="hero-accent text-[#2d5aa0] font-semibold">Design</span> the
               Experience
             </p>
             <p
-              class="text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 opacity-0 animate-fadeInUp animation-delay-600 font-medium"
+              class="text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 font-medium"
             >
               <span class="hero-accent text-[#2d5aa0] font-semibold">Shape</span> the World
             </p>
           </div>
-          <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto opacity-0 animate-fadeInUp animation-delay-800 skill-tags-container">
+          <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto skill-tags-container">
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">React</span>
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">Next.js</span>
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">TypeScript</span>
@@ -475,7 +513,7 @@
           <div class="mt-8 md:mt-12">
             <a
                               href="/projects"
-              class="quest-button font-semibold opacity-0 animate-fadeInUp animation-delay-800"
+              class="quest-button font-semibold"
               aria-label="View my work"
             >
               View My Work
