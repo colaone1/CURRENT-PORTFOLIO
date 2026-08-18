@@ -16,7 +16,6 @@ body {
     font-family: 'Lexend', sans-serif;
     color: var(--text-color);
     background-color: var(--background-color);
-    overflow-x: hidden;
 }
 
 .nav-container {
@@ -25,8 +24,7 @@ body {
     left: 0;
     right: 0;
     z-index: 50;
-    backdrop-filter: blur(8px);
-    background-color: rgba(248, 245, 242, 0.7);
+    background-color: rgba(248, 245, 242, 0.97);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -1935,7 +1933,7 @@ form[role="search"] button:hover {
 }
 
 html, body {
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 /* Navbar logo hover glow effect to match hero text hover */
@@ -2688,20 +2686,32 @@ body.menu-open {
 /* ===== PERFORMANCE: motion gating & cheaper composites (CWV) ===== */
 html:not(.motion-ready) .geometric-pattern,
 html:not(.motion-ready) .logo-shine,
-html:not(.motion-ready) .hero-section .logo-container {
+html:not(.motion-ready) .hero-section .logo-container img {
     animation: none !important;
 }
 
-html.motion-ready .geometric-pattern {
-    will-change: transform;
+.hero-deco {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
 }
 
-html.motion-ready .logo-shine {
-    will-change: transform, opacity;
+#back-to-top.is-visible {
+    opacity: 1;
+    pointer-events: auto;
 }
 
-html.motion-ready .hero-section .logo-container {
-    animation: owlFloat 5.5s ease-in-out infinite;
+.hero-section .logo-container img {
+    display: block;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+html.motion-ready .hero-section .logo-container img {
+    animation: owlFloat 3s ease-in-out infinite;
     will-change: transform;
 }
 
@@ -2711,14 +2721,14 @@ html.motion-ready .hero-section .logo-container {
         transform: translate3d(0, 0, 0);
     }
     50% {
-        transform: translate3d(0, -0.4rem, 0);
+        transform: translate3d(0, -12px, 0);
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .geometric-pattern,
     .logo-shine,
-    .hero-section .logo-container,
+    .hero-section .logo-container img,
     .animate-fadeInUp {
         animation: none !important;
         opacity: 1 !important;
@@ -2739,8 +2749,8 @@ html.motion-ready .hero-section .logo-container {
 .animation-delay-800 { animation-delay: 0.8s; }
 
 .nav-container {
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
 
@@ -2749,8 +2759,8 @@ html.motion-ready .hero-section .logo-container {
     filter: none !important;
     mix-blend-mode: normal !important;
     pointer-events: none !important;
-    transition: opacity 0.3s ease, transform 0.3s ease !important;
-    contain: layout paint;
+    transition: none !important;
+    contain: paint;
 }
 .geometric-pattern:hover {
     filter: none !important;
@@ -2758,13 +2768,7 @@ html.motion-ready .hero-section .logo-container {
 }
 
 
-/* ===== PERFORMANCE: content-visibility for below-fold ===== */
-.services-section,
-.skills-section,
-.projects-section {
-    content-visibility: auto;
-    contain-intrinsic-size: 1px 800px;
-}
+/* Below-fold sections stay in the normal scroll layer */
 
 /* Avoid expensive hover scale on about portrait (layout/paint) */
 @media (hover: hover) {

@@ -62,26 +62,10 @@ const utils = {
 
 const navigation = {
     /**
-     * Initializes navigation functionality including scroll-based hiding/showing
+     * Keyboard navigation for the primary nav. Scroll-linked hide/show is omitted
+     * so scrolling stays on the compositor.
      */
     initialize() {
-        const nav = document.querySelector('.nav-container');
-        if (!nav) return;
-
-        let lastScroll = 0;
-
-        window.addEventListener('scroll', utils.throttle(() => {
-            const currentScroll = window.pageYOffset;
-
-            if (currentScroll > lastScroll && currentScroll > 80) {
-                nav.style.transform = 'translateY(-100%)';
-            } else {
-                nav.style.transform = 'translateY(0)';
-            }
-
-            lastScroll = currentScroll;
-        }, 100));
-
         const navLinks = document.querySelectorAll('.nav-button');
         navLinks.forEach((link, index) => {
             link.addEventListener('keydown', (e) => {
@@ -95,6 +79,51 @@ const navigation = {
                     navLinks[navLinks.length - 1].focus();
                 }
             });
+        });
+    }
+};
+
+const mobileMenu = {
+    initialize() {
+        const menuButton = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        const closeButton = document.getElementById('mobile-menu-close');
+        if (!menuButton || !menu || !closeButton) return;
+        if (menu.dataset.bound === 'true') return;
+        menu.dataset.bound = 'true';
+
+        const close = () => {
+            menu.classList.add('hidden');
+            document.body.classList.remove('menu-open');
+            menuButton.setAttribute('aria-expanded', 'false');
+        };
+
+        const open = () => {
+            menu.classList.remove('hidden');
+            document.body.classList.add('menu-open');
+            menuButton.setAttribute('aria-expanded', 'true');
+            closeButton.focus();
+        };
+
+        menuButton.addEventListener('click', () => {
+            if (menu.classList.contains('hidden')) {
+                open();
+            } else {
+                close();
+                menuButton.focus();
+            }
+        });
+
+        closeButton.addEventListener('click', () => {
+            close();
+            menuButton.focus();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+                close();
+                menuButton.focus();
+            }
         });
     }
 };
@@ -252,20 +281,27 @@ const backToTop = {
     initialize() {
         const button = document.getElementById('back-to-top');
         if (!button) return;
-
-        // Skip if the page already wired up its own handler
         if (button.dataset.bound === 'true') return;
         button.dataset.bound = 'true';
 
-        window.addEventListener('scroll', utils.throttle(() => {
-            if (window.pageYOffset > 300) {
-                button.style.opacity = '1';
-                button.style.pointerEvents = 'auto';
-            } else {
-                button.style.opacity = '0';
-                button.style.pointerEvents = 'none';
-            }
-        }, 100));
+        let visible = false;
+        let ticking = false;
+
+        const update = () => {
+            ticking = false;
+            const shouldShow = window.scrollY > 300;
+            if (shouldShow === visible) return;
+            visible = shouldShow;
+            button.classList.toggle('is-visible', visible);
+        };
+
+        window.addEventListener('scroll', () => {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(update);
+        }, { passive: true });
+
+        update();
 
         button.addEventListener('click', () => {
             window.scrollTo({
@@ -303,6 +339,7 @@ function enableMotionAfterIdle() {
 function initializeApp() {
     utils.measurePerformance('app-initialization', () => {
         navigation.initialize();
+        mobileMenu.initialize();
         projectCards.initialize();
         accessibility.initialize();
         backToTop.initialize();
