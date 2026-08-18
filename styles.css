@@ -2830,3 +2830,172 @@ html.motion-ready .hero-section .logo-container img {
 .hero-section .animation-delay-600 { animation-delay: 0.15s !important; }
 .hero-section .animation-delay-800 { animation-delay: 0.2s !important; }
 
+.contact-form-section {
+    margin-top: 30vh;
+}
+
+.projects-page-main {
+    padding-top: 4.5rem;
+    padding-bottom: 4rem;
+}
+
+.pagination-controls {
+    margin-bottom: 8rem;
+    padding-bottom: 2rem;
+}
+
+#projects-grid {
+    min-height: 520px;
+    grid-auto-rows: 1fr;
+}
+
+.project-card.hidden {
+    display: none !important;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.project-card.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.project-card > div:first-child {
+    height: 192px;
+    min-height: 192px;
+    max-height: 192px;
+    flex-shrink: 0;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+    min-height: 408px;
+}
+
+.project-content-main {
+    flex-grow: 1;
+    overflow: hidden;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+}
+
+.project-content-buttons {
+    flex-shrink: 0;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-height: 40px;
+}
+
+.project-card-fade {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hp-field {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.page-404 {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Lexend", sans-serif;
+    color: #1a1a1a;
+    background: linear-gradient(160deg, #f8f5f2 0%, #e8eef7 100%);
+    text-align: center;
+    padding: 2rem;
+}
+
+.page-404 h1 {
+    font-family: "Cinzel", serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin: 0 0 0.75rem;
+    color: #2d5aa0;
+}
+
+.page-404 p {
+    margin: 0 0 1.75rem;
+    max-width: 28rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.page-404 a {
+    display: inline-block;
+    background: #1a1a1a;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+}
+
+.page-404 a:hover {
+    background: #2d5aa0;
+}
+
+.page-404 a:focus {
+    outline: 2px solid #3a7bd5;
+    outline-offset: 3px;
+}
+
+.hero-section img,
+.hero-section .geometric-pattern {
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: none;
+}
+
+@media (width: 1024px) and (height: 600px) {
+    .hero-section {
+        min-height: 100vh !important;
+        height: 100vh !important;
+        padding-top: 3.5rem !important;
+        margin-top: 0 !important;
+        padding-bottom: 0.5rem !important;
+    }
+    .hero-section .relative.mx-auto {
+        padding: 0.25rem 1rem !important;
+    }
+    .hero-section h1 {
+        font-size: 1.75rem !important;
+        margin-bottom: 0.3rem !important;
+        line-height: 1.2 !important;
+    }
+    .logo-container {
+        height: 6.5rem !important;
+        max-width: 8.5rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+}
+

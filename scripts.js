@@ -11,6 +11,10 @@
  * - backToTop: Back-to-top button behaviour
  */
 
+if (location.protocol === 'http:' && location.hostname === 'samconnor.uk') {
+    location.replace('https://' + location.host + location.pathname + location.search + location.hash);
+}
+
 const utils = {
     /**
      * Throttles function execution to limit how often it can be called
@@ -269,10 +273,14 @@ const serviceWorker = {
     showUpdateAvailable() {
         const indicator = document.createElement('div');
         indicator.className = 'update-indicator fixed top-4 right-4 bg-blue-500 text-white px-4 py-2 rounded z-50';
-        indicator.innerHTML = `
-            <span>Update available</span>
-            <button type="button" onclick="location.reload()" class="ml-2 underline">Reload</button>
-        `;
+        const label = document.createElement('span');
+        label.textContent = 'Update available';
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'ml-2 underline';
+        button.textContent = 'Reload';
+        button.addEventListener('click', () => location.reload());
+        indicator.append(label, button);
         document.body.appendChild(indicator);
     }
 };
@@ -312,6 +320,53 @@ const backToTop = {
     }
 };
 
+const contactForm = {
+    initialize() {
+        const form = document.getElementById('contact-form');
+        if (!form) return;
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        const buttonText = submitButton && submitButton.querySelector('.button-text');
+        const loadingSpinner = submitButton && submitButton.querySelector('.loading-spinner');
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            if (formData.get('_gotcha')) return;
+
+            if (submitButton) submitButton.disabled = true;
+            if (buttonText) buttonText.classList.add('hidden');
+            if (loadingSpinner) loadingSpinner.classList.remove('hidden');
+            if (successMessage) successMessage.classList.add('hidden');
+            if (errorMessage) errorMessage.classList.add('hidden');
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { Accept: 'application/json' }
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        if (successMessage) successMessage.classList.remove('hidden');
+                        form.reset();
+                    } else if (errorMessage) {
+                        errorMessage.classList.remove('hidden');
+                    }
+                })
+                .catch(() => {
+                    if (errorMessage) errorMessage.classList.remove('hidden');
+                })
+                .finally(() => {
+                    if (submitButton) submitButton.disabled = false;
+                    if (buttonText) buttonText.classList.remove('hidden');
+                    if (loadingSpinner) loadingSpinner.classList.add('hidden');
+                });
+        });
+    }
+};
+
 function deferDecorativeImages() {
     const decorate = () => {
         document.querySelectorAll('img[data-src][data-decorative="true"]').forEach((img) => {
@@ -343,6 +398,7 @@ function initializeApp() {
         projectCards.initialize();
         accessibility.initialize();
         backToTop.initialize();
+        contactForm.initialize();
         deferDecorativeImages();
 
         // Defer SW + metrics off the critical path (INP / main-thread)

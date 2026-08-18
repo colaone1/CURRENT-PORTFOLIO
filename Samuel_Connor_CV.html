@@ -2,67 +2,12 @@
 <html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Samuel Connor - CV</title>
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        color: #1a1a1a; background: white; line-height: 1.32;
-        padding: 0.85rem 1.1rem; max-width: 900px; margin: 0 auto; font-size: 10pt;
-      }
-      .cv-header {
-        text-align: center; margin-bottom: 0.65rem; padding-bottom: 0.4rem;
-        border-bottom: 2px solid #2563eb;
-      }
-      .cv-header h1 { font-size: 1.55rem; font-weight: 700; margin-bottom: 0.08rem; }
-      .cv-header h2 { font-size: 0.95rem; font-weight: 500; color: #2563eb; margin-bottom: 0.3rem; }
-      .cv-links { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; font-size: 0.88rem; }
-      .cv-links a { color: #2563eb; text-decoration: none; font-weight: 500; }
-      .cv-section { margin-bottom: 0.55rem; }
-      .cv-section-title {
-        font-size: 0.9rem; font-weight: 700; margin-bottom: 0.28rem; color: #2563eb;
-        border-bottom: 1px solid #d7dee8; padding-bottom: 0.12rem; text-transform: uppercase;
-      }
-      .professional-summary { text-align: justify; color: #333; font-size: 0.88rem; }
-      .skills-block p { margin-bottom: 0.22rem; color: #444; font-size: 0.86rem; }
-      .skills-block strong { color: #2563eb; }
-      .project-card {
-        background: #f7f9fc; border-left: 3px solid #2563eb;
-        padding: 0.4rem 0.6rem; margin-bottom: 0.35rem; border-radius: 3px;
-      }
-      .project-title { font-size: 0.9rem; font-weight: 650; margin-bottom: 0.12rem; }
-      .project-description { color: #444; font-size: 0.84rem; text-align: justify; margin-bottom: 0.15rem; }
-      .project-description ul { margin-left: 1.05rem; margin-top: 0.15rem; }
-      .project-description li { margin-bottom: 0.12rem; }
-      .project-tech { color: #666; font-size: 0.78rem; font-style: italic; margin-top: 0.2rem; }
-      .work-experience-item {
-        margin-bottom: 0.4rem; padding-bottom: 0.35rem; border-bottom: 1px solid #e8e8e8;
-      }
-      .work-experience-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-      .work-header {
-        display: flex; justify-content: space-between; gap: 1rem;
-        align-items: baseline; margin-bottom: 0.2rem; flex-wrap: wrap;
-      }
-      .work-title { font-size: 0.9rem; font-weight: 650; }
-      .work-company { color: #2563eb; font-weight: 600; font-size: 0.86rem; }
-      .work-dates { font-size: 0.82rem; color: #666; font-style: italic; white-space: nowrap; }
-      .work-description ul { margin-left: 1.05rem; margin-top: 0.15rem; }
-      .work-description li { margin-bottom: 0.12rem; color: #444; font-size: 0.84rem; text-align: justify; }
-      .work-description a { color: #2563eb; text-decoration: none; }
-      .education-title { font-weight: 650; font-size: 0.9rem; }
-      .education-cert { color: #2563eb; font-weight: 600; font-size: 0.84rem; margin: 0.1rem 0; }
-      .education-description { color: #444; font-size: 0.84rem; }
-      .footer-note { margin-top: 0.45rem; text-align: center; color: #777; font-size: 0.75rem; }
-      @media print {
-        @page { size: A4; margin: 10mm; }
-        body { padding: 0; font-size: 9.2pt; line-height: 1.28; }
-        .cv-section, .project-card, .work-experience-item {
-          break-inside: avoid; page-break-inside: avoid;
-        }
-        a { color: #2563eb; text-decoration: none; }
-      }
-    </style>
+    <link rel="stylesheet" href="cv.css" />
   </head>
   <body>
     <div class="cv-header">

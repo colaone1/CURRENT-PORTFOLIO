@@ -2,6 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="public, max-age=3600" />
     <meta name="description" content="Professional logo design for CARECOVID - a modern brand identity created with clean typography and strategic color psychology.">
@@ -10,7 +13,7 @@
 
     <link rel="stylesheet" href="fonts.css?v=3" />
     <link rel="stylesheet" href="tailwind.css" />
-    <link rel="stylesheet" href="styles.css?v=15">
+    <link rel="stylesheet" href="styles.css?v=18">
     <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
   </head>
 
@@ -161,49 +164,6 @@
     >
       <i class="fas fa-arrow-up"></i>
     </button>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const backToTopButton = document.getElementById("back-to-top");
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > 300) {
-            backToTopButton.classList.remove("opacity-0", "pointer-events-none");
-            backToTopButton.classList.add("opacity-100");
-          } else {
-            backToTopButton.classList.remove("opacity-100");
-            backToTopButton.classList.add("opacity-0", "pointer-events-none");
-          }
-        });
-        backToTopButton.addEventListener("click", () => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-
-        const menuButton = document.getElementById("mobile-menu-button");
-        const mobileMenu = document.getElementById("mobile-menu");
-        const closeButton = document.getElementById("mobile-menu-close");
-        if (menuButton && mobileMenu && closeButton) {
-          menuButton.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-            document.body.classList.toggle("menu-open");
-            menuButton.setAttribute("aria-expanded", !mobileMenu.classList.contains("hidden"));
-            if (!mobileMenu.classList.contains("hidden")) closeButton.focus();
-          });
-          closeButton.addEventListener("click", () => {
-            mobileMenu.classList.add("hidden");
-            document.body.classList.remove("menu-open");
-            menuButton.setAttribute("aria-expanded", "false");
-            menuButton.focus();
-          });
-          document.addEventListener("keydown", (e) => {
-            if (!mobileMenu.classList.contains("hidden") && e.key === "Escape") {
-              mobileMenu.classList.add("hidden");
-              document.body.classList.remove("menu-open");
-              menuButton.setAttribute("aria-expanded", "false");
-              menuButton.focus();
-            }
-          });
-        }
-      });
-    </script>
+      <script src="scripts.js" defer></script>
   </body>
 </html>

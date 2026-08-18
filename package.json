@@ -5,8 +5,8 @@
   "main": "index.html",
   "private": true,
   "scripts": {
-    "start": "npx --yes serve -l 3000 .",
-    "dev": "npx --yes serve -l 3000 .",
+    "start": "npx --yes serve -l 3000 --no-port-switching -c serve.json .",
+    "dev": "npx --yes serve -l 3000 --no-port-switching -c serve.json .",
     "test": "node --check scripts.js && node --check sw.js",
     "build:css": "tailwindcss -i ./src/tailwind.css -o ./tailwind.css --minify",
     "prestart": "npm run build:css"

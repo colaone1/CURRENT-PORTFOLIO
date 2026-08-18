@@ -1,8 +1,10 @@
-<!-- Husky test: this comment is for testing pre-commit hook -->
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Cache-Control" content="public, max-age=3600" />
     <meta name="cache-bust" content="v5-2026-08-18" />
@@ -16,11 +18,11 @@
     <!-- External Resources -->
     <link rel="stylesheet" href="fonts.css?v=3" />
     <link rel="stylesheet" href="tailwind.css" />
-    <link rel="stylesheet" href="styles.css?v=15" />
+    <link rel="stylesheet" href="styles.css?v=18" />
     <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
   </head>
 
-  <body class="min-h-screen bg-[#f8f5f2] flex flex-col" style="padding-top: 0;">
+  <body class="min-h-screen bg-[#f8f5f2] flex flex-col">
     <!-- Skip to main content link for keyboard navigation -->
     <a
       href="#main-content"
@@ -140,7 +142,7 @@
 
 
     <!-- Projects Grid -->
-    <main id="main-content" class="container mx-auto px-4 flex-grow" style="padding-top: 4.5rem !important; padding-bottom: 4rem !important;">
+    <main id="main-content" class="container mx-auto px-4 flex-grow projects-page-main">
       <!-- Loading indicator -->
       <div id="loading-indicator" class="text-center py-8">
         <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
@@ -198,64 +200,7 @@
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"
         id="projects-grid"
       >
-        <style>
-          #projects-grid {
-            min-height: 520px; /* Minimum height to accommodate fixed card height */
-            grid-auto-rows: 1fr; /* Make all grid rows equal height */
-            transition: all 0.3s ease; /* Smooth transitions for layout changes */
-          }
-          .project-card.hidden {
-            display: none !important; /* Ensure hidden cards are completely hidden */
-          }
-          .project-card {
-            display: flex;
-            flex-direction: column;
-            height: 600px; /* Increased height for better content visibility */
-            transition: all 0.3s ease; /* Smooth transition for all changes */
-            opacity: 0;
-            visibility: hidden;
-          }
-          
-          .project-card.visible {
-            opacity: 1;
-            visibility: visible;
-          }
-
-          /* Ensure all project card headers have exactly the same height */
-          .project-card > div:first-child {
-            height: 192px !important;
-            min-height: 192px !important;
-            max-height: 192px !important;
-            flex-shrink: 0;
-          }
-
-          /* Ensure content area has enough space and buttons are always visible */
-          .project-content {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            height: 100%;
-            min-height: 408px; /* 600px total - 192px header = 408px for content */
-          }
-          
-          .project-content-main {
-            flex-grow: 1;
-            overflow: hidden;
-            margin-bottom: 8px;
-            display: flex;
-            flex-direction: column;
-            min-height: 300px; /* Increased minimum space for content */
-          }
-          
-          .project-content-buttons {
-            flex-shrink: 0;
-            margin-top: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-            min-height: 40px; /* Ensure buttons are always visible */
-          }
-        </style>
+        
 
         <!-- SENBridge Project Card -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card visible hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="full-stack">
@@ -459,7 +404,7 @@
 
       </div>
       <!-- Pagination Controls -->
-      <div class="flex justify-center mt-6" id="pagination-controls" style="margin-bottom: 8rem !important; padding-bottom: 2rem !important;"></div>
+      <div class="flex justify-center mt-6 pagination-controls" id="pagination-controls"></div>
     </main>
 
     <!-- Footer -->
@@ -509,262 +454,7 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- At the end of the body, before </body>, ensure the mobile menu script is present -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Back to top button functionality
-        const backToTopButton = document.getElementById("back-to-top");
-
-        // Show button when scrolling down
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > 300) {
-            backToTopButton.classList.remove(
-              "opacity-0",
-              "pointer-events-none",
-            );
-            backToTopButton.classList.add("opacity-100");
-          } else {
-            backToTopButton.classList.remove("opacity-100");
-            backToTopButton.classList.add("opacity-0", "pointer-events-none");
-          }
-        });
-
-        // Initial check for scroll position
-        if (window.scrollY > 300) {
-          backToTopButton.classList.remove("opacity-0", "pointer-events-none");
-          backToTopButton.classList.add("opacity-100");
-        }
-
-        // Scroll to top when button is clicked
-        backToTopButton.addEventListener("click", () => {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        });
-
-        // Hamburger menu toggle
-        const menuButton = document.getElementById("mobile-menu-button");
-        const mobileMenu = document.getElementById("mobile-menu");
-        const closeButton = document.getElementById("mobile-menu-close");
-
-        if (menuButton && mobileMenu && closeButton) {
-          menuButton.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-            document.body.classList.toggle("menu-open");
-            menuButton.setAttribute(
-              "aria-expanded",
-              !mobileMenu.classList.contains("hidden"),
-            );
-            if (!mobileMenu.classList.contains("hidden")) {
-              closeButton.focus();
-            }
-          });
-
-          closeButton.addEventListener("click", () => {
-            mobileMenu.classList.add("hidden");
-            document.body.classList.remove("menu-open");
-            menuButton.setAttribute("aria-expanded", "false");
-            menuButton.focus();
-          });
-
-          document.addEventListener("keydown", (e) => {
-            if (
-              !mobileMenu.classList.contains("hidden") &&
-              e.key === "Escape"
-            ) {
-              mobileMenu.classList.add("hidden");
-              document.body.classList.remove("menu-open");
-              menuButton.setAttribute("aria-expanded", "false");
-              menuButton.focus();
-            }
-          });
-        }
-      });
-    </script>
-
-    <!-- Project Filtering and Pagination JavaScript -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        console.log("Projects page loaded");
-        try {
-        const projectsGrid = document.getElementById("projects-grid");
-        const paginationControls = document.getElementById(
-          "pagination-controls",
-        );
-        const filterButtons = document.querySelectorAll(".filter-btn");
-        const allProjectCards = Array.from(
-          projectsGrid.querySelectorAll("[data-type]"),
-        );
-        const CARDS_PER_PAGE = 3;
-        let currentPage = 1;
-        let currentFilter = "all";
-
-        function getFilteredCards() {
-          return allProjectCards.filter(
-            (card) =>
-              currentFilter === "all" ||
-              card.getAttribute("data-type") === currentFilter
-          );
-        }
-
-        function renderPage(page) {
-          const filteredCards = getFilteredCards();
-          console.log("Filtered cards:", filteredCards.length, "Current filter:", currentFilter);
-          const totalPages =
-            Math.ceil(filteredCards.length / CARDS_PER_PAGE) || 1;
-          currentPage = Math.max(1, Math.min(page, totalPages));
-
-          // Hide all cards first using CSS class
-          allProjectCards.forEach((card) => {
-            card.classList.add("hidden");
-          });
-
-          // Show only cards for the current page
-          const start = (currentPage - 1) * CARDS_PER_PAGE;
-          const end = start + CARDS_PER_PAGE;
-          const cardsToShow = filteredCards.slice(start, end);
-          
-          cardsToShow.forEach((card, index) => {
-            card.classList.remove("hidden");
-            card.classList.add("visible");
-            // Reset animation by removing and re-adding it
-            card.style.animation = "none";
-            card.offsetHeight; // Trigger reflow
-            card.style.animation = "fadeIn 0.5s ease-in-out";
-          });
-
-          // Render pagination controls
-          renderPaginationControls(totalPages);
-        }
-
-        function renderPaginationControls(totalPages) {
-          paginationControls.innerHTML = "";
-          if (totalPages <= 1) return;
-
-          // Previous button - circular navigation
-          const prevBtn = document.createElement("button");
-          prevBtn.textContent = "Previous";
-          prevBtn.className =
-            "mx-1 px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none";
-          // Remove disabled state for circular navigation
-          prevBtn.onclick = () => {
-            const newPage = currentPage === 1 ? totalPages : currentPage - 1;
-            renderPage(newPage);
-          };
-          paginationControls.appendChild(prevBtn);
-
-          // Page numbers
-          for (let i = 1; i <= totalPages; i++) {
-            const pageBtn = document.createElement("button");
-            pageBtn.textContent = i;
-            pageBtn.className =
-              "mx-1 px-4 py-2 rounded-lg " +
-              (i === currentPage
-                ? "bg-blue-600 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300") +
-              " focus:ring-2 focus:ring-blue-500 focus:outline-none";
-            pageBtn.onclick = () => renderPage(i);
-            paginationControls.appendChild(pageBtn);
-          }
-
-          // Next button - circular navigation
-          const nextBtn = document.createElement("button");
-          nextBtn.textContent = "Next";
-          nextBtn.className =
-            "mx-1 px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none";
-          // Remove disabled state for circular navigation
-          nextBtn.onclick = () => {
-            const newPage = currentPage === totalPages ? 1 : currentPage + 1;
-            renderPage(newPage);
-          };
-          paginationControls.appendChild(nextBtn);
-        }
-
-        // Hook into filter buttons
-        filterButtons.forEach((button) => {
-          button.addEventListener("click", () => {
-            const filterType = button.getAttribute("data-filter");
-            currentFilter = filterType;
-
-            // Update active button styling
-            filterButtons.forEach((btn) => {
-              btn.classList.remove("active", "bg-blue-600", "text-white");
-              btn.classList.add("bg-gray-200", "text-gray-700");
-            });
-            button.classList.remove("bg-gray-200", "text-gray-700");
-            button.classList.add("active", "bg-blue-600", "text-white");
-
-            renderPage(1);
-          });
-        });
-
-        // Hide loading indicator and show initial page
-        const loadingIndicator = document.getElementById('loading-indicator');
-        if (loadingIndicator) {
-          loadingIndicator.style.display = 'none';
-        }
-        
-        // Initial render with fade-in effect
-        // Apply pagination immediately to prevent flash
-        setTimeout(() => {
-          renderPage(1);
-        }, 50);
-
-        } catch (error) {
-          console.error("Error in projects page:", error);
-        }
-
-      });
-    </script>
-
-    <style>
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      
-      /* Ensure cards are hidden by default */
-      .project-card {
-        opacity: 0;
-        visibility: hidden;
-      }
-      
-      .project-card.visible {
-        opacity: 1;
-        visibility: visible;
-      }
-      
-      /* Ensure navigation is properly positioned and visible */
-      .nav-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 50;
-        background-color: rgba(248, 245, 242, 0.95);
-        backdrop-filter: blur(8px);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-      }
-      
-      /* Ensure main content has proper spacing from navigation */
-      main#main-content {
-        margin-top: 0;
-        padding-top: 4.5rem !important;
-      }
-      
-      /* Ensure page has proper breathing room */
-      body {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
-    </style>
+    <script src="scripts.js" defer></script>
+    <script src="projects.js" defer></script>
   </body>
 </html>

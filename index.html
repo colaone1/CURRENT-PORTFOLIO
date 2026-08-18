@@ -4,6 +4,8 @@
   <head>
     <!-- ===== META TAGS ===== -->
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Cache-Control" content="public, max-age=3600" />
     <!-- Improved SEO and accessibility with meta description -->
@@ -20,7 +22,7 @@
     <link rel="preload" href="fonts/cinzel-600.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="images/Logos/logo.png" as="image" fetchpriority="high" />
     <link rel="preload" href="tailwind.css" as="style" />
-    <link rel="preload" href="styles.css?v=17" as="style" />
+    <link rel="preload" href="styles.css?v=18" as="style" />
 
     <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:title" content="Sam C. - Software Engineer Portfolio" />
@@ -58,218 +60,15 @@
       href="https://samconnor.uk/"
     />
 
-    <!-- Security Headers -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com;"
-    />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
-
-    <!-- Google Analytics -->
-    <!-- TODO: Replace with actual Google Analytics ID when available -->
-    <!-- <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-XXXXXXXXXX");
-    </script> -->
-
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Sam C.",
-        "jobTitle": "Software Developer",
-        "url": "https://samconnor.uk/",
-        "sameAs": [
-          "https://github.com/colaone1",
-          "https://www.linkedin.com/in/sam-connor-4ab195363"
-        ],
-        "description": "Full-stack developer and graphic designer. Portfolio includes SENBridge, testing infrastructure, backend work, and brand design.",
-        "knowsAbout": [
-          "HTML5",
-          "CSS3",
-          "JavaScript",
-          "TypeScript",
-          "React",
-          "Next.js",
-          "PostgreSQL",
-          "Prisma",
-          "Tailwind CSS",
-          "Web Development",
-          "UI/UX Design"
-        ]
-      }
-    </script>
+    <!-- Security -->
+    <script type="application/ld+json" src="person.jsonld"></script>
 
     <!-- ===== EXTERNAL RESOURCES ===== -->
     <link rel="stylesheet" href="fonts.css?v=3" />
     <link rel="stylesheet" href="tailwind.css" />
-    <link rel="stylesheet" href="styles.css?v=17" />
-    <link
-      rel="stylesheet"
-      href="vendor/fontawesome/css/icons.min.css"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
-    </noscript>
-    <!-- Inline critical CSS for nav, hero, and above-the-fold content -->
-    <style>
-
-      /* Critical @font-face (mirrors fonts.css) — starts decode with preloads */
-      @font-face{font-family:"Lexend";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/lexend-500.woff2") format("woff2")}
-      @font-face{font-family:"Lexend";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/lexend-700.woff2") format("woff2")}
-      @font-face{font-family:"Lexend";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/lexend-700.woff2") format("woff2")}
-      @font-face{font-family:"Rajdhani";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/rajdhani-700.woff2") format("woff2")}
-      @font-face{font-family:"Rajdhani";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/rajdhani-700.woff2") format("woff2")}
-      @font-face{font-family:"Cinzel";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/cinzel-600.woff2") format("woff2")}
-      @font-face{font-family:"Cinzel";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/cinzel-600.woff2") format("woff2")}
-      @font-face{font-family:"Cinzel";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/cinzel-600.woff2") format("woff2")}
-      :root {
-        --primary-color: #3a7bd5;
-        --text-color: #1a1a1a;
-        --background-color: #f8f5f2;
-      }
-      body {
-        margin: 0;
-        font-family: "Lexend", "Segoe UI", system-ui, sans-serif;
-        color: var(--text-color);
-        background-color: var(--background-color);
-      }
-      .nav-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 50;
-        backdrop-filter: none;
-        background-color: rgba(248, 245, 242, 0.95);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-      }
-      .hero-section {
-        position: relative;
-        min-height: 100vh;
-        margin-top: 1.5rem;
-        padding-top: 4rem;
-      }
-      /* Reserve logo box; PNG composites as one GPU layer while it floats */
-      .logo-container {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 9rem;
-        max-width: 12rem;
-        margin: 0 auto 1.5rem;
-      }
-      .logo-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        color: transparent;
-        text-indent: -9999px;
-        transform: translate3d(0, 0, 0);
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-      }
-      @media (max-width: 768px) {
-        .logo-container {
-          height: 6rem;
-          max-width: 8rem;
-        }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        * {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
-          scroll-behavior: auto !important;
-        }
-      }
-    </style>
-    <style>
-      /* Prevent background images and SVG patterns from being highlighted/selected */
-      .hero-section img,
-      .hero-section .geometric-pattern {
-        user-select: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        pointer-events: none;
-      }
-    </style>
-    <!-- Nest Hub specific overrides - loaded after Tailwind - ONLY affects exact Nest Hub dimensions -->
-    <style>
-      @media (min-width: 1024px) and (max-width: 1024px) and (max-height: 600px),
-             (width: 1024px) and (height: 600px) {
-        .hero-section {
-          min-height: 100vh !important;
-          height: 100vh !important;
-          padding-top: 3.5rem !important;
-          margin-top: 0 !important;
-          padding-bottom: 0.5rem !important;
-        }
-        .hero-section .relative.mx-auto {
-          padding: 0.25rem 1rem !important;
-        }
-        .hero-section h1 {
-          font-size: 1.75rem !important;
-          margin-bottom: 0.3rem !important;
-          line-height: 1.2 !important;
-        }
-        .hero-section .text-xl {
-          font-size: 0.875rem !important;
-          margin-bottom: 0.4rem !important;
-          line-height: 1.3 !important;
-        }
-        .logo-container {
-          height: 6.5rem !important;
-          max-width: 8.5rem !important;
-          margin-bottom: 0.8rem !important;
-        }
-        .hero-section .mt-4[class*="space-y"] {
-          margin-top: 0.5rem !important;
-        }
-        .hero-section .mt-4[class*="space-y"] p {
-          margin-bottom: 0.35rem !important;
-          font-size: 1.3rem !important;
-          line-height: 1.5 !important;
-        }
-        .hero-section .mt-8.grid,
-        .hero-section .skill-tags-container {
-          margin-top: 0.6rem !important;
-          gap: 0.4rem !important;
-        }
-        .hero-section .mt-8[class*="mt-12"],
-        .hero-section div:has(.quest-button) {
-          margin-top: 0.6rem !important;
-          margin-bottom: 0 !important;
-        }
-        .hero-section .quest-button {
-          margin-top: 0 !important;
-          margin-bottom: 0 !important;
-          padding: 0.45rem 1rem !important;
-          font-size: 0.875rem !important;
-          min-width: 120px !important;
-        }
-        .hero-section .skill-tag-button {
-          font-size: 0.7rem !important;
-          padding: 0.35rem 0.65rem !important;
-          min-height: 1.75rem !important;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css?v=18" />
+    <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
+    
 
     <!-- Ensure all JS is loaded with defer (except analytics, which should be async) -->
     <script src="scripts.js" defer></script>
