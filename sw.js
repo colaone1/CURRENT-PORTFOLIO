@@ -1,9 +1,9 @@
-const CURRENT_CACHE = 'portfolio-cache-v5';
+const CURRENT_CACHE = 'portfolio-cache-v12';
 const urlsToCache = [
     '/',
     '/index.html',
     '/tailwind.css',
-    '/styles.css?v=28',
+    '/styles.css?v=35',
     '/fonts.css?v=3',
     '/fonts/lexend-500.woff2',
     '/fonts/lexend-700.woff2',
