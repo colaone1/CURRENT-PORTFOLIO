@@ -240,8 +240,28 @@ const perfMonitor = {
 };
 
 const serviceWorker = {
+    isLocalHost() {
+        return location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+    },
+
+    unregisterAll() {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+            registrations.forEach((registration) => registration.unregister());
+        });
+        if (window.caches) {
+            caches.keys().then((keys) => keys.forEach((key) => caches.delete(key)));
+        }
+    },
+
     register() {
         if (!('serviceWorker' in navigator)) return;
+
+        // Firefox keeps a SW across visits; Cursor's preview usually does not.
+        // Local testing should match a clean load, not a stale worker.
+        if (this.isLocalHost()) {
+            this.unregisterAll();
+            return;
+        }
 
         navigator.serviceWorker.register('/sw.js')
             .then(registration => {

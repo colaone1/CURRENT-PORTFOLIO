@@ -1273,7 +1273,17 @@ footer::before {
     text-shadow: none;
 }
 
-.hero-section p:hover .hero-accent {
+.hero-tagline {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+.hero-tagline:hover .hero-accent {
     color: #00d2ff;
     text-shadow: none;
 }
@@ -1932,9 +1942,9 @@ form[role="search"] button:hover {
     }
 }
 
-html, body {
-    overflow-x: clip;
-}
+/* Do not set overflow-x on html/body: Firefox disables async pan/zoom (APZ)
+   when the root scroller is not overflow-visible, which stutters scroll.
+   Horizontal bleed from hero nets is clipped by .hero-deco instead. */
 
 /* Navbar logo hover glow effect to match hero text hover */
 .nav-logo img {
@@ -2712,7 +2722,6 @@ html:not(.motion-ready) .hero-section .logo-container img {
 
 html.motion-ready .hero-section .logo-container img {
     animation: owlFloat 3s ease-in-out infinite;
-    will-change: transform;
 }
 
 @keyframes owlFloat {
@@ -2760,7 +2769,6 @@ html.motion-ready .hero-section .logo-container img {
     mix-blend-mode: normal !important;
     pointer-events: none !important;
     transition: none !important;
-    contain: paint;
 }
 .geometric-pattern:hover {
     filter: none !important;
@@ -2786,7 +2794,7 @@ html.motion-ready .hero-section .logo-container img {
     transition: color 0.18s ease !important;
     text-shadow: none !important;
 }
-.hero-section p:hover .hero-accent {
+.hero-tagline:hover .hero-accent {
     color: #00d2ff !important;
     text-shadow: none !important;
 }
@@ -2815,6 +2823,42 @@ html.motion-ready .hero-section .logo-container img {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     background-color: rgba(248, 245, 242, 0.97) !important;
+}
+
+/* Firefox paints backdrop-filter on every scroll frame; Chromium often does not.
+   Cards sit on a solid page background, so blur is visual cost with no payoff. */
+.services-section .bg-gray-50,
+.projects-section .bg-white,
+.skills-section .bg-white,
+.projects-section .bg-gray-800 {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.services-section .bg-gray-50 {
+    background-color: #f8fafc !important;
+}
+
+.skills-section .bg-white,
+.projects-section .bg-white {
+    background-color: #ffffff !important;
+}
+
+.projects-section .bg-gray-800 {
+    background-color: #f8f5f2 !important;
+}
+
+.projects-section .bg-gray-800 h3,
+.projects-section .bg-gray-800 p,
+.projects-section .bg-gray-800 i,
+.projects-section .bg-gray-800 .text-gray-400,
+.projects-section .bg-gray-800 .text-blue-400 {
+    text-shadow: none !important;
+}
+
+.geometric-pattern {
+    contain: none;
 }
 
 .skill-tag-button {
