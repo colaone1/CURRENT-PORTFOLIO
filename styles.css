@@ -2695,8 +2695,7 @@ body.menu-open {
 
 /* ===== PERFORMANCE: motion gating & cheaper composites (CWV) ===== */
 html:not(.motion-ready) .geometric-pattern,
-html:not(.motion-ready) .logo-shine,
-html:not(.motion-ready) .hero-section .logo-container img {
+html:not(.motion-ready) .logo-shine {
     animation: none !important;
 }
 
@@ -2713,31 +2712,9 @@ html:not(.motion-ready) .hero-section .logo-container img {
     pointer-events: auto;
 }
 
-.hero-section .logo-container img {
-    display: block;
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-}
-
-html.motion-ready .hero-section .logo-container img {
-    animation: owlFloat 3s ease-in-out infinite;
-}
-
-@keyframes owlFloat {
-    0%,
-    100% {
-        transform: translate3d(0, 0, 0);
-    }
-    50% {
-        transform: translate3d(0, -12px, 0);
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
     .geometric-pattern,
     .logo-shine,
-    .hero-section .logo-container img,
     .animate-fadeInUp {
         animation: none !important;
         opacity: 1 !important;
@@ -2747,9 +2724,7 @@ html.motion-ready .hero-section .logo-container img {
 }
 
 @media (max-width: 768px) {
-    .geometric-pattern {
-        display: none !important;
-    }
+    /* Nets stay visible on small screens; size is set in the hero-deco rules. */
 }
 
 .animation-delay-200 { animation-delay: 0.2s; }
@@ -2812,8 +2787,7 @@ html.motion-ready .hero-section .logo-container img {
 
 /* Hero text/logo: drop expensive filter shadows */
 .hero-section h1,
-.hero-section p,
-.hero-section .logo-container img {
+.hero-section p {
     text-shadow: none !important;
     filter: none !important;
 }
@@ -2859,6 +2833,60 @@ html.motion-ready .hero-section .logo-container img {
 
 .geometric-pattern {
     contain: none;
+}
+
+.hero-deco .geometric-pattern.left,
+.hero-deco .geometric-pattern.right {
+    mix-blend-mode: normal !important;
+    display: block !important;
+    overflow: visible !important;
+    text-indent: 0 !important;
+    transform: none;
+}
+
+@keyframes heroNetDrift {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -8px, 0);
+    }
+}
+
+@keyframes heroNetDriftFlip {
+    0%,
+    100% {
+        transform: scaleX(-1) translate3d(0, 0, 0);
+    }
+    50% {
+        transform: scaleX(-1) translate3d(0, -8px, 0);
+    }
+}
+
+.hero-deco .geometric-pattern.left {
+    width: 28%;
+    left: 1%;
+    bottom: 8%;
+    top: auto;
+    opacity: 0.2 !important;
+}
+
+.hero-deco .geometric-pattern.right {
+    width: 26%;
+    right: 1%;
+    top: 12%;
+    bottom: auto;
+    opacity: 0.22 !important;
+    transform: scaleX(-1);
+}
+
+html.motion-ready .hero-deco .geometric-pattern.left {
+    animation: heroNetDrift 22s ease-in-out infinite !important;
+}
+
+html.motion-ready .hero-deco .geometric-pattern.right {
+    animation: heroNetDriftFlip 18s ease-in-out infinite !important;
 }
 
 .skill-tag-button {
@@ -3040,6 +3068,129 @@ html.motion-ready .hero-section .logo-container img {
         height: 6.5rem !important;
         max-width: 8.5rem !important;
         margin-bottom: 0.8rem !important;
+    }
+}
+
+/* Hero stack: one gap token so heading, lead, taglines, chips, and CTA align */
+.hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.hero-copy h1,
+.hero-copy .hero-lead,
+.hero-copy .quest-button,
+.hero-copy .skill-tags-container {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.hero-taglines {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.hero-copy .hero-tagline {
+    margin: 0 !important;
+    line-height: 1.2;
+}
+
+.hero-copy .skill-tags-container {
+    width: 100%;
+    gap: 0.75rem;
+}
+
+/* Hero fills naturally under the nav; do not 100vh-center (that leaves empty bands on tall tablets). */
+.hero-section {
+    height: auto !important;
+    min-height: 0 !important;
+    align-items: flex-start !important;
+    padding-top: 5.5rem !important;
+    padding-bottom: 3rem !important;
+    box-sizing: border-box;
+}
+
+.hero-section .relative.mx-auto {
+    width: 100%;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+}
+
+.hero-copy {
+    gap: 1.15rem;
+    width: 100%;
+}
+
+.hero-taglines {
+    gap: 1.15rem;
+}
+
+@media (max-width: 1023px) {
+    .hero-deco .geometric-pattern.left {
+        width: 34%;
+        left: 1%;
+        bottom: 6%;
+        opacity: 0.18 !important;
+    }
+
+    .hero-deco .geometric-pattern.right {
+        width: 32%;
+        right: 1%;
+        top: 10%;
+        opacity: 0.2 !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-copy {
+        gap: 0.9rem;
+    }
+
+    .hero-taglines {
+        gap: 0.9rem;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(1.5rem, 7vw, 2rem) !important;
+        line-height: 1.15;
+        letter-spacing: 0.1em;
+        max-width: 100%;
+    }
+
+    .hero-copy .hero-lead {
+        font-size: 1rem !important;
+        line-height: 1.45;
+        padding: 0;
+        max-width: 36rem;
+    }
+
+    .hero-copy .hero-tagline {
+        font-size: clamp(1.05rem, 4.4vw, 1.35rem) !important;
+    }
+
+    .hero-copy .skill-tags-container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .hero-deco .geometric-pattern.left,
+    .hero-deco .geometric-pattern.right {
+        width: 46%;
+        opacity: 0.16 !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-deco .geometric-pattern.left,
+    .hero-deco .geometric-pattern.right {
+        animation: none !important;
+        opacity: 0.18 !important;
+        transform: none;
     }
 }
 

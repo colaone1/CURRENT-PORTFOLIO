@@ -3,7 +3,7 @@ const urlsToCache = [
     '/',
     '/index.html',
     '/tailwind.css',
-    '/styles.css?v=20',
+    '/styles.css?v=28',
     '/fonts.css?v=3',
     '/fonts/lexend-500.woff2',
     '/fonts/lexend-700.woff2',

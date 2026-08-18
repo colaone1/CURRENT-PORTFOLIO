@@ -20,9 +20,8 @@
     <link rel="preload" href="fonts/lexend-500.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/lexend-700.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/cinzel-600.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="images/Logos/logo.png" as="image" fetchpriority="high" />
     <link rel="preload" href="tailwind.css" as="style" />
-    <link rel="preload" href="styles.css?v=20" as="style" />
+    <link rel="preload" href="styles.css?v=28" as="style" />
 
     <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:title" content="Sam C. - Software Engineer Portfolio" />
@@ -66,7 +65,7 @@
     <!-- ===== EXTERNAL RESOURCES ===== -->
     <link rel="stylesheet" href="fonts.css?v=3" />
     <link rel="stylesheet" href="tailwind.css" />
-    <link rel="stylesheet" href="styles.css?v=20" />
+    <link rel="stylesheet" href="styles.css?v=28" />
     <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
     
 
@@ -226,52 +225,28 @@
       <div
         class="relative mx-auto max-w-7xl px-6 pt-2"
       >
-        <div class="text-center">
-          <!-- Removed duplicate owl logo for cleaner design -->
+        <div class="hero-copy text-center">
           <h1
             class="text-5xl md:text-6xl lg:text-7xl font-rajdhani font-bold text-[#2d5aa0] tracking-widest uppercase"
-            
           >
             Developer & Designer
           </h1>
-          <p class="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto mt-6 font-semibold">
+          <p class="hero-lead text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto font-semibold">
             Full-stack developer creating immersive web experiences with clean code and innovative design.
           </p>
-          <div
-            class="logo-container relative mx-auto"
-            role="img"
-            aria-label="Portfolio logo"
-          >
-            <img
-              src="images/Logos/logo.png"
-              alt=""
-              class="w-full h-full object-contain"
-              width="512"
-              height="512"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-            />
-          </div>
-          <div class="mt-4 md:mt-8 space-y-4 md:space-y-8">
-            <p
-              class="hero-tagline text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 font-semibold"
-            >
+          <div class="hero-taglines">
+            <p class="hero-tagline text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 font-semibold">
               <span class="hero-accent text-[#2d5aa0]">Code</span> the Future
             </p>
-            <p
-              class="hero-tagline text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 font-semibold"
-            >
+            <p class="hero-tagline text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 font-semibold">
               <span class="hero-accent text-[#2d5aa0]">Design</span> the
               Experience
             </p>
-            <p
-              class="hero-tagline text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 font-semibold"
-            >
+            <p class="hero-tagline text-xl md:text-2xl lg:text-3xl font-cinzel text-gray-600 font-semibold">
               <span class="hero-accent text-[#2d5aa0]">Shape</span> the World
             </p>
           </div>
-          <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto skill-tags-container">
+          <div class="grid grid-cols-2 sm:grid-cols-4 max-w-4xl mx-auto skill-tags-container">
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">React</span>
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">Next.js</span>
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">TypeScript</span>
@@ -281,15 +256,13 @@
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">NextAuth</span>
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">Logo Design</span>
           </div>
-          <div class="mt-8 md:mt-12">
-            <a
-                              href="/projects"
-              class="quest-button font-semibold"
-              aria-label="View my work"
-            >
-              View My Work
-            </a>
-          </div>
+          <a
+            href="/projects"
+            class="quest-button font-semibold"
+            aria-label="View my work"
+          >
+            View My Work
+          </a>
         </div>
       </div>
     </header>
