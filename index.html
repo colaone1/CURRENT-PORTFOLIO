@@ -21,7 +21,7 @@
     <link rel="preload" href="fonts/lexend-700.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/cinzel-600.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="tailwind.css" as="style" />
-    <link rel="preload" href="styles.css?v=28" as="style" />
+    <link rel="preload" href="styles.css?v=35" as="style" />
 
     <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:title" content="Sam C. - Software Engineer Portfolio" />
@@ -65,7 +65,7 @@
     <!-- ===== EXTERNAL RESOURCES ===== -->
     <link rel="stylesheet" href="fonts.css?v=3" />
     <link rel="stylesheet" href="tailwind.css" />
-    <link rel="stylesheet" href="styles.css?v=28" />
+    <link rel="stylesheet" href="styles.css?v=35" />
     <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
     
 
@@ -203,22 +203,27 @@
       aria-label="Hero section"
     >
       <div class="hero-deco" aria-hidden="true">
-        <img
-          src="images/Background/net-design.png"
-          alt=""
-          class="geometric-pattern left"
-          width="800"
-          height="800"
-          decoding="async"
-        />
-        <img
-          src="images/Background/net-design.png"
-          alt=""
-          class="geometric-pattern right"
-          width="800"
-          height="800"
-          decoding="async"
-        />
+        <div class="hero-nets-static"></div>
+        <div class="hero-net hero-net-left">
+          <img
+            src="images/Background/net-design.png"
+            alt=""
+            class="hero-net-shift"
+            width="800"
+            height="800"
+            decoding="async"
+          />
+        </div>
+        <div class="hero-net hero-net-right">
+          <img
+            src="images/Background/net-design.png"
+            alt=""
+            class="hero-net-shift"
+            width="800"
+            height="800"
+            decoding="async"
+          />
+        </div>
       </div>
 
       <!-- Hero content positioned above the background with z-index -->
@@ -246,7 +251,7 @@
               <span class="hero-accent text-[#2d5aa0]">Shape</span> the World
             </p>
           </div>
-          <div class="grid grid-cols-2 sm:grid-cols-4 max-w-4xl mx-auto skill-tags-container">
+          <div class="skill-tags-container">
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">React</span>
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">Next.js</span>
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">TypeScript</span>
@@ -292,10 +297,10 @@
                 Full-Stack Development
               </h3>
             </div>
-            <p class="text-gray-600 text-center mb-4">
+            <p class="text-gray-600 text-center mb-4 leading-relaxed">
               Complete web applications from frontend to backend, using modern technologies like React, Next.js, TypeScript, and PostgreSQL.
             </p>
-            <ul class="space-y-2 text-sm text-gray-600">
+            <ul class="space-y-2 text-gray-600">
               <li class="flex items-center">
                 <i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>
                 <span>Responsive web applications</span>
@@ -322,10 +327,10 @@
                 Graphic Design
               </h3>
             </div>
-            <p class="text-gray-600 text-center mb-4">
+            <p class="text-gray-600 text-center mb-4 leading-relaxed">
               Creative visual design solutions including UI/UX design, branding, and digital graphics that enhance user experience.
             </p>
-            <ul class="space-y-2 text-sm text-gray-600">
+            <ul class="space-y-2 text-gray-600">
               <li class="flex items-center">
                 <i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>
                 <span>UI/UX design & prototyping</span>
@@ -352,10 +357,10 @@
                 Responsive Design
               </h3>
             </div>
-            <p class="text-gray-600 text-center mb-4">
+            <p class="text-gray-600 text-center mb-4 leading-relaxed">
               Mobile-first design approach ensuring your website looks and functions perfectly across all devices and screen sizes.
             </p>
-            <ul class="space-y-2 text-sm text-gray-600">
+            <ul class="space-y-2 text-gray-600">
               <li class="flex items-center">
                 <i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>
                 <span>Mobile-first approach</span>
@@ -382,10 +387,10 @@
                 Technical Leadership
               </h3>
             </div>
-            <p class="text-gray-600 text-center mb-4">
+            <p class="text-gray-600 text-center mb-4 leading-relaxed">
               Leading development teams, coordinating projects, and ensuring high-quality deliverables through effective communication and planning.
             </p>
-            <ul class="space-y-2 text-sm text-gray-600">
+            <ul class="space-y-2 text-gray-600">
               <li class="flex items-center">
                 <i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>
                 <span>Team coordination & mentoring</span>
@@ -412,10 +417,10 @@
                 AI-Enhanced Development
               </h3>
             </div>
-            <p class="text-gray-600 text-center mb-4">
+            <p class="text-gray-600 text-center mb-4 leading-relaxed">
               Leveraging AI tools and automation to accelerate development, improve code quality, and create innovative solutions.
             </p>
-            <ul class="space-y-2 text-sm text-gray-600">
+            <ul class="space-y-2 text-gray-600">
               <li class="flex items-center">
                 <i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>
                 <span>AI-assisted coding & debugging</span>
@@ -442,10 +447,10 @@
                 Problem Solving
               </h3>
             </div>
-            <p class="text-gray-600 text-center mb-4">
+            <p class="text-gray-600 text-center mb-4 leading-relaxed">
               Analytical approach to complex technical challenges, finding efficient solutions that meet business requirements and user needs.
             </p>
-            <ul class="space-y-2 text-sm text-gray-600">
+            <ul class="space-y-2 text-gray-600">
               <li class="flex items-center">
                 <i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>
                 <span>Technical troubleshooting</span>

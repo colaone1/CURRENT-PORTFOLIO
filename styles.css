@@ -1061,7 +1061,7 @@ footer::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .hero-section .relative {
@@ -2401,34 +2401,38 @@ body.menu-open {
 
 /* Skill Tag Buttons - Blue buttons in hero section */
 .skill-tag-button {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     white-space: nowrap;
-    min-height: 2rem;
-    width: 100%;
+    min-height: 2.25rem;
+    width: auto;
+    flex: 0 0 auto;
+    padding: 0.45rem 1rem;
     transition: all 0.2s ease;
 }
 
 .skill-tags-container {
-    display: grid;
-    gap: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem 0.7rem;
 }
 
 /* Mobile optimizations for skill tag buttons */
 @media (max-width: 640px) {
     .skill-tag-button {
         font-size: 0.75rem;
-        padding: 0.5rem 0.75rem;
+        padding: 0.45rem 0.85rem;
         min-height: 2.25rem;
     }
     
     .skill-tags-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem;
+        gap: 0.5rem 0.55rem;
         max-width: 100%;
-        padding: 0 1rem;
+        padding: 0;
     }
 }
 
@@ -2436,12 +2440,7 @@ body.menu-open {
 @media (min-width: 641px) and (max-width: 1023px) {
     .skill-tag-button {
         font-size: 0.875rem;
-        padding: 0.5rem 1rem;
-    }
-    
-    .skill-tags-container {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 0.75rem;
+        padding: 0.45rem 1rem;
     }
 }
 
@@ -2695,6 +2694,7 @@ body.menu-open {
 
 /* ===== PERFORMANCE: motion gating & cheaper composites (CWV) ===== */
 html:not(.motion-ready) .geometric-pattern,
+html:not(.motion-ready) .hero-net-shift,
 html:not(.motion-ready) .logo-shine {
     animation: none !important;
 }
@@ -2702,9 +2702,41 @@ html:not(.motion-ready) .logo-shine {
 .hero-deco {
     position: absolute;
     inset: 0;
-    overflow: hidden;
+    overflow: visible;
     pointer-events: none;
     z-index: 0;
+}
+
+.hero-nets-static {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-nets-static::before,
+.hero-nets-static::after {
+    content: "";
+    position: absolute;
+    background: url("images/Background/net-design.png") no-repeat center / contain;
+    pointer-events: none;
+}
+
+.hero-nets-static::before {
+    width: 22%;
+    aspect-ratio: 1;
+    left: 18%;
+    top: 6%;
+    opacity: 0.08;
+}
+
+.hero-nets-static::after {
+    width: 20%;
+    aspect-ratio: 1;
+    right: 16%;
+    bottom: 4%;
+    opacity: 0.09;
+    transform: scaleX(-1);
 }
 
 #back-to-top.is-visible {
@@ -2835,58 +2867,57 @@ html:not(.motion-ready) .logo-shine {
     contain: none;
 }
 
-.hero-deco .geometric-pattern.left,
-.hero-deco .geometric-pattern.right {
-    mix-blend-mode: normal !important;
-    display: block !important;
-    overflow: visible !important;
-    text-indent: 0 !important;
-    transform: none;
+.hero-net {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    overflow: visible;
 }
 
-@keyframes heroNetDrift {
-    0%,
-    100% {
-        transform: translate3d(0, 0, 0);
-    }
-    50% {
-        transform: translate3d(0, -8px, 0);
-    }
-}
-
-@keyframes heroNetDriftFlip {
-    0%,
-    100% {
-        transform: scaleX(-1) translate3d(0, 0, 0);
-    }
-    50% {
-        transform: scaleX(-1) translate3d(0, -8px, 0);
-    }
-}
-
-.hero-deco .geometric-pattern.left {
+.hero-net-left {
     width: 28%;
     left: 1%;
     bottom: 8%;
     top: auto;
-    opacity: 0.2 !important;
+    opacity: 0.2;
 }
 
-.hero-deco .geometric-pattern.right {
+.hero-net-right {
     width: 26%;
     right: 1%;
     top: 12%;
     bottom: auto;
-    opacity: 0.22 !important;
-    transform: scaleX(-1);
+    opacity: 0.22;
 }
 
-html.motion-ready .hero-deco .geometric-pattern.left {
-    animation: heroNetDrift 22s ease-in-out infinite !important;
+.hero-net-shift {
+    display: block;
+    width: 100%;
+    height: auto;
+    translate: 0 0;
+    transform: translateZ(0);
 }
 
-html.motion-ready .hero-deco .geometric-pattern.right {
-    animation: heroNetDriftFlip 18s ease-in-out infinite !important;
+.hero-net-right .hero-net-shift {
+    scale: -1 1;
+}
+
+@keyframes heroNetDrift {
+    from {
+        translate: 0 16px;
+    }
+    to {
+        translate: 0 -16px;
+    }
+}
+
+html.motion-ready .hero-net-shift {
+    animation: heroNetDrift 5.5s linear infinite alternate;
+}
+
+html.motion-ready .hero-net-right .hero-net-shift {
+    animation-duration: 6.5s;
+    animation-delay: -2s;
 }
 
 .skill-tag-button {
@@ -2903,7 +2934,7 @@ html.motion-ready .hero-deco .geometric-pattern.right {
 .hero-section .animation-delay-800 { animation-delay: 0.2s !important; }
 
 .contact-form-section {
-    margin-top: 30vh;
+    margin-top: 2rem;
 }
 
 .projects-page-main {
@@ -2917,8 +2948,8 @@ html.motion-ready .hero-deco .geometric-pattern.right {
 }
 
 #projects-grid {
-    min-height: 520px;
-    grid-auto-rows: 1fr;
+    min-height: 0;
+    grid-auto-rows: auto;
 }
 
 .project-card.hidden {
@@ -2928,7 +2959,8 @@ html.motion-ready .hero-deco .geometric-pattern.right {
 .project-card {
     display: flex;
     flex-direction: column;
-    height: 600px;
+    height: auto;
+    min-height: 0;
     opacity: 0;
     visibility: hidden;
 }
@@ -2949,17 +2981,18 @@ html.motion-ready .hero-deco .geometric-pattern.right {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    height: 100%;
-    min-height: 408px;
+    height: auto;
+    min-height: 0;
+    padding: 1.5rem;
 }
 
 .project-content-main {
     flex-grow: 1;
-    overflow: hidden;
+    overflow: visible;
     margin-bottom: 8px;
     display: flex;
     flex-direction: column;
-    min-height: 300px;
+    min-height: 0;
 }
 
 .project-content-buttons {
@@ -3105,14 +3138,20 @@ html.motion-ready .hero-deco .geometric-pattern.right {
     gap: 0.75rem;
 }
 
-/* Hero fills naturally under the nav; do not 100vh-center (that leaves empty bands on tall tablets). */
+/* First screen is the hero only. Services start below the fold. */
 .hero-section {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
     height: auto !important;
-    min-height: 0 !important;
-    align-items: flex-start !important;
+    min-height: 100vh !important;
+    min-height: 100lvh !important;
+    margin-top: 0 !important;
     padding-top: 5.5rem !important;
-    padding-bottom: 3rem !important;
+    padding-bottom: 2.5rem !important;
     box-sizing: border-box;
+    overflow: visible;
 }
 
 .hero-section .relative.mx-auto {
@@ -3122,37 +3161,62 @@ html.motion-ready .hero-deco .geometric-pattern.right {
 }
 
 .hero-copy {
-    gap: 1.15rem;
+    gap: 1.75rem;
     width: 100%;
 }
 
 .hero-taglines {
-    gap: 1.15rem;
+    gap: 1.35rem;
+}
+
+.hero-copy .hero-lead {
+    font-size: 1.25rem !important;
+    line-height: 1.55 !important;
+    max-width: 40rem;
+}
+
+.hero-copy .hero-tagline {
+    font-size: clamp(1.35rem, 2.4vw, 1.875rem) !important;
+    line-height: 1.35 !important;
 }
 
 @media (max-width: 1023px) {
-    .hero-deco .geometric-pattern.left {
+    .hero-net-left {
         width: 34%;
         left: 1%;
         bottom: 6%;
-        opacity: 0.18 !important;
+        opacity: 0.18;
     }
 
-    .hero-deco .geometric-pattern.right {
+    .hero-net-right {
         width: 32%;
         right: 1%;
         top: 10%;
-        opacity: 0.2 !important;
+        opacity: 0.2;
+    }
+
+    .hero-nets-static::before {
+        width: 24%;
+        left: 14%;
+        top: 8%;
+        opacity: 0.07;
+    }
+
+    .hero-nets-static::after {
+        width: 22%;
+        right: 12%;
+        bottom: 6%;
+        opacity: 0.08;
     }
 }
 
 @media (max-width: 767px) {
     .hero-copy {
-        gap: 0.9rem;
+        gap: 1.15rem;
     }
 
     .hero-taglines {
-        gap: 0.9rem;
+        gap: 1.1rem;
     }
 
     .hero-copy h1 {
@@ -3178,19 +3242,84 @@ html.motion-ready .hero-deco .geometric-pattern.right {
         padding: 0;
     }
 
-    .hero-deco .geometric-pattern.left,
-    .hero-deco .geometric-pattern.right {
+    .hero-net-left,
+    .hero-net-right {
         width: 46%;
-        opacity: 0.16 !important;
+        opacity: 0.16;
+    }
+
+    .hero-nets-static::before,
+    .hero-nets-static::after {
+        width: 28%;
+        opacity: 0.06;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hero-deco .geometric-pattern.left,
-    .hero-deco .geometric-pattern.right {
+    .hero-net-shift {
         animation: none !important;
-        opacity: 0.18 !important;
-        transform: none;
+        translate: none !important;
+        will-change: auto !important;
     }
 }
+
+.hero-copy .skill-tags-container {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.65rem 0.75rem;
+    width: 100%;
+    max-width: 36rem;
+    margin-inline: auto;
+}
+
+.hero-copy .skill-tag-button {
+    width: auto !important;
+    flex: 0 0 auto;
+    padding: 0.45rem 1.05rem !important;
+    min-height: 2.35rem;
+}
+
+/* Match nav width so inner pages do not snap to Tailwind's smaller container steps. */
+.container {
+    width: 100%;
+    max-width: 80rem;
+}
+
+.services-section .bg-gray-50,
+.skills-section .bg-white,
+.projects-section article {
+    padding: 1.75rem 1.6rem;
+}
+
+.services-section p,
+.services-section li,
+.skills-section p,
+.skills-section li,
+.projects-section p,
+#main-content p {
+    line-height: 1.7;
+}
+
+.services-section p,
+.services-section li {
+    font-size: 1rem !important;
+}
+
+.services-section h3 {
+    font-size: 1.25rem !important;
+    line-height: 1.35;
+    margin-bottom: 0.65rem;
+}
+
+.services-section ul {
+    font-size: 1rem;
+}
+
+#main-content {
+    line-height: 1.65;
+}
+
+
 
