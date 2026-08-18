@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sam C.",
+  "jobTitle": "Software Developer",
+  "url": "https://samconnor.uk/",
+  "sameAs": [
+    "https://github.com/colaone1",
+    "https://www.linkedin.com/in/sam-connor-4ab195363"
+  ],
+  "description": "Full-stack developer and graphic designer. Portfolio includes SENBridge, testing infrastructure, backend work, and brand design.",
+  "knowsAbout": [
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "PostgreSQL",
+    "Prisma",
+    "Tailwind CSS",
+    "Web Development",
+    "UI/UX Design"
+  ]
+}

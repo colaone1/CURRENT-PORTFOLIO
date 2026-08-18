@@ -16,7 +16,6 @@ body {
     font-family: 'Lexend', sans-serif;
     color: var(--text-color);
     background-color: var(--background-color);
-    overflow-x: hidden;
 }
 
 .nav-container {
@@ -25,8 +24,7 @@ body {
     left: 0;
     right: 0;
     z-index: 50;
-    backdrop-filter: blur(8px);
-    background-color: rgba(248, 245, 242, 0.7);
+    background-color: rgba(248, 245, 242, 0.97);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -1269,15 +1267,23 @@ footer::before {
     margin-bottom: 1.5rem;
 }
 
-.hero-section span,
 .hero-section .hero-accent {
-    font-weight: 600;
+    font-weight: inherit;
     transition: color 0.18s ease;
     text-shadow: none;
 }
 
-.hero-section p:hover span,
-.hero-section p:hover .hero-accent {
+.hero-tagline {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+.hero-tagline:hover .hero-accent {
     color: #00d2ff;
     text-shadow: none;
 }
@@ -1936,9 +1942,9 @@ form[role="search"] button:hover {
     }
 }
 
-html, body {
-    overflow-x: hidden;
-}
+/* Do not set overflow-x on html/body: Firefox disables async pan/zoom (APZ)
+   when the root scroller is not overflow-visible, which stutters scroll.
+   Horizontal bleed from hero nets is clipped by .hero-deco instead. */
 
 /* Navbar logo hover glow effect to match hero text hover */
 .nav-logo img {
@@ -2693,12 +2699,17 @@ html:not(.motion-ready) .logo-shine {
     animation: none !important;
 }
 
-html.motion-ready .geometric-pattern {
-    will-change: transform;
+.hero-deco {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
 }
 
-html.motion-ready .logo-shine {
-    will-change: transform, opacity;
+#back-to-top.is-visible {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2708,13 +2719,12 @@ html.motion-ready .logo-shine {
         animation: none !important;
         opacity: 1 !important;
         transform: none !important;
+        will-change: auto !important;
     }
 }
 
 @media (max-width: 768px) {
-    .geometric-pattern {
-        display: none !important;
-    }
+    /* Nets stay visible on small screens; size is set in the hero-deco rules. */
 }
 
 .animation-delay-200 { animation-delay: 0.2s; }
@@ -2723,8 +2733,8 @@ html.motion-ready .logo-shine {
 .animation-delay-800 { animation-delay: 0.8s; }
 
 .nav-container {
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
 
@@ -2733,8 +2743,7 @@ html.motion-ready .logo-shine {
     filter: none !important;
     mix-blend-mode: normal !important;
     pointer-events: none !important;
-    transition: opacity 0.3s ease, transform 0.3s ease !important;
-    contain: layout paint;
+    transition: none !important;
 }
 .geometric-pattern:hover {
     filter: none !important;
@@ -2742,13 +2751,7 @@ html.motion-ready .logo-shine {
 }
 
 
-/* ===== PERFORMANCE: content-visibility for below-fold ===== */
-.services-section,
-.skills-section,
-.projects-section {
-    content-visibility: auto;
-    contain-intrinsic-size: 1px 800px;
-}
+/* Below-fold sections stay in the normal scroll layer */
 
 /* Avoid expensive hover scale on about portrait (layout/paint) */
 @media (hover: hover) {
@@ -2762,13 +2765,11 @@ html.motion-ready .logo-shine {
 
 /* ===== PERFORMANCE: hero highlight FPS hard fix ===== */
 /* Accent words: short color-only fade (no shadow paint) */
-.hero-section span,
 .hero-section .hero-accent {
     transition: color 0.18s ease !important;
     text-shadow: none !important;
 }
-.hero-section p:hover span,
-.hero-section p:hover .hero-accent {
+.hero-tagline:hover .hero-accent {
     color: #00d2ff !important;
     text-shadow: none !important;
 }
@@ -2786,8 +2787,7 @@ html.motion-ready .logo-shine {
 
 /* Hero text/logo: drop expensive filter shadows */
 .hero-section h1,
-.hero-section p,
-.hero-section .logo-container img {
+.hero-section p {
     text-shadow: none !important;
     filter: none !important;
 }
@@ -2797,6 +2797,96 @@ html.motion-ready .logo-shine {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     background-color: rgba(248, 245, 242, 0.97) !important;
+}
+
+/* Firefox paints backdrop-filter on every scroll frame; Chromium often does not.
+   Cards sit on a solid page background, so blur is visual cost with no payoff. */
+.services-section .bg-gray-50,
+.projects-section .bg-white,
+.skills-section .bg-white,
+.projects-section .bg-gray-800 {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.services-section .bg-gray-50 {
+    background-color: #f8fafc !important;
+}
+
+.skills-section .bg-white,
+.projects-section .bg-white {
+    background-color: #ffffff !important;
+}
+
+.projects-section .bg-gray-800 {
+    background-color: #f8f5f2 !important;
+}
+
+.projects-section .bg-gray-800 h3,
+.projects-section .bg-gray-800 p,
+.projects-section .bg-gray-800 i,
+.projects-section .bg-gray-800 .text-gray-400,
+.projects-section .bg-gray-800 .text-blue-400 {
+    text-shadow: none !important;
+}
+
+.geometric-pattern {
+    contain: none;
+}
+
+.hero-deco .geometric-pattern.left,
+.hero-deco .geometric-pattern.right {
+    mix-blend-mode: normal !important;
+    display: block !important;
+    overflow: visible !important;
+    text-indent: 0 !important;
+    transform: none;
+}
+
+@keyframes heroNetDrift {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -8px, 0);
+    }
+}
+
+@keyframes heroNetDriftFlip {
+    0%,
+    100% {
+        transform: scaleX(-1) translate3d(0, 0, 0);
+    }
+    50% {
+        transform: scaleX(-1) translate3d(0, -8px, 0);
+    }
+}
+
+.hero-deco .geometric-pattern.left {
+    width: 28%;
+    left: 1%;
+    bottom: 8%;
+    top: auto;
+    opacity: 0.2 !important;
+}
+
+.hero-deco .geometric-pattern.right {
+    width: 26%;
+    right: 1%;
+    top: 12%;
+    bottom: auto;
+    opacity: 0.22 !important;
+    transform: scaleX(-1);
+}
+
+html.motion-ready .hero-deco .geometric-pattern.left {
+    animation: heroNetDrift 22s ease-in-out infinite !important;
+}
+
+html.motion-ready .hero-deco .geometric-pattern.right {
+    animation: heroNetDriftFlip 18s ease-in-out infinite !important;
 }
 
 .skill-tag-button {
@@ -2811,4 +2901,296 @@ html.motion-ready .logo-shine {
 .hero-section .animation-delay-400 { animation-delay: 0.1s !important; }
 .hero-section .animation-delay-600 { animation-delay: 0.15s !important; }
 .hero-section .animation-delay-800 { animation-delay: 0.2s !important; }
+
+.contact-form-section {
+    margin-top: 30vh;
+}
+
+.projects-page-main {
+    padding-top: 4.5rem;
+    padding-bottom: 4rem;
+}
+
+.pagination-controls {
+    margin-bottom: 8rem;
+    padding-bottom: 2rem;
+}
+
+#projects-grid {
+    min-height: 520px;
+    grid-auto-rows: 1fr;
+}
+
+.project-card.hidden {
+    display: none !important;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.project-card.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.project-card > div:first-child {
+    height: 192px;
+    min-height: 192px;
+    max-height: 192px;
+    flex-shrink: 0;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+    min-height: 408px;
+}
+
+.project-content-main {
+    flex-grow: 1;
+    overflow: hidden;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+}
+
+.project-content-buttons {
+    flex-shrink: 0;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-height: 40px;
+}
+
+.project-card-fade {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hp-field {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.page-404 {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Lexend", sans-serif;
+    color: #1a1a1a;
+    background: linear-gradient(160deg, #f8f5f2 0%, #e8eef7 100%);
+    text-align: center;
+    padding: 2rem;
+}
+
+.page-404 h1 {
+    font-family: "Cinzel", serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin: 0 0 0.75rem;
+    color: #2d5aa0;
+}
+
+.page-404 p {
+    margin: 0 0 1.75rem;
+    max-width: 28rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.page-404 a {
+    display: inline-block;
+    background: #1a1a1a;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+}
+
+.page-404 a:hover {
+    background: #2d5aa0;
+}
+
+.page-404 a:focus {
+    outline: 2px solid #3a7bd5;
+    outline-offset: 3px;
+}
+
+.hero-section img,
+.hero-section .geometric-pattern {
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: none;
+}
+
+@media (width: 1024px) and (height: 600px) {
+    .hero-section {
+        min-height: 100vh !important;
+        height: 100vh !important;
+        padding-top: 3.5rem !important;
+        margin-top: 0 !important;
+        padding-bottom: 0.5rem !important;
+    }
+    .hero-section .relative.mx-auto {
+        padding: 0.25rem 1rem !important;
+    }
+    .hero-section h1 {
+        font-size: 1.75rem !important;
+        margin-bottom: 0.3rem !important;
+        line-height: 1.2 !important;
+    }
+    .logo-container {
+        height: 6.5rem !important;
+        max-width: 8.5rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+}
+
+/* Hero stack: one gap token so heading, lead, taglines, chips, and CTA align */
+.hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.hero-copy h1,
+.hero-copy .hero-lead,
+.hero-copy .quest-button,
+.hero-copy .skill-tags-container {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.hero-taglines {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.hero-copy .hero-tagline {
+    margin: 0 !important;
+    line-height: 1.2;
+}
+
+.hero-copy .skill-tags-container {
+    width: 100%;
+    gap: 0.75rem;
+}
+
+/* Hero fills naturally under the nav; do not 100vh-center (that leaves empty bands on tall tablets). */
+.hero-section {
+    height: auto !important;
+    min-height: 0 !important;
+    align-items: flex-start !important;
+    padding-top: 5.5rem !important;
+    padding-bottom: 3rem !important;
+    box-sizing: border-box;
+}
+
+.hero-section .relative.mx-auto {
+    width: 100%;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+}
+
+.hero-copy {
+    gap: 1.15rem;
+    width: 100%;
+}
+
+.hero-taglines {
+    gap: 1.15rem;
+}
+
+@media (max-width: 1023px) {
+    .hero-deco .geometric-pattern.left {
+        width: 34%;
+        left: 1%;
+        bottom: 6%;
+        opacity: 0.18 !important;
+    }
+
+    .hero-deco .geometric-pattern.right {
+        width: 32%;
+        right: 1%;
+        top: 10%;
+        opacity: 0.2 !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-copy {
+        gap: 0.9rem;
+    }
+
+    .hero-taglines {
+        gap: 0.9rem;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(1.5rem, 7vw, 2rem) !important;
+        line-height: 1.15;
+        letter-spacing: 0.1em;
+        max-width: 100%;
+    }
+
+    .hero-copy .hero-lead {
+        font-size: 1rem !important;
+        line-height: 1.45;
+        padding: 0;
+        max-width: 36rem;
+    }
+
+    .hero-copy .hero-tagline {
+        font-size: clamp(1.05rem, 4.4vw, 1.35rem) !important;
+    }
+
+    .hero-copy .skill-tags-container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .hero-deco .geometric-pattern.left,
+    .hero-deco .geometric-pattern.right {
+        width: 46%;
+        opacity: 0.16 !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-deco .geometric-pattern.left,
+    .hero-deco .geometric-pattern.right {
+        animation: none !important;
+        opacity: 0.18 !important;
+        transform: none;
+    }
+}
 

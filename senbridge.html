@@ -7,10 +7,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="public, max-age=3600" />
-    <meta name="description" content="Professional leaflet design for CARECOVID - marketing material that communicates healthcare information with a clear visual hierarchy.">
-    <title>CARECOVID Leaflet Design | Sam C.</title>
-    <link rel="canonical" href="https://samconnor.uk/carecovid-leaflet" />
+    <meta name="description" content="SENBridge is a SEND-focused AI assistant for parents and carers in England. It grounds answers in official legislation and guidance, with citations, streaming chat, and letter drafting.">
+    <title>SENBridge | Sam C.</title>
+    <link rel="canonical" href="https://samconnor.uk/senbridge" />
 
+    <!-- External Resources -->
     <link rel="stylesheet" href="fonts.css?v=3" />
     <link rel="stylesheet" href="tailwind.css" />
     <link rel="stylesheet" href="styles.css?v=28">
@@ -18,12 +19,14 @@
   </head>
 
   <body class="min-h-screen bg-[#f8f5f2] flex flex-col">
+    <!-- Skip to main content link for keyboard navigation -->
     <a href="#main-content"
        class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:outline-none"
        aria-label="Skip to main content">
       Skip to main content
     </a>
 
+    <!-- ===== NAVIGATION BAR ===== -->
     <nav class="nav-container bg-[#f8f5f2]" role="navigation" aria-label="Main navigation">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 justify-between items-center">
@@ -49,6 +52,7 @@
         </div>
     </nav>
 
+    <!-- Mobile nav menu (hidden by default) -->
     <div id="mobile-menu" class="md:hidden fixed top-0 left-0 w-full h-full bg-white bg-opacity-95 z-50 flex flex-col items-center justify-center space-y-8 text-2xl font-semibold hidden" role="menu" aria-label="Mobile navigation">
         <button id="mobile-menu-close" class="absolute top-6 right-6 text-3xl text-[#3a7bd5] focus:outline-none" aria-label="Close navigation menu">&times;</button>
         <a href="/" class="nav-button block w-full text-center" role="menuitem">Home</a>
@@ -57,76 +61,115 @@
         <a href="/contact" class="nav-button block w-full text-center" role="menuitem">Contact</a>
     </div>
 
+    <!-- Project Header -->
     <header class="bg-gray-900 text-white py-20">
         <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-cinzel font-bold text-center mb-6">CARECOVID Leaflet Design</h1>
+            <h1 class="text-4xl md:text-5xl font-cinzel font-bold text-center mb-6">SENBridge</h1>
             <p class="text-xl text-center text-gray-400 max-w-3xl mx-auto">
-                Print and digital marketing material with a clear information hierarchy.
+                A SEND-focused AI assistant for parents and carers in England, with answers grounded in official sources and citations you can check.
             </p>
         </div>
     </header>
 
+    <!-- Project Content -->
     <main id="main-content" class="container mx-auto px-4 py-16 flex-grow">
         <div class="max-w-4xl mx-auto">
+            <!-- Project Overview -->
             <section class="mb-16">
-                <img src="images/designs/carecovid-leaflet.png" alt="CARECOVID leaflet design" class="w-full rounded-lg shadow-lg mb-8">
                 <h2 class="text-3xl font-bold mb-6">Project Overview</h2>
                 <p class="text-gray-700 mb-4">
-                    Designed an informative leaflet for CARECOVID that communicates healthcare services to patients and stakeholders. The layout balances a professional medical look with a clear reading order for print and digital distribution.
+                    SENBridge helps parents and carers understand SEND (Special Educational Needs and Disabilities) law and guidance in England. It retrieves official-style source text at request time, requires citations in model answers, and refuses to guess when it cannot ground a response. The live product includes streaming chat, letter drafting, and optional sign-in.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    It is practical guidance with citations, not formal legal advice. Safeguarding checks run before the model is called, and the product is England-only.
                 </p>
                 <div class="bg-gray-100 p-6 rounded-lg mb-6">
-                    <h3 class="text-xl font-semibold mb-4">Skills and tools</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Layout Design</span>
-                        <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Print Design</span>
-                        <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Typography</span>
-                        <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Adobe InDesign</span>
-                        <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Adobe Illustrator</span>
-                        <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Brand Integration</span>
+                    <h3 class="text-xl font-semibold mb-4">Key Technologies</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="flex items-center space-x-2">
+                            <i class="fab fa-react text-blue-400 text-2xl"></i>
+                            <span>Next.js / React</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-code text-blue-500 text-2xl"></i>
+                            <span>TypeScript</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-brain text-blue-600 text-2xl"></i>
+                            <span>Google Gemini</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-database text-blue-600 text-2xl"></i>
+                            <span>Prisma</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-key text-yellow-600 text-2xl"></i>
+                            <span>NextAuth</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fab fa-css3-alt text-blue-500 text-2xl"></i>
+                            <span>Tailwind CSS</span>
+                        </div>
                     </div>
                 </div>
             </section>
 
+            <!-- Technical Implementation -->
             <section class="mb-16">
-                <h2 class="text-3xl font-bold mb-6">Design Process</h2>
+                <h2 class="text-3xl font-bold mb-6">Technical Implementation</h2>
                 <div class="space-y-8">
                     <div>
-                        <h3 class="text-xl font-semibold mb-4">Content, layout, and production</h3>
+                        <h3 class="text-xl font-semibold mb-4">Grounded retrieval and chat</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>Mapped key messages and audience needs before locking the layout</li>
-                            <li>Used a grid to organise information while keeping brand consistency</li>
-                            <li>Applied type, colour, and imagery for a professional medical aesthetic</li>
-                            <li>Prepared files for print, including colour and resolution checks</li>
+                            <li>Local retrieval from embedded SEND definitions and curated official source files</li>
+                            <li>Streaming chat API with conversation context validated on the server</li>
+                            <li>Citation checks so answers must reference retrieved sources, or the app refuses</li>
+                            <li>Safeguarding filter before the model is called</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Product and quality</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Optional accounts with NextAuth and Prisma-backed data</li>
+                            <li>Letter and email drafting for schools or local authorities</li>
+                            <li>Automated tests with Jest and Playwright, plus TypeScript and ESLint in the build</li>
+                            <li>Deployed production app at senbridge.uk</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
+            <!-- Features -->
             <section class="mb-16">
-                <h2 class="text-3xl font-bold mb-6">Design Features</h2>
+                <h2 class="text-3xl font-bold mb-6">Key Features</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                        <h3 class="text-xl font-semibold mb-4">Information design</h3>
+                        <h3 class="text-xl font-semibold mb-4">SEND guidance</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>Clear hierarchy so important information is easy to find</li>
-                            <li>Type sizes chosen for readability across audiences</li>
+                            <li>Answers grounded in official-style SEND sources</li>
+                            <li>Citations parents can check against the original documents</li>
+                            <li>Refuses when no relevant source is retrieved</li>
+                            <li>England-only scope, with a legal-advice disclaimer</li>
                         </ul>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                        <h3 class="text-xl font-semibold mb-4">Brand and print</h3>
+                        <h3 class="text-xl font-semibold mb-4">Practical next steps</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>CARECOVID logo and brand elements used consistently</li>
-                            <li>Optimised for print production and digital sharing</li>
+                            <li>Streaming chat for EHCP and SEN Support questions</li>
+                            <li>Draft letters or emails to schools or local authorities</li>
+                            <li>Optional sign-in for account features</li>
+                            <li>Safeguarding redirect for immediate-risk questions</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
+            <!-- Project Links -->
             <section class="mb-16">
                 <h2 class="text-3xl font-bold mb-6">Project Links</h2>
                 <div class="flex flex-col space-y-4">
-                    <a href="/contact" class="block w-full bg-gray-900 text-white text-center py-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                        Get in touch
+                    <a href="https://senbridge.uk" target="_blank" rel="noopener noreferrer" class="block w-full bg-gray-900 text-white text-center py-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                        <i class="fas fa-external-link-alt mr-2"></i>View Live
                     </a>
                     <a href="/projects" class="block w-full bg-gray-900 text-white text-center py-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none">
                         <i class="fas fa-arrow-left mr-2"></i>Back to Projects
@@ -136,16 +179,33 @@
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white mt-auto">
       <div class="mx-auto max-w-7xl px-6 py-12 text-center">
         <div class="flex justify-center space-x-6">
-          <a href="https://github.com/colaone1" class="text-gray-400 hover:text-gray-300" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile">
+          <a
+            href="https://github.com/colaone1"
+            class="text-gray-400 hover:text-gray-300"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit my GitHub profile"
+          >
             <i class="fab fa-github" aria-hidden="true"></i>
           </a>
-          <a href="https://www.linkedin.com/in/sam-connor-4ab195363" class="text-gray-400 hover:text-gray-300" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile">
+          <a
+            href="https://www.linkedin.com/in/sam-connor-4ab195363"
+            class="text-gray-400 hover:text-gray-300"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit my LinkedIn profile"
+          >
             <i class="fab fa-linkedin" aria-hidden="true"></i>
           </a>
-          <a href="mailto:sam.c.software.dev@gmail.com" class="text-gray-400 hover:text-gray-300" aria-label="Send me an email">
+          <a
+            href="mailto:sam.c.software.dev@gmail.com"
+            class="text-gray-400 hover:text-gray-300"
+            aria-label="Send me an email"
+          >
             <i class="fas fa-envelope" aria-hidden="true"></i>
           </a>
         </div>
@@ -157,6 +217,7 @@
       </div>
     </footer>
 
+    <!-- Back to Top Button -->
     <button
       id="back-to-top"
       class="fixed bottom-4 right-4 p-3 rounded-full bg-[#3a7bd5] text-white shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 z-50"

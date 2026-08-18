@@ -2,15 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="public, max-age=3600" />
     <meta name="description" content="Contact Sam C. to discuss web development projects, collaborations, or opportunities. Reach out via email, LinkedIn, or the contact form.">
-    <title>Contact</title>
+    <title>Contact | Sam C.</title>
+    <link rel="canonical" href="https://samconnor.uk/contact" />
     
     <!-- External Resources -->
-    <link rel="stylesheet" href="fonts.css?v=2" />
+    <link rel="stylesheet" href="fonts.css?v=3" />
     <link rel="stylesheet" href="tailwind.css" />
-    <link rel="stylesheet" href="styles.css?v=11">
+    <link rel="stylesheet" href="styles.css?v=28">
     <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
   </head>
   
@@ -132,13 +136,32 @@
                             </p>
                         </div>
                     </div>
+
+                    <div class="grid grid-cols-1 w-full max-w-4xl">
+                        <div class="bg-white rounded-lg shadow-lg p-6 sm:p-8 text-center hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                            <div class="text-4xl text-gray-700 mb-4">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">CV</h3>
+                            <p class="text-gray-600 text-center mb-4">
+                                Download my current CV (PDF)
+                            </p>
+                            <a href="Samuel_Connor_CV.pdf" download="Samuel Connor CV.pdf" class="inline-block bg-gray-900 text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                <i class="fas fa-download mr-2" aria-hidden="true"></i>Download CV
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <!-- Contact Form -->
-            <section class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300" style="margin-top: 30vh;">
+            <section class="contact-form-section bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
                 <h2 class="text-3xl font-bold mb-8 text-center">Send Me a Message</h2>
                 <form id="contact-form" action="https://formspree.io/f/mwpobjdv" method="POST" class="space-y-6">
+                    <p class="hp-field" aria-hidden="true">
+                        <label for="company-website">Company</label>
+                        <input type="text" name="_gotcha" id="company-website" tabindex="-1" autocomplete="off">
+                    </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Name -->
                         <div>
@@ -209,14 +232,14 @@
     <footer class="bg-gray-900 text-white mt-auto">
         <div class="mx-auto max-w-7xl px-6 py-12 text-center">
             <div class="flex justify-center space-x-6">
-                <a href="https://github.com/colaone1" class="text-gray-400 hover:text-gray-300" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-github"></i>
+                <a href="https://github.com/colaone1" class="text-gray-400 hover:text-gray-300" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile">
+                    <i class="fab fa-github" aria-hidden="true"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/sam-connor-4ab195363" class="text-gray-400 hover:text-gray-300" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin"></i>
+                <a href="https://www.linkedin.com/in/sam-connor-4ab195363" class="text-gray-400 hover:text-gray-300" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
                 </a>
-                <a href="mailto:contact@samusan.uk" class="text-gray-400 hover:text-gray-300">
-                    <i class="fas fa-envelope"></i>
+                <a href="mailto:contact@samusan.uk" class="text-gray-400 hover:text-gray-300" aria-label="Send me an email">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
                 </a>
             </div>
             <div class="mt-8">
@@ -234,125 +257,6 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- At the end of the body, before </body>, ensure the mobile menu script is present -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Contact form handling
-        const form = document.getElementById('contact-form');
-        const submitButton = form.querySelector('button[type="submit"]');
-        const buttonText = submitButton.querySelector('.button-text');
-        const loadingSpinner = submitButton.querySelector('.loading-spinner');
-        const successMessage = document.getElementById('success-message');
-        const errorMessage = document.getElementById('error-message');
-
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Show loading state
-                submitButton.disabled = true;
-                buttonText.classList.add('hidden');
-                loadingSpinner.classList.remove('hidden');
-                successMessage.classList.add('hidden');
-                errorMessage.classList.add('hidden');
-
-                // Create FormData object
-                const formData = new FormData(form);
-
-                // Send the form data
-                fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        // Show success message
-                        successMessage.classList.remove('hidden');
-                        form.reset();
-                    } else {
-                        // Show error message
-                        errorMessage.classList.remove('hidden');
-                    }
-                })
-                .catch(error => {
-                    // Show error message
-                    errorMessage.classList.remove('hidden');
-                    console.error('Error:', error);
-                })
-                .finally(() => {
-                    // Reset button state
-                    submitButton.disabled = false;
-                    buttonText.classList.remove('hidden');
-                    loadingSpinner.classList.add('hidden');
-                });
-            });
-        }
-
-        // Back to top button functionality
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        // Show button when scrolling down
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 300) {
-            backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
-            backToTopButton.classList.add('opacity-100');
-          } else {
-            backToTopButton.classList.remove('opacity-100');
-            backToTopButton.classList.add('opacity-0', 'pointer-events-none');
-          }
-        });
-
-        // Initial check for scroll position
-        if (window.scrollY > 300) {
-          backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
-          backToTopButton.classList.add('opacity-100');
-        }
-
-
-
-        // Scroll to top when button is clicked
-        backToTopButton.addEventListener('click', () => {
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-        });
-
-        // Hamburger menu toggle
-        const menuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeButton = document.getElementById('mobile-menu-close');
-        
-        if (menuButton && mobileMenu && closeButton) {
-          menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            document.body.classList.toggle('menu-open');
-            menuButton.setAttribute('aria-expanded', !mobileMenu.classList.contains('hidden'));
-            if (!mobileMenu.classList.contains('hidden')) {
-              closeButton.focus();
-            }
-          });
-          
-          closeButton.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            document.body.classList.remove('menu-open');
-            menuButton.setAttribute('aria-expanded', 'false');
-            menuButton.focus();
-          });
-          
-          document.addEventListener('keydown', (e) => {
-            if (!mobileMenu.classList.contains('hidden') && e.key === 'Escape') {
-              mobileMenu.classList.add('hidden');
-              document.body.classList.remove('menu-open');
-              menuButton.setAttribute('aria-expanded', 'false');
-              menuButton.focus();
-            }
-          });
-        }
-    });
-    </script>
+    <script src="scripts.js?v=20" defer></script>
   </body>
 </html> 
