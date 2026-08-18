@@ -5,17 +5,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Cache-Control" content="public, max-age=3600" />
-    <meta name="cache-bust" content="v2-2025-01-13" />
+    <meta name="cache-bust" content="v5-2026-08-18" />
     <meta
       name="description"
-      content="Explore a showcase of Sam C.'s technical projects, including games, tools, and web platforms built with JavaScript, React, Next.js, and more."
+      content="Explore Sam C.'s projects, including SENBridge, testing infrastructure, backend templates, and graphic design work."
     />
-    <title>Projects</title>
+    <title>Projects | Sam C.</title>
+    <link rel="canonical" href="https://samconnor.uk/projects" />
 
     <!-- External Resources -->
     <link rel="stylesheet" href="fonts.css?v=3" />
     <link rel="stylesheet" href="tailwind.css" />
-    <link rel="stylesheet" href="styles.css?v=11" />
+    <link rel="stylesheet" href="styles.css?v=15" />
     <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
   </head>
 
@@ -162,12 +163,6 @@
           </button>
           <button
             class="filter-btn px-6 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors focus:ring-2 focus:ring-gray-500 focus:outline-none"
-            data-filter="frontend"
-          >
-            Frontend
-          </button>
-          <button
-            class="filter-btn px-6 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors focus:ring-2 focus:ring-gray-500 focus:outline-none"
             data-filter="backend"
           >
             Backend
@@ -261,9 +256,44 @@
             min-height: 40px; /* Ensure buttons are always visible */
           }
         </style>
+
+        <!-- SENBridge Project Card -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card visible hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="full-stack">
+          <div class="h-48 bg-gray-900 flex items-center justify-center">
+            <i class="fas fa-brain text-6xl text-white"></i>
+          </div>
+          <div class="p-4 project-content">
+            <div class="project-content-main">
+              <h3 class="text-xl font-bold mb-2">SENBridge</h3>
+              <p class="text-gray-600 mb-4">
+                A SEND-focused AI assistant for parents and carers in England. Grounds answers in official legislation and guidance with citations, streams chat responses, and can help draft letters to schools or local authorities.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Next.js</span>
+                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">TypeScript</span>
+                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">React</span>
+                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Google Gemini</span>
+                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Prisma</span>
+                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">NextAuth</span>
+              </div>
+
+            </div>
+            <div class="project-content-buttons">
+              <div class="flex flex-wrap gap-2">
+                <a href="https://senbridge.uk" target="_blank" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
+                  <i class="fas fa-external-link-alt mr-1"></i>Live
+                </a>
+                <a href="/senbridge" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
+                  Details
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
         
         <!-- Castle Adventure Game Project Card -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="game">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card visible hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="game">
           <div class="h-48 bg-blue-600 flex items-center justify-center">
             <i class="fas fa-dungeon text-6xl text-white"></i>
           </div>
@@ -299,119 +329,8 @@
           </div>
         </div>
 
-        <!-- Cipher Encoder/Decoder Project Card -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="tool">
-          <div class="h-48 bg-emerald-600 flex items-center justify-center">
-            <i class="fas fa-lock text-6xl text-white"></i>
-          </div>
-          <div class="p-4 project-content">
-            <div class="project-content-main">
-              <h3 class="text-xl font-bold mb-2">Cipher Encoder/Decoder</h3>
-              <p class="text-gray-600 mb-4">
-                A secure message encryption tool implementing the Caesar Cipher algorithm with an enhanced rolling key feature. Built with vanilla JavaScript, demonstrating strong understanding of string manipulation and algorithm implementation.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">JavaScript</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Algorithms</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">HTML5</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">CSS3</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Cryptography</span>
-              </div>
-
-            </div>
-            <div class="project-content-buttons">
-              <div class="flex flex-wrap gap-2">
-                <a href="https://github.com/colaone1/Cipher-Encoder-Decoder-Sam" target="_blank" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  <i class="fab fa-github mr-1"></i>GitHub
-                </a>
-                <a href="https://colaone1.github.io/Cipher-Encoder-Decoder-Sam/" target="_blank" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  <i class="fas fa-external-link-alt mr-1"></i>Live
-                </a>
-                <a href="/cipher" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  Details
-                </a>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Game Review Website Project Card -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="frontend">
-          <div class="h-48 bg-violet-600 flex items-center justify-center">
-            <i class="fas fa-star text-6xl text-white"></i>
-          </div>
-          <div class="p-4 project-content">
-            <div class="project-content-main">
-              <h3 class="text-xl font-bold mb-2">Game Review Website</h3>
-              <p class="text-gray-600 mb-4">
-                A responsive game review platform built with pure HTML and CSS, demonstrating strong front-end development skills. Showcases semantic HTML structure, CSS Grid and Flexbox layouts, and responsive design principles.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">HTML5</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">CSS3</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Responsive Design</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Semantic HTML</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">GitHub Pages</span>
-              </div>
-
-            </div>
-            <div class="project-content-buttons">
-              <div class="flex flex-wrap gap-2">
-                <a href="https://github.com/colaone1/Game-Review-Website" target="_blank" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  <i class="fab fa-github mr-1"></i>GitHub
-                </a>
-                <a href="https://colaone1.github.io/Hobby-website-Game-Review-Website-/" target="_blank" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  <i class="fas fa-external-link-alt mr-1"></i>Live
-                </a>
-                <a href="/game-review" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  Details
-                </a>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Star Wars Quiz Project Card -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="frontend">
-          <div class="h-48 bg-indigo-500 flex items-center justify-center">
-            <i class="fas fa-jedi text-6xl text-gray-600"></i>
-          </div>
-          <div class="p-4 project-content">
-            <div class="project-content-main">
-              <h3 class="text-xl font-bold mb-2">Star Wars Trivia Quiz</h3>
-              <p class="text-gray-600 mb-4">
-                An interactive quiz application built with vanilla JavaScript, featuring a dynamic question system, score tracking, and themed UI elements. Demonstrates strong DOM manipulation skills and event handling.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">JavaScript</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">DOM Manipulation</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">HTML5</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">CSS3</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Tailwind CSS</span>
-              </div>
-
-            </div>
-            <div class="project-content-buttons">
-              <div class="flex flex-wrap gap-2">
-                <a href="https://github.com/colaone1/Star-Wars-Quiz" target="_blank" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  <i class="fab fa-github mr-1"></i>GitHub
-                </a>
-                <a href="https://colaone1.github.io/Star-Wars-Quiz/" target="_blank" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  <i class="fas fa-external-link-alt mr-1"></i>Live
-                </a>
-                <a href="/star-wars-quiz" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  Details
-                </a>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
         <!-- Open Source Testing Setup Project Card -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="tool">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card visible hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="tool">
           <div class="h-48 bg-amber-600 flex items-center justify-center">
             <i class="fas fa-vial text-6xl text-white"></i>
           </div>
@@ -445,83 +364,8 @@
           </div>
         </div>
 
-        <!-- Weather App Full Stack Project Card -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="full-stack">
-          <div class="h-48 bg-cyan-600 flex items-center justify-center">
-            <i class="fas fa-cloud-sun-rain text-6xl text-white"></i>
-          </div>
-          <div class="p-4 project-content">
-            <div class="project-content-main">
-              <h3 class="text-xl font-bold mb-2">Weather App Full Stack Project</h3>
-              <p class="text-gray-600 mb-4">
-                A robust full stack weather application built with Node.js, Koa, and a modern frontend. Features real-time weather and forecast data, RESTful API endpoints, error handling, and comprehensive automated testing.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Node.js</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Koa</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">JavaScript</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">CSS</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Cypress</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Jest</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">GitHub Actions</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Docker</span>
-              </div>
-
-            </div>
-            <div class="project-content-buttons">
-              <div class="flex flex-wrap gap-2">
-                <a href="https://github.com/colaone1/Weather-App-Full-Stack-Repo" target="_blank" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  <i class="fab fa-github mr-1"></i>GitHub
-                </a>
-                <a href="https://weather-app-for-developer-academy-project.vercel.app/?city=0" target="_blank" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  <i class="fas fa-external-link-alt mr-1"></i>Live
-                </a>
-                <a href="/weather-app" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  Details
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Movies API Project Card -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="backend">
-          <div class="h-48 bg-emerald-600 flex items-center justify-center">
-            <i class="fas fa-film text-6xl text-gray-600"></i>
-          </div>
-          <div class="p-4 project-content">
-            <div class="project-content-main">
-              <h3 class="text-xl font-bold mb-2">Movies API</h3>
-              <p class="text-gray-600 mb-4">
-                A RESTful API for movie data, built with Node.js, Express, and MongoDB. Demonstrates backend development, API design, and database integration for a scalable movie information service.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Node.js</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Express</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">MongoDB</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">REST API</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Backend</span>
-              </div>
-
-            </div>
-            <div class="project-content-buttons">
-              <div class="flex flex-wrap gap-2">
-                <a href="https://github.com/funkmafia/MoviesApi" target="_blank" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  <i class="fab fa-github mr-1"></i>GitHub
-                </a>
-                <a href="https://moviesapi-ncp4.onrender.com" target="_blank" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  <i class="fas fa-external-link-alt mr-1"></i>Live
-                </a>
-                <a href="/movies-api" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  Details
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- Backend Environment Project Card -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="backend">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="backend">
           <div class="h-48 bg-teal-500 flex items-center justify-center">
             <i class="fas fa-server text-6xl text-gray-600"></i>
           </div>
@@ -555,86 +399,10 @@
           </div>
         </div>
 
-        <!-- Event App Project Card -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="full-stack">
-          <div class="h-48 bg-purple-600 flex items-center justify-center">
-            <i class="fas fa-calendar-alt text-6xl text-white"></i>
-          </div>
-          <div class="p-4 project-content">
-            <div class="project-content-main">
-              <h3 class="text-xl font-bold mb-2">Event Management App</h3>
-              <p class="text-gray-600 mb-4">
-                A full-stack event management application built with Next.js and Express/MongoDB. Features user authentication, event creation, management, and a modern, responsive UI. Demonstrates full-stack development skills.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Next.js</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Express</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">MongoDB</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">JWT</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Full Stack</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Team Project</span>
-              </div>
-
-            </div>
-            <div class="project-content-buttons">
-              <div class="flex flex-wrap gap-2">
-                <a href="https://github.com/colaone1/Event-App-Team-Fullstack" target="_blank" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  <i class="fab fa-github mr-1"></i>GitHub
-                </a>
-                <a href="https://event-app-team-fullstack-mynd.vercel.app/" target="_blank" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  <i class="fas fa-external-link-alt mr-1"></i>Live
-                </a>
-                <a href="/event-app" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  Details
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- FriendBay Social Media Project Card -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="full-stack">
-          <div class="h-48 bg-rose-600 flex items-center justify-center">
-            <i class="fas fa-users text-6xl text-white"></i>
-          </div>
-          <div class="p-4 project-content">
-            <div class="project-content-main">
-              <h3 class="text-xl font-bold mb-2">FriendBay Social Media Platform</h3>
-              <p class="text-gray-600 mb-4">
-                A modern social media platform built with Next.js, React, and TypeScript. Features local-only data persistence for privacy, allowing users to create, edit, and interact with posts. Demonstrates full-stack development with modern React practices.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Next.js</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">React</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">TypeScript</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Tailwind CSS</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Local Storage</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Social Media</span>
-              </div>
-
-            </div>
-            <div class="project-content-buttons">
-              <div class="flex flex-wrap gap-2">
-                <a href="https://github.com/colaone1/FriendBay-Social-Media-Site" target="_blank" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  <i class="fab fa-github mr-1"></i>GitHub
-                </a>
-                <a href="https://friend-bay-social-media-site.vercel.app/" target="_blank" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  <i class="fas fa-external-link-alt mr-1"></i>Live
-                </a>
-                <a href="/friendbay" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  Details
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
         <!-- CARECOVID Logo Design Project Card -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="design">
-          <div class="h-48 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
-            <i class="fas fa-palette text-6xl text-white"></i>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="design">
+          <div class="h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
+            <img src="images/designs/carecovid-logo.png" alt="" class="w-full h-full object-cover" loading="lazy" decoding="async" width="1200" height="630">
           </div>
           <div class="p-4 project-content">
             <div class="project-content-main">
@@ -661,9 +429,9 @@
         </div>
 
         <!-- CARECOVID Leaflet Design Project Card -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="design">
-          <div class="h-48 bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center">
-            <i class="fas fa-file-alt text-6xl text-white"></i>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="design">
+          <div class="h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
+            <img src="images/designs/carecovid-leaflet.png" alt="" class="w-full h-full object-cover" loading="lazy" decoding="async" width="1200" height="630">
           </div>
           <div class="p-4 project-content">
             <div class="project-content-main">
@@ -689,34 +457,6 @@
           </div>
         </div>
 
-        <!-- Website Thumbnail Design Project Card -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" data-type="design">
-          <div class="h-48 bg-gradient-to-r from-pink-500 to-red-600 flex items-center justify-center">
-            <i class="fas fa-share-alt text-6xl text-white"></i>
-          </div>
-          <div class="p-4 project-content">
-            <div class="project-content-main">
-              <h3 class="text-xl font-bold mb-2">Website Thumbnail Design</h3>
-              <p class="text-gray-600 mb-4">
-                Custom social media preview image designed to enhance brand visibility and engagement when sharing portfolio links. Optimized for various platforms including Upwork, LinkedIn, and Twitter with professional visual elements.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Social Media Design</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Digital Marketing</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Brand Recognition</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Adobe Photoshop</span>
-                <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Platform Optimization</span>
-              </div>
-            </div>
-            <div class="project-content-buttons">
-              <div class="flex flex-wrap gap-2">
-                <a href="/website-thumbnail-design" class="flex-1 bg-gray-900 text-white text-center py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
-                  <i class="fas fa-eye mr-1"></i>Details
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       <!-- Pagination Controls -->
       <div class="flex justify-center mt-6" id="pagination-controls" style="margin-bottom: 8rem !important; padding-bottom: 2rem !important;"></div>
@@ -731,22 +471,25 @@
             class="text-gray-400 hover:text-gray-300"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Visit my GitHub profile"
           >
-            <i class="fab fa-github"></i>
+            <i class="fab fa-github" aria-hidden="true"></i>
           </a>
           <a
-            href="https://www.linkedin.com/in/sam-c-software-dev/"
+            href="https://www.linkedin.com/in/sam-connor-4ab195363"
             class="text-gray-400 hover:text-gray-300"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Visit my LinkedIn profile"
           >
-            <i class="fab fa-linkedin"></i>
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
           </a>
           <a
             href="mailto:sam.c.software.dev@gmail.com"
             class="text-gray-400 hover:text-gray-300"
+            aria-label="Send me an email"
           >
-            <i class="fas fa-envelope"></i>
+            <i class="fas fa-envelope" aria-hidden="true"></i>
           </a>
         </div>
         <div class="mt-8">

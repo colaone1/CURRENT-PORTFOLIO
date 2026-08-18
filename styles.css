@@ -2687,7 +2687,8 @@ body.menu-open {
 
 /* ===== PERFORMANCE: motion gating & cheaper composites (CWV) ===== */
 html:not(.motion-ready) .geometric-pattern,
-html:not(.motion-ready) .logo-shine {
+html:not(.motion-ready) .logo-shine,
+html:not(.motion-ready) .hero-section .logo-container {
     animation: none !important;
 }
 
@@ -2699,13 +2700,30 @@ html.motion-ready .logo-shine {
     will-change: transform, opacity;
 }
 
+html.motion-ready .hero-section .logo-container {
+    animation: owlFloat 5.5s ease-in-out infinite;
+    will-change: transform;
+}
+
+@keyframes owlFloat {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -0.4rem, 0);
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .geometric-pattern,
     .logo-shine,
+    .hero-section .logo-container,
     .animate-fadeInUp {
         animation: none !important;
         opacity: 1 !important;
         transform: none !important;
+        will-change: auto !important;
     }
 }
 

@@ -1,239 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CARECOVID Logo Design - Sam C. Portfolio</title>
-    <meta name="description" content="Professional logo design for CARECOVID - a modern, impactful brand identity created with clean typography and strategic color psychology.">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="CARECOVID Logo Design - Sam C. Portfolio" />
-    <meta property="og:description" content="Professional logo design for CARECOVID - a modern, impactful brand identity created with clean typography and strategic color psychology." />
-    <meta property="og:image" content="https://samconnor.uk/Graphic%20Designs/CARECOVID%20Logo%20(1200%20x%20630%20px).png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:url" content="https://samconnor.uk/carecovid-logo.html" />
-    <meta property="og:type" content="website" />
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="CARECOVID Logo Design - Sam C. Portfolio" />
-    <meta name="twitter:description" content="Professional logo design for CARECOVID - a modern, impactful brand identity." />
-    <meta name="twitter:image" content="https://samconnor.uk/Graphic%20Designs/CARECOVID%20Logo%20(1200%20x%20630%20px).png" />
-    
+    <meta http-equiv="Cache-Control" content="public, max-age=3600" />
+    <meta name="description" content="Professional logo design for CARECOVID - a modern brand identity created with clean typography and strategic color psychology.">
+    <title>CARECOVID Logo Design | Sam C.</title>
+    <link rel="canonical" href="https://samconnor.uk/carecovid-logo" />
+
     <link rel="stylesheet" href="fonts.css?v=3" />
-    <link rel="stylesheet" href="styles.css?v=11">
+    <link rel="stylesheet" href="tailwind.css" />
+    <link rel="stylesheet" href="styles.css?v=15">
     <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="nav-container">
-        <div class="nav-content">
-            <a href="index.html" class="nav-logo">
-                <img src="images/Logos/logo.svg" alt="Sam C. Logo" class="logo-img">
-            </a>
-            <div class="nav-links">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="projects.html" class="nav-link">Projects</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="contact.html" class="nav-link">Contact</a>
+  </head>
+
+  <body class="min-h-screen bg-[#f8f5f2] flex flex-col">
+    <a href="#main-content"
+       class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:outline-none"
+       aria-label="Skip to main content">
+      Skip to main content
+    </a>
+
+    <nav class="nav-container bg-[#f8f5f2]" role="navigation" aria-label="Main navigation">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 justify-between items-center">
+                <div class="flex flex-shrink-0 items-center">
+                    <a href="/" class="nav-logo" aria-label="Home">
+                        <img src="images/Logos/logo.svg" alt="Portfolio Logo" class="h-10 w-auto" width="400" height="300">
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-12" role="list">
+                    <a href="/" class="nav-button" role="listitem">Home</a>
+                    <a href="/projects" class="nav-button" role="listitem">Projects</a>
+                    <a href="/about" class="nav-button" role="listitem">About</a>
+                    <a href="/contact" class="nav-button" role="listitem">Contact</a>
+                </div>
+                <div class="flex-shrink-0">
+                    <button id="mobile-menu-button" class="md:hidden flex items-center px-3 py-2 border rounded text-[#1a1a1a] border-[#3a7bd5] focus:outline-none focus:ring-2 focus:ring-[#3a7bd5]" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <main id="main-content">
-    <section class="project-hero">
-        <div class="container">
-            <div class="project-hero-content">
-                <div class="project-hero-text">
-                    <h1 class="project-title">CARECOVID Logo Design</h1>
-                    <p class="project-subtitle">Professional Brand Identity & Logo Design</p>
-                    <div class="project-meta">
-                        <div class="project-meta-item">
-                            <span class="meta-label">Role:</span>
-                            <span class="meta-value">Lead Designer</span>
-                        </div>
-                        <div class="project-meta-item">
-                            <span class="meta-label">Category:</span>
-                            <span class="meta-value">Brand Identity</span>
-                        </div>
-                        <div class="project-meta-item">
-                            <span class="meta-label">Year:</span>
-                            <span class="meta-value">2024</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-hero-image">
-                    <img src="Graphic Designs/CARECOVID Logo (1200 x 630 px).png" alt="CARECOVID Logo Design" class="project-main-image">
-                </div>
-            </div>
+    <div id="mobile-menu" class="md:hidden fixed top-0 left-0 w-full h-full bg-white bg-opacity-95 z-50 flex flex-col items-center justify-center space-y-8 text-2xl font-semibold hidden" role="menu" aria-label="Mobile navigation">
+        <button id="mobile-menu-close" class="absolute top-6 right-6 text-3xl text-[#3a7bd5] focus:outline-none" aria-label="Close navigation menu">&times;</button>
+        <a href="/" class="nav-button block w-full text-center" role="menuitem">Home</a>
+        <a href="/projects" class="nav-button block w-full text-center" role="menuitem">Projects</a>
+        <a href="/about" class="nav-button block w-full text-center" role="menuitem">About</a>
+        <a href="/contact" class="nav-button block w-full text-center" role="menuitem">Contact</a>
+    </div>
+
+    <header class="bg-gray-900 text-white py-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-cinzel font-bold text-center mb-6">CARECOVID Logo Design</h1>
+            <p class="text-xl text-center text-gray-400 max-w-3xl mx-auto">
+                Professional brand identity and logo design for the healthcare sector.
+            </p>
         </div>
-    </section>
+    </header>
 
-    <!-- Project Details -->
-    <section class="project-details">
-        <div class="container">
-            <div class="project-grid">
-                <!-- Project Overview -->
-                <div class="project-overview">
-                    <h2 class="section-title">Project Overview</h2>
-                    <p class="project-description">
-                        Designed a modern, professional logo for CARECOVID, focusing on creating a brand identity that conveys trust, care, and medical expertise. The design incorporates clean typography and strategic color choices to establish a strong visual presence in the healthcare industry.
-                    </p>
-                    
-                    <h3 class="subsection-title">Design Objectives</h3>
-                    <ul class="project-list">
-                        <li>Create a memorable and professional brand identity</li>
-                        <li>Establish trust and credibility in the healthcare sector</li>
-                        <li>Ensure scalability across various applications</li>
-                        <li>Maintain visual clarity at different sizes</li>
-                        <li>Reflect the company's commitment to care and safety</li>
-                    </ul>
-                </div>
-
-                <!-- Skills & Tools -->
-                <div class="project-skills">
-                    <h2 class="section-title">Skills & Tools</h2>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3 class="skill-title">Design Skills</h3>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Logo Design</span>
-                                <span class="skill-tag">Brand Identity</span>
-                                <span class="skill-tag">Typography</span>
-                                <span class="skill-tag">Color Theory</span>
-                                <span class="skill-tag">Visual Hierarchy</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h3 class="skill-title">Software</h3>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Adobe Illustrator</span>
-                                <span class="skill-tag">Adobe Photoshop</span>
-                                <span class="skill-tag">Vector Graphics</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h3 class="skill-title">Techniques</h3>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Vector Design</span>
-                                <span class="skill-tag">Scalable Graphics</span>
-                                <span class="skill-tag">Brand Guidelines</span>
-                            </div>
-                        </div>
+    <main id="main-content" class="container mx-auto px-4 py-16 flex-grow">
+        <div class="max-w-4xl mx-auto">
+            <section class="mb-16">
+                <img src="images/designs/carecovid-logo.png" alt="CARECOVID logo design" class="w-full rounded-lg shadow-lg mb-8">
+                <h2 class="text-3xl font-bold mb-6">Project Overview</h2>
+                <p class="text-gray-700 mb-4">
+                    Designed a modern, professional logo for CARECOVID, focusing on a brand identity that conveys trust, care, and medical expertise. The design uses clean typography and strategic colour choices for a strong visual presence in healthcare.
+                </p>
+                <div class="bg-gray-100 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-semibold mb-4">Skills and tools</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Logo Design</span>
+                        <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Brand Identity</span>
+                        <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Typography</span>
+                        <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Color Theory</span>
+                        <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Adobe Illustrator</span>
+                        <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">Adobe Photoshop</span>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Design Process -->
-            <div class="design-process">
-                <h2 class="section-title">Design Process</h2>
-                <div class="process-steps">
-                    <div class="process-step">
-                        <div class="step-number">01</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Research & Discovery</h3>
-                            <p class="step-description">Analyzed the healthcare industry, competitor logos, and target audience preferences to understand the visual landscape and identify opportunities for differentiation.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">02</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Concept Development</h3>
-                            <p class="step-description">Created multiple design concepts exploring different typography styles, color palettes, and visual elements that could represent care, safety, and medical expertise.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">03</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Refinement</h3>
-                            <p class="step-description">Selected the strongest concept and refined the typography, spacing, and color balance to create a polished, professional final design.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">04</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Finalization</h3>
-                            <p class="step-description">Prepared the logo in multiple formats and sizes, ensuring it works effectively across all intended applications and maintains visual impact.</p>
-                        </div>
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-6">Design Process</h2>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Research and refinement</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Researched healthcare branding and competitor logos to find a clear point of difference</li>
+                            <li>Developed multiple concepts exploring type, colour, and visual marks</li>
+                            <li>Refined spacing, contrast, and scalability for print and digital use</li>
+                            <li>Prepared the final logo in formats that stay clear at small and large sizes</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Design Features -->
-            <div class="design-features">
-                <h2 class="section-title">Design Features</h2>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <h3 class="feature-title">Typography</h3>
-                        <p class="feature-description">Clean, modern typeface that conveys professionalism and readability across all applications.</p>
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-6">Design Features</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                        <h3 class="text-xl font-semibold mb-4">Typography and colour</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Clean, readable type for professional healthcare use</li>
+                            <li>Colour choices that support trust, care, and contrast</li>
+                        </ul>
                     </div>
-                    <div class="feature-item">
-                        <h3 class="feature-title">Color Palette</h3>
-                        <p class="feature-description">Strategic color choices that evoke trust, care, and medical expertise while maintaining strong contrast.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h3 class="feature-title">Scalability</h3>
-                        <p class="feature-description">Vector-based design ensures the logo maintains clarity and impact at any size, from business cards to billboards.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h3 class="feature-title">Versatility</h3>
-                        <p class="feature-description">Design works effectively in both color and monochrome applications, ensuring flexibility across different media.</p>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                        <h3 class="text-xl font-semibold mb-4">Application</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Vector artwork that stays sharp at any size</li>
+                            <li>Works in colour and monochrome across media</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-6">Project Links</h2>
+                <div class="flex flex-col space-y-4">
+                    <a href="/contact" class="block w-full bg-gray-900 text-white text-center py-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                        Get in touch
+                    </a>
+                    <a href="/projects" class="block w-full bg-gray-900 text-white text-center py-3 rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Projects
+                    </a>
+                </div>
+            </section>
         </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="project-cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">Ready to Create Your Brand Identity?</h2>
-                <p class="cta-description">Let's work together to bring your vision to life with professional design solutions.</p>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="quest-button">Get In Touch</a>
-                    <a href="projects.html" class="quest-button secondary">View More Projects</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 class="footer-title">Sam C.</h3>
-                    <p class="footer-description">Full-stack developer and designer creating immersive digital experiences.</p>
-                </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Connect</h3>
-                    <div class="social-links">
-                        <a href="https://github.com/colaone1" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        <a href="https://linkedin.com/in/samconnor" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Sam C. All rights reserved.</p>
-            </div>
+    <footer class="bg-gray-900 text-white mt-auto">
+      <div class="mx-auto max-w-7xl px-6 py-12 text-center">
+        <div class="flex justify-center space-x-6">
+          <a href="https://github.com/colaone1" class="text-gray-400 hover:text-gray-300" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile">
+            <i class="fab fa-github" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/sam-connor-4ab195363" class="text-gray-400 hover:text-gray-300" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile">
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
+          </a>
+          <a href="mailto:sam.c.software.dev@gmail.com" class="text-gray-400 hover:text-gray-300" aria-label="Send me an email">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+          </a>
         </div>
+        <div class="mt-8">
+          <p class="text-center text-xs leading-5 text-gray-400">
+            &copy; 2025 Sam C. Software Developer. All rights reserved.
+          </p>
+        </div>
+      </div>
     </footer>
 
-    <script src="scripts.js"></script>
-</body>
+    <button
+      id="back-to-top"
+      class="fixed bottom-4 right-4 p-3 rounded-full bg-[#3a7bd5] text-white shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 z-50"
+      aria-label="Back to top"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const backToTopButton = document.getElementById("back-to-top");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            backToTopButton.classList.remove("opacity-0", "pointer-events-none");
+            backToTopButton.classList.add("opacity-100");
+          } else {
+            backToTopButton.classList.remove("opacity-100");
+            backToTopButton.classList.add("opacity-0", "pointer-events-none");
+          }
+        });
+        backToTopButton.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        const menuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const closeButton = document.getElementById("mobile-menu-close");
+        if (menuButton && mobileMenu && closeButton) {
+          menuButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+            document.body.classList.toggle("menu-open");
+            menuButton.setAttribute("aria-expanded", !mobileMenu.classList.contains("hidden"));
+            if (!mobileMenu.classList.contains("hidden")) closeButton.focus();
+          });
+          closeButton.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+            document.body.classList.remove("menu-open");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.focus();
+          });
+          document.addEventListener("keydown", (e) => {
+            if (!mobileMenu.classList.contains("hidden") && e.key === "Escape") {
+              mobileMenu.classList.add("hidden");
+              document.body.classList.remove("menu-open");
+              menuButton.setAttribute("aria-expanded", "false");
+              menuButton.focus();
+            }
+          });
+        }
+      });
+    </script>
+  </body>
 </html>

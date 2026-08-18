@@ -9,9 +9,9 @@
     <!-- Improved SEO and accessibility with meta description -->
     <meta
       name="description"
-      content="Full-stack developer and graphic designer specialising in creating immersive web experiences with clean code and innovative design."
+      content="Full-stack developer and graphic designer. Portfolio includes SENBridge, a SEND-focused AI assistant for England, plus Next.js, TypeScript, Prisma, and brand design."
     />
-    <title>Home</title>
+    <title>Sam C. | Full-Stack Developer & Designer</title>
 
     <!-- Performance Optimizations -->
     <link rel="preload" href="fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin />
@@ -20,11 +20,11 @@
     <link rel="preload" href="fonts/cinzel-600.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="images/Logos/logo.svg" as="image" fetchpriority="high" />
     <link rel="preload" href="tailwind.css" as="style" />
-    <link rel="preload" href="styles.css?v=14" as="style" />
+    <link rel="preload" href="styles.css?v=15" as="style" />
 
     <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:title" content="Sam C. - Software Engineer Portfolio" />
-    <meta property="og:description" content="Full-stack engineer and graphic designer specialising in creating immersive web experiences with clean code and innovative design. View my projects and get in touch!" />
+    <meta property="og:description" content="Full-stack developer and graphic designer. View SENBridge, testing and backend work, and graphic design projects." />
     <meta property="og:image" content="https://samconnor.uk/images/social/website-thumbnail.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -46,7 +46,7 @@
     />
     <meta
       name="twitter:description"
-      content="Full-stack engineer and graphic designer specialising in creating immersive web experiences with clean code and innovative design."
+      content="Full-stack developer and graphic designer. View SENBridge, testing and backend work, and graphic design projects."
     />
     <meta name="twitter:image" content="https://samconnor.uk/images/social/website-thumbnail.png" />
     <meta name="twitter:image:alt" content="Sam C. - Professional Software Engineer Portfolio" />
@@ -93,12 +93,16 @@
           "https://github.com/colaone1",
           "https://www.linkedin.com/in/sam-connor-4ab195363"
         ],
-        "description": "Full-stack developer and graphic designer specialising in creating immersive web experiences with clean code and innovative design.",
+        "description": "Full-stack developer and graphic designer. Portfolio includes SENBridge, testing infrastructure, backend work, and brand design.",
         "knowsAbout": [
           "HTML5",
           "CSS3",
           "JavaScript",
+          "TypeScript",
           "React",
+          "Next.js",
+          "PostgreSQL",
+          "Prisma",
           "Tailwind CSS",
           "Web Development",
           "UI/UX Design"
@@ -109,7 +113,7 @@
     <!-- ===== EXTERNAL RESOURCES ===== -->
     <link rel="stylesheet" href="fonts.css?v=3" />
     <link rel="stylesheet" href="tailwind.css" />
-    <link rel="stylesheet" href="styles.css?v=14" />
+    <link rel="stylesheet" href="styles.css?v=15" />
     <link
       rel="stylesheet"
       href="vendor/fontawesome/css/icons.min.css"
@@ -481,6 +485,7 @@
               fetchpriority="high"
               decoding="sync"
             />
+            <span class="logo-shine" aria-hidden="true"></span>
           </div>
           <div class="mt-4 md:mt-8 space-y-4 md:space-y-8">
             <p
@@ -505,10 +510,10 @@
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">Next.js</span>
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">TypeScript</span>
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">Tailwind</span>
-            <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">Canva</span>
-            <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">Figma</span>
+            <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">Prisma</span>
+            <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">PostgreSQL</span>
+            <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">NextAuth</span>
             <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">Logo Design</span>
-            <span class="skill-tag-button text-sm bg-[#2d5aa0] text-white px-3 py-1.5 rounded-full font-medium text-center flex items-center justify-center">AI-Enhanced</span>
           </div>
           <div class="mt-8 md:mt-12">
             <a
@@ -549,7 +554,7 @@
               </h3>
             </div>
             <p class="text-gray-600 text-center mb-4">
-              Complete web applications from frontend to backend, using modern technologies like React, Next.js, Node.js, and MongoDB.
+              Complete web applications from frontend to backend, using modern technologies like React, Next.js, TypeScript, and PostgreSQL.
             </p>
             <ul class="space-y-2 text-sm text-gray-600">
               <li class="flex items-center">
@@ -784,6 +789,13 @@
               </li>
               <li class="flex items-center">
                 <i
+                  class="fas fa-code text-blue-500 mr-2"
+                  aria-hidden="true"
+                ></i>
+                <span>TypeScript</span>
+              </li>
+              <li class="flex items-center">
+                <i
                   class="fab fa-bootstrap text-purple-500 mr-2"
                   aria-hidden="true"
                 ></i>
@@ -810,7 +822,7 @@
                   class="fas fa-database text-blue-600 mr-2"
                   aria-hidden="true"
                 ></i>
-                <span>MongoDB & Mongoose</span>
+                <span>PostgreSQL & Prisma</span>
               </li>
               <li class="flex items-center">
                 <i
@@ -821,10 +833,10 @@
               </li>
               <li class="flex items-center">
                 <i
-                  class="fas fa-shield-alt text-yellow-600 mr-2"
+                  class="fas fa-key text-yellow-600 mr-2"
                   aria-hidden="true"
                 ></i>
-                <span>JWT Authentication</span>
+                <span>NextAuth</span>
               </li>
               <li class="flex items-center">
                 <i
@@ -875,7 +887,7 @@
                   class="fas fa-vial text-green-500 mr-2"
                   aria-hidden="true"
                 ></i>
-                <span>Jest Testing</span>
+                <span>Jest & Playwright</span>
               </li>
               <li class="flex items-center">
                 <i
@@ -1076,7 +1088,7 @@
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- Project Card 1: Event Management App -->
+            <!-- Project Card 1: SENBridge -->
             <article
               class="bg-gray-800 rounded-lg overflow-hidden shadow-lg p-6 flex flex-col h-full hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
               role="article"
@@ -1086,14 +1098,14 @@
                   class="flex items-center justify-center mb-6"
                   aria-hidden="true"
                 >
-                  <i class="fas fa-calendar-alt text-6xl text-gray-600"></i>
+                  <i class="fas fa-brain text-6xl text-gray-600"></i>
                 </div>
                 <h3 class="text-xl font-bold text-[#d4c5a9] mb-2">
-                  Event Management App
+                  SENBridge
                 </h3>
                 <p class="text-gray-300 mb-4">
-                  Full-stack event management with user authentication, event
-                  creation, and real-time updates.
+                  SEND-focused AI assistant for parents in England, with
+                  cited answers, streaming chat, and letter drafting.
                 </p>
                 <div
                   class="flex flex-wrap gap-2 mb-4"
@@ -1105,39 +1117,39 @@
                   >
                   <span
                     class="text-gray-400 text-sm bg-gray-700 px-2 py-1 rounded"
-                    >Express</span
+                    >TypeScript</span
                   >
                   <span
                     class="text-gray-400 text-sm bg-gray-700 px-2 py-1 rounded"
-                    >MongoDB</span
+                    >Google Gemini</span
                   >
                   <span
                     class="text-gray-400 text-sm bg-gray-700 px-2 py-1 rounded"
-                    >JWT</span
+                    >Prisma</span
                   >
                 </div>
               </div>
               <div class="flex justify-between items-center mt-4">
                 <a
-                  href="https://github.com/colaone1/Event-App-Team-Fullstack"
+                  href="/senbridge"
                   class="text-blue-400 hover:text-blue-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  aria-label="View Event App source code on GitHub"
-                  ><i class="fab fa-github mr-2" aria-hidden="true"></i
-                  >GitHub</a
+                  aria-label="Read SENBridge project details"
+                  >Details</a
                 >
                 <div class="flex gap-2">
                   <a
-                    href="https://event-app-team-fullstack-mynd.vercel.app/"
+                    href="https://senbridge.uk"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="quest-button px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                    aria-label="Try Event App"
+                    aria-label="Try SENBridge"
                     >Try</a
                   >
                 </div>
               </div>
             </article>
 
-            <!-- Project Card 2: Weather App -->
+            <!-- Project Card 2: Castle Adventure Game -->
             <article
               class="bg-gray-800 rounded-lg overflow-hidden shadow-lg p-6 flex flex-col h-full hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
               role="article"
@@ -1147,14 +1159,14 @@
                   class="flex items-center justify-center mb-6"
                   aria-hidden="true"
                 >
-                  <i class="fas fa-cloud-sun-rain text-6xl text-gray-600"></i>
+                  <i class="fas fa-dungeon text-6xl text-gray-600"></i>
                 </div>
                 <h3 class="text-xl font-bold text-[#d4c5a9] mb-2">
-                  Weather App Full Stack Project
+                  Castle Adventure Game
                 </h3>
                 <p class="text-gray-300 mb-4">
-                  Real-time weather and 7-day forecast, robust RESTful API,
-                  automated testing, and CI/CD.
+                  Text-based adventure game built with object-oriented
+                  JavaScript, modular rooms, items, and characters.
                 </p>
                 <div
                   class="flex flex-wrap gap-2 mb-4"
@@ -1162,11 +1174,73 @@
                 >
                   <span
                     class="text-gray-400 text-sm bg-gray-700 px-2 py-1 rounded"
-                    >Node.js</span
+                    >JavaScript</span
                   >
                   <span
                     class="text-gray-400 text-sm bg-gray-700 px-2 py-1 rounded"
-                    >Koa</span
+                    >OOP</span
+                  >
+                  <span
+                    class="text-gray-400 text-sm bg-gray-700 px-2 py-1 rounded"
+                    >HTML5</span
+                  >
+                  <span
+                    class="text-gray-400 text-sm bg-gray-700 px-2 py-1 rounded"
+                    >CSS3</span
+                  >
+                </div>
+              </div>
+              <div class="flex justify-between items-center mt-4">
+                <a
+                  href="https://github.com/colaone1/Sam-s-OOP-Game-v2"
+                  class="text-blue-400 hover:text-blue-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  aria-label="View Castle Adventure source code on GitHub"
+                  ><i class="fab fa-github mr-2" aria-hidden="true"></i
+                  >GitHub</a
+                >
+                <div class="flex gap-2">
+                  <a
+                    href="https://colaone1.github.io/Sam-s-OOP-Game-v2/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="quest-button px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    aria-label="Try Castle Adventure"
+                    >Try</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Project Card 3: Open Source Testing Setup -->
+            <article
+              class="bg-gray-800 rounded-lg overflow-hidden shadow-lg p-6 flex flex-col h-full hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+              role="article"
+            >
+              <div class="flex-grow">
+                <div
+                  class="flex items-center justify-center mb-6"
+                  aria-hidden="true"
+                >
+                  <i class="fas fa-vial text-6xl text-gray-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-[#d4c5a9] mb-2">
+                  Open Source Testing Setup
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Testing infrastructure with Jest, Cypress, and GitHub
+                  Actions for CI/CD.
+                </p>
+                <div
+                  class="flex flex-wrap gap-2 mb-4"
+                  aria-label="Technologies used"
+                >
+                  <span
+                    class="text-gray-400 text-sm bg-gray-700 px-2 py-1 rounded"
+                    >JavaScript</span
+                  >
+                  <span
+                    class="text-gray-400 text-sm bg-gray-700 px-2 py-1 rounded"
+                    >TypeScript</span
                   >
                   <span
                     class="text-gray-400 text-sm bg-gray-700 px-2 py-1 rounded"
@@ -1178,89 +1252,24 @@
                   >
                   <span
                     class="text-gray-400 text-sm bg-gray-700 px-2 py-1 rounded"
-                    >Docker</span
+                    >GitHub Actions</span
                   >
                 </div>
               </div>
               <div class="flex justify-between items-center mt-4">
                 <a
-                  href="https://github.com/colaone1/Weather-App-Full-Stack-Repo"
+                  href="https://github.com/colaone1/Open-Source-Testing-Setup"
                   class="text-blue-400 hover:text-blue-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  aria-label="View Weather App source code on GitHub"
+                  aria-label="View Testing Setup source code on GitHub"
                   ><i class="fab fa-github mr-2" aria-hidden="true"></i
                   >GitHub</a
                 >
                 <div class="flex gap-2">
                   <a
-                    href="https://weather-app-for-developer-academy-project.vercel.app/?city=0"
-                    target="_blank"
+                    href="/testing-setup"
                     class="quest-button px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                    aria-label="Try Weather App"
-                    >Try</a
-                  >
-                </div>
-              </div>
-            </article>
-
-            <!-- Project Card 3: FriendBay Social Media Platform -->
-            <article
-              class="bg-gray-800 rounded-lg overflow-hidden shadow-lg p-6 flex flex-col h-full hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
-              role="article"
-            >
-              <div class="flex-grow">
-                <div
-                  class="flex items-center justify-center mb-6"
-                  aria-hidden="true"
-                >
-                  <i class="fas fa-users text-6xl text-gray-600"></i>
-                </div>
-                <h3 class="text-xl font-bold text-[#d4c5a9] mb-2">
-                  FriendBay Social Media Platform
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Modern social media platform with local data persistence, built with Next.js, React, and TypeScript.
-                </p>
-                <div
-                  class="flex flex-wrap gap-2 mb-4"
-                  aria-label="Technologies used"
-                >
-                  <span
-                    class="text-gray-400 text-sm bg-gray-700 px-2 py-1 rounded"
-                    >Next.js</span
-                  >
-                  <span
-                    class="text-gray-400 text-sm bg-gray-700 px-2 py-1 rounded"
-                    >React</span
-                  >
-                  <span
-                    class="text-gray-400 text-sm bg-gray-700 px-2 py-1 rounded"
-                    >TypeScript</span
-                  >
-                  <span
-                    class="text-gray-400 text-sm bg-gray-700 px-2 py-1 rounded"
-                    >Tailwind CSS</span
-                  >
-                  <span
-                    class="text-gray-400 text-sm bg-gray-700 px-2 py-1 rounded"
-                    >Local Storage</span
-                  >
-                </div>
-              </div>
-              <div class="flex justify-between items-center mt-4">
-                <a
-                  href="https://github.com/colaone1/FriendBay-Social-Media-Site"
-                  class="text-blue-400 hover:text-blue-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  aria-label="View FriendBay source code on GitHub"
-                  ><i class="fab fa-github mr-2" aria-hidden="true"></i
-                  >GitHub</a
-                >
-                <div class="flex gap-2">
-                  <a
-                    href="https://friend-bay-social-media-site.vercel.app/"
-                    target="_blank"
-                    class="quest-button px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                    aria-label="Try FriendBay"
-                    >Try</a
+                    aria-label="Read Testing Setup details"
+                    >Details</a
                   >
                 </div>
               </div>
