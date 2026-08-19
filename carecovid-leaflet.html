@@ -6,6 +6,7 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="theme.js?v=1"></script>
     <meta http-equiv="Cache-Control" content="public, max-age=3600" />
     <meta name="description" content="Professional leaflet design for CARECOVID - marketing material that communicates healthcare information with a clear visual hierarchy.">
     <title>CARECOVID Leaflet Design | Sam C.</title>
@@ -13,7 +14,7 @@
 
     <link rel="stylesheet" href="fonts.css?v=3" />
     <link rel="stylesheet" href="tailwind.css" />
-    <link rel="stylesheet" href="styles.css?v=35">
+    <link rel="stylesheet" href="styles.css?v=36">
     <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
   </head>
 
@@ -38,7 +39,11 @@
                     <a href="/about" class="nav-button" role="listitem">About</a>
                     <a href="/contact" class="nav-button" role="listitem">Contact</a>
                 </div>
-                <div class="flex-shrink-0">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+                        <svg class="theme-icon theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"></path></svg>
+                        <svg class="theme-icon theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+                    </button>
                     <button id="mobile-menu-button" class="md:hidden flex items-center px-3 py-2 border rounded text-[#1a1a1a] border-[#3a7bd5] focus:outline-none focus:ring-2 focus:ring-[#3a7bd5]" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>

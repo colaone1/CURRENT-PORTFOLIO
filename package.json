@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npx --yes serve -l 3000 --no-port-switching -c serve.json .",
     "dev": "npx --yes serve -l 3000 --no-port-switching -c serve.json .",
-    "test": "node --check scripts.js && node --check sw.js",
+    "test": "node --check scripts.js && node --check sw.js && node --check theme.js",
     "build:css": "tailwindcss -i ./src/tailwind.css -o ./tailwind.css --minify",
     "prestart": "npm run build:css"
   },
