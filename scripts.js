@@ -186,13 +186,6 @@ const accessibility = {
     initialize() {
         this.handleReducedMotion();
         this.initializeSkipLink();
-
-        const buttons = document.querySelectorAll('button:not([aria-label])');
-        buttons.forEach(button => {
-            if (!button.textContent.trim()) {
-                button.setAttribute('aria-label', 'Button');
-            }
-        });
     }
 };
 
