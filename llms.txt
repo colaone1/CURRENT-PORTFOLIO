@@ -1,0 +1,23 @@
+# Sam C. Portfolio
+> Personal site of Sam C., a full-stack developer and graphic designer in the UK. Featured work includes SENBridge, a SEND-focused AI assistant for parents in England.
+
+This site is a static portfolio. Use the pages below for project details, background, and contact. Prefer the live product URL for SENBridge rather than inferring behaviour from this portfolio alone.
+
+## Pages
+- [Home](https://samconnor.uk/): Overview, services, skills, and featured projects
+- [Projects](https://samconnor.uk/projects): Full project index
+- [About](https://samconnor.uk/about): Background and approach
+- [Contact](https://samconnor.uk/contact): Email, LinkedIn, GitHub, and contact form
+- [CV](https://samconnor.uk/Samuel_Connor_CV.pdf): Downloadable CV
+
+## Projects
+- [SENBridge](https://samconnor.uk/senbridge): SEND-focused AI assistant for parents in England (Next.js, TypeScript, Prisma, Google Gemini). Live app: https://senbridge.uk
+- [Castle Adventure](https://samconnor.uk/text-game): Text adventure / OOP game
+- [Testing Setup](https://samconnor.uk/testing-setup): Open-source testing setup with Jest, Cypress, and GitHub Actions
+- [Backend API](https://samconnor.uk/backend-api): Backend API project notes
+- [CARECOVID Logo](https://samconnor.uk/carecovid-logo): Logo design case
+- [CARECOVID Leaflet](https://samconnor.uk/carecovid-leaflet): Leaflet design case
+
+## Optional
+- [GitHub](https://github.com/colaone1)
+- [LinkedIn](https://www.linkedin.com/in/sam-connor-4ab195363)

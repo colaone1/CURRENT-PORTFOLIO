@@ -1,16 +1,16 @@
-const CURRENT_CACHE = 'portfolio-cache-v13';
+const CURRENT_CACHE = 'portfolio-cache-v14';
 const urlsToCache = [
     '/',
     '/index.html',
     '/tailwind.css',
-    '/styles.css?v=36',
+    '/styles.css?v=39',
     '/theme.js?v=1',
     '/fonts.css?v=3',
     '/fonts/lexend-500.woff2',
     '/fonts/lexend-700.woff2',
     '/fonts/cinzel-600.woff2',
     '/fonts/rajdhani-700.woff2',
-    '/scripts.js?v=20',
+    '/scripts.js?v=21',
     '/images/Logos/logo.png',
     '/vendor/fontawesome/css/icons.min.css',
     '/vendor/fontawesome/webfonts/fa-solid-900.woff2',

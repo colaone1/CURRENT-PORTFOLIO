@@ -22,7 +22,7 @@
     <link rel="preload" href="fonts/lexend-700.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/cinzel-600.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="tailwind.css" as="style" />
-    <link rel="preload" href="styles.css?v=36" as="style" />
+    <link rel="preload" href="styles.css?v=39" as="style" />
 
     <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:title" content="Sam C. - Software Engineer Portfolio" />
@@ -59,6 +59,7 @@
       rel="canonical"
       href="https://samconnor.uk/"
     />
+    <link rel="describedby" href="/llms.txt" />
 
     <!-- Security -->
     <script type="application/ld+json" src="person.jsonld"></script>
@@ -66,12 +67,12 @@
     <!-- ===== EXTERNAL RESOURCES ===== -->
     <link rel="stylesheet" href="fonts.css?v=3" />
     <link rel="stylesheet" href="tailwind.css" />
-    <link rel="stylesheet" href="styles.css?v=36" />
+    <link rel="stylesheet" href="styles.css?v=39" />
     <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
     
 
     <!-- Ensure all JS is loaded with defer (except analytics, which should be async) -->
-    <script src="scripts.js?v=20" defer></script>
+    <script src="scripts.js?v=21" defer></script>
     <!-- Google Analytics remains async -->
   </head>
 
@@ -107,21 +108,21 @@
           </div>
 
           <!-- Desktop nav links -->
-          <div class="hidden md:flex space-x-12" role="list">
+          <div class="hidden md:flex space-x-12">
             <a
               href="/"
               class="nav-button"
-              role="listitem"
+             
               aria-current="page"
               >Home</a
             >
-            <a href="/projects" class="nav-button" role="listitem"
+            <a href="/projects" class="nav-button"
               >Projects</a
             >
-            <a href="/about" class="nav-button" role="listitem"
+            <a href="/about" class="nav-button"
               >About</a
             >
-            <a href="/contact" class="nav-button" role="listitem"
+            <a href="/contact" class="nav-button"
               >Contact</a
             >
           </div>
@@ -161,8 +162,6 @@
       <div
         id="mobile-menu"
         class="md:hidden fixed top-0 left-0 w-full h-full bg-white bg-opacity-95 z-50 flex flex-col items-center justify-center space-y-8 text-2xl font-semibold hidden"
-        role="menu"
-        aria-label="Mobile navigation"
       >
         <button
           id="mobile-menu-close"
@@ -174,25 +173,25 @@
         <a
           href="/"
           class="nav-button block w-full text-center"
-          role="menuitem"
+         
           >Home</a
         >
         <a
           href="/projects"
           class="nav-button block w-full text-center"
-          role="menuitem"
+         
           >Projects</a
         >
         <a
           href="/about"
           class="nav-button block w-full text-center"
-          role="menuitem"
+         
           >About</a
         >
         <a
           href="/contact"
           class="nav-button block w-full text-center"
-          role="menuitem"
+         
           >Contact</a
         >
       </div>
@@ -507,7 +506,7 @@
             <h3 class="text-xl font-bold text-[#1a1a1a] mb-4">
               Frontend Development
             </h3>
-            <ul class="space-y-2" role="list">
+            <ul class="space-y-2">
               <li class="flex items-center">
                 <i
                   class="fab fa-html5 text-orange-500 mr-2"
@@ -558,7 +557,7 @@
             <h3 class="text-xl font-bold text-[#1a1a1a] mb-4">
               Backend Development
             </h3>
-            <ul class="space-y-2" role="list">
+            <ul class="space-y-2">
               <li class="flex items-center">
                 <i
                   class="fab fa-node-js text-green-500 mr-2"
@@ -602,7 +601,7 @@
             <h3 class="text-xl font-bold text-[#1a1a1a] mb-4">
               Development Tools
             </h3>
-            <ul class="space-y-2" role="list">
+            <ul class="space-y-2">
               <li class="flex items-center">
                 <i
                   class="fab fa-git-alt text-orange-600 mr-2"
@@ -655,7 +654,7 @@
             <h3 class="text-xl font-bold text-[#1a1a1a] mb-4">
               Leadership & Collaboration
             </h3>
-            <ul class="space-y-2" role="list">
+            <ul class="space-y-2">
               <li class="flex items-center">
                 <i
                   class="fas fa-users text-blue-600 mr-2"
@@ -881,7 +880,7 @@
               <div class="flex justify-between items-center mt-4">
                 <a
                   href="/senbridge"
-                  class="text-blue-400 hover:text-blue-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  class="text-blue-300 hover:text-blue-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   aria-label="Read SENBridge project details"
                   >Details</a
                 >
@@ -942,7 +941,7 @@
               <div class="flex justify-between items-center mt-4">
                 <a
                   href="https://github.com/colaone1/Sam-s-OOP-Game-v2"
-                  class="text-blue-400 hover:text-blue-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  class="text-blue-300 hover:text-blue-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   aria-label="View Castle Adventure source code on GitHub"
                   ><i class="fab fa-github mr-2" aria-hidden="true"></i
                   >GitHub</a
@@ -1008,7 +1007,7 @@
               <div class="flex justify-between items-center mt-4">
                 <a
                   href="https://github.com/colaone1/Open-Source-Testing-Setup"
-                  class="text-blue-400 hover:text-blue-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  class="text-blue-300 hover:text-blue-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   aria-label="View Testing Setup source code on GitHub"
                   ><i class="fab fa-github mr-2" aria-hidden="true"></i
                   >GitHub</a

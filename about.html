@@ -15,7 +15,7 @@
     <!-- External Resources -->
     <link rel="stylesheet" href="tailwind.css" />
     <link rel="stylesheet" href="fonts.css?v=3" />
-    <link rel="stylesheet" href="styles.css?v=36">
+    <link rel="stylesheet" href="styles.css?v=39">
     <link rel="stylesheet" href="vendor/fontawesome/css/icons.min.css" />
   </head>
   
@@ -37,11 +37,11 @@
                     </a>
                 </div>
                 
-                <div class="hidden md:flex space-x-12" role="list">
-                    <a href="/" class="nav-button" role="listitem">Home</a>
-                    <a href="/projects" class="nav-button" role="listitem">Projects</a>
-                    <a href="/about" class="nav-button" role="listitem" aria-current="page">About</a>
-                    <a href="/contact" class="nav-button" role="listitem">Contact</a>
+                <div class="hidden md:flex space-x-12">
+                    <a href="/" class="nav-button">Home</a>
+                    <a href="/projects" class="nav-button">Projects</a>
+                    <a href="/about" class="nav-button" aria-current="page">About</a>
+                    <a href="/contact" class="nav-button">Contact</a>
                 </div>
                 
                 <div class="flex-shrink-0 flex items-center gap-2">
@@ -60,12 +60,12 @@
     </nav>
 
     <!-- Mobile nav menu (hidden by default) - moved outside flex container for proper overlay -->
-    <div id="mobile-menu" class="md:hidden fixed top-0 left-0 w-full h-full bg-white bg-opacity-95 z-50 flex flex-col items-center justify-center space-y-8 text-2xl font-semibold hidden" role="menu" aria-label="Mobile navigation">
+    <div id="mobile-menu" class="md:hidden fixed top-0 left-0 w-full h-full bg-white bg-opacity-95 z-50 flex flex-col items-center justify-center space-y-8 text-2xl font-semibold hidden" aria-label="Mobile navigation">
         <button id="mobile-menu-close" class="absolute top-6 right-6 text-3xl text-[#3a7bd5] focus:outline-none" aria-label="Close navigation menu">&times;</button>
-        <a href="/" class="nav-button block w-full text-center" role="menuitem">Home</a>
-        <a href="/projects" class="nav-button block w-full text-center" role="menuitem">Projects</a>
-        <a href="/about" class="nav-button block w-full text-center" role="menuitem" aria-current="page">About</a>
-        <a href="/contact" class="nav-button block w-full text-center" role="menuitem">Contact</a>
+        <a href="/" class="nav-button block w-full text-center">Home</a>
+        <a href="/projects" class="nav-button block w-full text-center">Projects</a>
+        <a href="/about" class="nav-button block w-full text-center" aria-current="page">About</a>
+        <a href="/contact" class="nav-button block w-full text-center">Contact</a>
     </div>
 
     <!-- About Section -->
@@ -266,6 +266,6 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="scripts.js?v=20" defer></script>
+    <script src="scripts.js?v=21" defer></script>
   </body>
 </html> 
